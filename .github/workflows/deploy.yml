@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1: Vérification du code source
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Étape 2: Configuration de Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      # Étape 3: Installer PNPM
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      # Étape 4: Installer les dépendances
+      - name: Install dependencies
+        run: pnpm install
+
+      # Étape 5: Construire le site
+      - name: Build project
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: pnpm build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'build'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
