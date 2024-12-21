@@ -6,7 +6,10 @@
 </script>
 
 <Intro />
-<section class="flex-1 p-4 flex w-full justify-around max-sm:flex-col gap-4" id="text-editor">
+<section
+	class="flex-1 p-4 flex w-full justify-around max-md:items-center max-md:flex-col gap-4"
+	id="text-editor"
+>
 	<TextEditor />
 	<TextPreview />
 </section>

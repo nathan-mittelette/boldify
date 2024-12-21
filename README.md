@@ -1,4 +1,4 @@
-# Boldify 
+# Boldify
 
 ![GitHub](https://img.shields.io/github/license/nathan-mittelette/boldify)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/nathan-mittelette/boldify/deploy.yml)
@@ -10,6 +10,7 @@ Bienvenue dans **Boldify**, votre application pratique pour styliser vos textes 
 ---
 
 ## 📋 Table des matières
+
 - Description
 - Fonctionnalités
 - Installation
@@ -116,11 +117,11 @@ Nous accueillons avec plaisir vos contributions !
 
 ## 📄 Licence
 
-Ce projet est sous licence **MIT**. Consultez le fichier 
+Ce projet est sous licence **MIT**. Consultez le fichier
 
 LICENSE
 
- pour plus de détails.
+pour plus de détails.
 
 ---
 
