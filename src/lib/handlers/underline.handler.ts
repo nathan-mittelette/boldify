@@ -2,7 +2,7 @@ import type { Handler } from '$lib/handlers/handler';
 
 const underlineCode = 0x0332;
 
-export const underlineHandler: Handler = (text) => {
+export const underlineHandler: Handler<void> = (text) => {
 	if (text.length === 0) return text;
 
 	const firstChar = text.trimStart().charAt(1);

@@ -11,3 +11,11 @@ html {
 		scroll-behavior: auto;
 	}
 }
+
+.ql-toolbar {
+	@apply bg-white shadow rounded-t;
+}
+
+.ql-container {
+	@apply bg-white shadow;
+}

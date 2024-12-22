@@ -1,0 +1,35 @@
+{
+	"nav": {
+		"home": "Home",
+		"editor": "Editor",
+		"contribute": "Contribute"
+	},
+	"introduction": {
+		"title": "Transform your texts for LinkedIn",
+		"description": "A simple and powerful editor to style your posts in just a few clicks."
+	},
+	"editor": {
+		"copy": "Copy",
+		"placeholder": "Write your post here ...",
+		"characters": "characters"
+	},
+	"preview": {
+		"title": "Preview your post",
+		"comments": "comments",
+		"reposts": "reposts",
+		"like": "Like",
+		"comment": "Comment",
+		"repost": "Repost",
+		"send": "Send"
+	},
+	"github": {
+		"title": "Contribute to the project",
+		"description": "Help us improve Boldify by contributing to its development!",
+		"cta": "Access the GitHub repository"
+	},
+	"footer": {
+		"rights": "All rights reserved.",
+		"changeLanguage": "Change language to ",
+		"clarityMessage": "We use Microsoft Clarity to improve our services. All data is anonymized."
+	}
+}

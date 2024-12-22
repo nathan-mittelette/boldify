@@ -2,7 +2,7 @@ import type { Handler } from '$lib/handlers/handler';
 
 const overlineCode = 0x0305;
 
-export const overlineHandler: Handler = (text) => {
+export const overlineHandler: Handler<void> = (text) => {
 	if (text.length === 0) return text;
 
 	const firstChar = text.trimStart().charAt(1);

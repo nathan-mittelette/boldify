@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { text } from '$lib/stores/text.store';
+	import { t } from 'svelte-i18n';
 
 	const name = 'John Doe';
 </script>
 
 <div
-	class="flex-1 min-w-[30vw] min-lg:max-w-[50vw] max-md:w-[90vw] bg-white border shadow rounded flex flex-col h-fit"
+	class="flex-1 min-w-[30vw] lg:max-w-[50vw] max-md:w-[90vw] bg-white border shadow rounded flex flex-col h-fit"
 >
-	<p class="text-center text-primary font-semibold w-full border-b p-2">PREVIEW</p>
+	<p class="text-center text-primary font-semibold w-full border-b p-2">{$t('preview.title')}</p>
 	<div class="bg-[#f4f2ee] p-2 flex-1">
 		<div class="flex flex-col bg-white post-container shadow rounded-md m-auto my-4">
 			<div class="px-4 pt-3 mb-2 flex items-center">
@@ -20,9 +21,10 @@
 				/>
 				<div class="flex-1 p-[2px] ml-3 cursor-pointer">
 					<p>
-						<span class="text-sm font-semibold text-[#000000E5] hover:text-[#0A66C2FF]"
-							>{name} <span class="font-light text-[#00000099]">• 3e et +</span></span
-						>
+						<span
+							class="text-sm font-semibold text-[#000000E5] hover:text-[#0A66C2FF] hover:underline"
+							>{name}
+						</span><span class="text-sm font-light text-[#00000099]">• 3e et +</span>
 					</p>
 					<p class="text-xs text-[#00000099]">Developer at @Boldify</p>
 					<div class="flex justify-start">
@@ -50,18 +52,36 @@
 				<pre class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{$text}</pre>
 			</div>
 			<div>
-				<div class="mx-3 py-2 text-right data-container">
-					<span class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF]"
-						>12 commentaires</span
+				<div class="mx-3 py-2 text-right data-container flex justify-between items-center">
+					<div
+						class="flex items-center cursor-pointer hover:text-[#0A66C2FF] text-[#00000099] hover:underline"
 					>
-					<span> • </span>
-					<span class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF]"
-						>4 republications</span
-					>
+						<img class="size-4" width="16" height="16" src="/love.svg" alt="Love Icon" />
+						<img class="size-4 ml-[-4px]" width="16" height="16" src="/like.svg" alt="Like Icon" />
+						<img
+							class="size-4 ml-[-4px]"
+							width="16"
+							height="16"
+							src="/interesting.svg"
+							alt="Interesting Icon"
+						/>
+						<span class="text-sm">100</span>
+					</div>
+					<div>
+						<span
+							class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF] hover:underline"
+							>12 {$t('preview.comments')}</span
+						>
+						<span> • </span>
+						<span
+							class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF] hover:underline"
+							>4 {$t('preview.reposts')}</span
+						>
+					</div>
 				</div>
 				<div class="px-4 py-1 flex">
 					<button class="flex-1 action-button flex items-center">
-						<span class="mr-1">
+						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
@@ -77,10 +97,10 @@
 								></path>
 							</svg>
 						</span>
-						<span class="max-lg:hidden">J'aime</span></button
+						<span class="pl-1 max-lg:hidden">{$t('preview.like')}</span></button
 					>
 					<button class="flex-1 action-button flex items-center">
-						<span class="mr-1">
+						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
@@ -96,10 +116,10 @@
 								></path>
 							</svg>
 						</span>
-						<span class="max-lg:hidden">Commenter</span></button
+						<span class="pl-1 max-lg:hidden">{$t('preview.comment')}</span></button
 					>
 					<button class="flex-1 action-button flex items-center">
-						<span class="mr-1">
+						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
@@ -115,10 +135,10 @@
 								></path>
 							</svg>
 						</span>
-						<span class="max-lg:hidden">Republier</span></button
+						<span class="pl-1 max-lg:hidden">{$t('preview.repost')}</span></button
 					>
 					<button class="flex-1 action-button flex items-center">
-						<span class="mr-1">
+						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
@@ -133,7 +153,7 @@
 								<path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
 							</svg>
 						</span>
-						<span class="max-lg:hidden">Envoyer</span></button
+						<span class="pl-1 max-lg:hidden">{$t('preview.send')}</span></button
 					>
 				</div>
 			</div>

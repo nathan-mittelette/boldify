@@ -31,7 +31,7 @@ const accentMap: Record<string, string> = {
 	ç: 'c\u0327'
 };
 
-export const boldHandler: Handler = (text) => {
+export const boldHandler: Handler<void> = (text) => {
 	if (text.length === 0) return text;
 
 	const firstChar = text.trimStart().charAt(0);
