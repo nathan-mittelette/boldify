@@ -18,26 +18,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Étape 1: Vérification du code source
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Étape 2: Configuration de Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22'
 
-      # Étape 3: Installer PNPM
       - name: Install pnpm
-        run: |
-          npm install -g pnpm
+        run: npm install -g pnpm
 
-      # Étape 4: Installer les dépendances
       - name: Install dependencies
         run: pnpm install
 
-      # Étape 5: Construire le site
       - name: Build project
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'

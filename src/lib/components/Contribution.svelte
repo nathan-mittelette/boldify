@@ -5,7 +5,7 @@
 			Aidez-nous à améliorer Boldify en participant au développement !
 		</p>
 		<a
-			href="https://github.com/votre-repository"
+			href="https://github.com/nathan-mittelette/boldify"
 			target="_blank"
 			class="inline-block bg-secondary text-white font-semibold px-6 py-3 rounded-md hover:brightness-110 transition duration-300"
 		>

@@ -5,19 +5,19 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
+  - package-ecosystem: 'npm'
     rebase-strategy: auto
     open-pull-requests-limit: 20
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "monthly"
+      interval: 'monthly'
     reviewers:
-      - "nathan-mittelette"
-  - package-ecosystem: "github-actions"
+      - 'nathan-mittelette'
+  - package-ecosystem: 'github-actions'
     rebase-strategy: auto
     open-pull-requests-limit: 20
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "monthly"
+      interval: 'monthly'
     reviewers:
-      - "nathan-mittelette"
+      - 'nathan-mittelette'
