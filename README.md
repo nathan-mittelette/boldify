@@ -1,3 +1,4 @@
+
 # Boldify
 
 ![GitHub](https://img.shields.io/github/license/nathan-mittelette/boldify)
@@ -5,133 +6,129 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/nathan-mittelette/boldify)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nathan-mittelette/boldify)
 
-Bienvenue dans **Boldify**, votre application pratique pour styliser vos textes LinkedIn en toute simplicité.
+Welcome to **Boldify**, your convenient application for styling LinkedIn texts with ease.
 
 ---
 
-## 📋 Table des matières
+## 📋 Table of Contents
 
 - Description
-- Fonctionnalités
+- Features
 - Installation
-- Utilisation
-- Technologies utilisées
-- Contribuer
-- Licence
+- Usage
+- Technologies Used
+- Contributing
+- License
 - Contact
 
 ---
 
 ## 📝 Description
 
-**Boldify** est une application web qui vous permet de transformer et de styliser vos textes pour les publications LinkedIn. Avec une interface simple et intuitive, stylisez vos textes en quelques clics pour les rendre plus percutants.
+**Boldify** is a web application that allows you to transform and style your texts for LinkedIn posts. With a simple and intuitive interface, style your texts in just a few clicks to make them more impactful.
 
 ---
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- **Éditeur de texte** : Composez et modifiez vos textes directement dans l'application.
-- **Aperçu en temps réel** : Visualisez instantanément les modifications apportées à votre texte.
-- **Mise en forme enrichie** : Ajoutez du gras, des italiques, des listes et bien plus pour enrichir vos publications.
-- **Interface conviviale** : Une interface moderne et réactive pour une expérience utilisateur optimale.
+- **Text Editor**: Compose and edit your texts directly in the application.
+- **Real-Time Preview**: Instantly see the changes made to your text.
+- **Rich Formatting**: Add bold, italics, lists, and more to enrich your posts.
+- **User-Friendly Interface**: A modern and responsive interface for an optimal user experience.
 
 ---
 
 ## 🚀 Installation
 
-### Prérequis
+### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 22 ou supérieure)
-- [PNPM](https://pnpm.io/) (gestionnaire de paquets)
+- [Node.js](https://nodejs.org/) (version 22 or higher)
+- [PNPM](https://pnpm.io/) (package manager)
 
-### Étapes
+### Steps
 
-1. Clonez le dépôt :
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/nathan-mittelette/boldify.git
    cd boldify
    ```
 
-2. Installez les dépendances :
+2. Install dependencies:
 
    ```bash
    pnpm install
    ```
 
-3. Lancez l'application en mode développement :
+3. Start the application in development mode:
 
    ```bash
    pnpm dev
    ```
 
-4. Accédez à l'application via votre navigateur à l'adresse [http://localhost:5173](http://localhost:5173).
+4. Access the application via your browser at [http://localhost:5173](http://localhost:5173).
 
 ---
 
-## 🖥️ Utilisation
+## 🖥️ Usage
 
-1. Ouvrez l'application dans votre navigateur.
-2. Rédigez votre texte dans l'éditeur prévu à cet effet.
-3. Utilisez la barre d'outils pour appliquer des mises en forme (gras, italique, listes, etc.).
-4. Prévisualisez votre publication en temps réel dans le panneau d'aperçu.
-5. Copiez le texte stylisé et collez-le dans votre publication LinkedIn.
-
----
-
-## 🛠️ Technologies utilisées
-
-- **SvelteKit** : Framework JavaScript pour créer des applications web performantes.
-- **TypeScript** : Superset de JavaScript qui apporte le typage statique.
-- **Tailwind CSS** : Framework CSS utilitaire pour un style rapide et réactif.
-- **Quill.js** : Éditeur de texte riche pour le web.
+1. Open the application in your browser.
+2. Write your text in the editor.
+3. Use the toolbar to apply formatting (bold, italics, lists, etc.).
+4. Preview your post in real-time in the preview panel.
+5. Copy the styled text and paste it into your LinkedIn post.
 
 ---
 
-## 🤝 Contribuer
+## 🛠️ Technologies Used
 
-Nous accueillons avec plaisir vos contributions !
+- **SvelteKit**: JavaScript framework for building performant web applications.
+- **TypeScript**: A superset of JavaScript that adds static typing.
+- **Tailwind CSS**: Utility-first CSS framework for rapid and responsive styling.
+- **Quill.js**: Rich text editor for the web.
 
-1. Forkez le projet.
-2. Créez une branche pour vos modifications :
+---
+
+## 🤝 Contributing
+
+We gladly welcome your contributions!
+
+1. Fork the project.
+2. Create a branch for your changes:
 
    ```bash
-   git checkout -b feature/ma-fonctionnalité
+   git checkout -b feature/my-feature
    ```
 
-3. Faites vos changements et validez-les :
+3. Make your changes and commit them:
 
    ```bash
-   git commit -m "Ajout de ma fonctionnalité"
+   git commit -m "Added my feature"
    ```
 
-4. Poussez les modifications :
+4. Push the changes:
 
    ```bash
-   git push origin feature/ma-fonctionnalité
+   git push origin feature/my-feature
    ```
 
-5. Ouvrez une pull request dans le dépôt principal.
+5. Open a pull request in the main repository.
 
 ---
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous licence **MIT**. Consultez le fichier
-
-LICENSE
-
-pour plus de détails.
+This project is licensed under the **MIT** license. See the LICENSE file for more details.
 
 ---
 
 ## 📧 Contact
 
-Si vous avez des questions, des suggestions ou des problèmes, n'hésitez pas à nous contacter :
+If you have any questions, suggestions, or issues, feel free to contact us:
 
-- Email : mittelette.nathan@gmail.com
-- GitHub : [nathan-mittelette](https://github.com/nathan-mittelette)
+- Email: mittelette.nathan@gmail.com
+- GitHub: [nathan-mittelette](https://github.com/nathan-mittelette)
 
 ---
 
-Merci d'utiliser **Boldify** ! ✨
+Thank you for using **Boldify**! ✨

@@ -1,24 +1,23 @@
 import { browser } from '$app/environment';
 import { getLocaleFromNavigator, init, locale, register } from 'svelte-i18n';
 
-// Enregistrer les langues disponibles
+// Save available languages
 register('en', () => import('../../locales/en.json'));
 register('fr', () => import('../../locales/fr.json'));
 
-// Liste des langues supportées
 export const SUPPORTED_LANGUAGES = ['en', 'fr'];
 const DEFAULT_LANGUAGE = 'en';
 const LOCAL_STORAGE_KEY = 'boldify-language';
 
-// Fonction pour obtenir la langue du navigateur si elle est supportée
+// Detect language from browser or use default
 function getValidLanguage() {
-	const browserLanguage = getLocaleFromNavigator(); // Langue du navigateur (ex: "en-US")
-	if (!browserLanguage) return DEFAULT_LANGUAGE; // Par défaut 'en'
-	const shortLanguage = browserLanguage.split('-')[0]; // Raccourci (ex: "en")
-	return SUPPORTED_LANGUAGES.includes(shortLanguage) ? shortLanguage : DEFAULT_LANGUAGE; // Par défaut 'en'
+	const browserLanguage = getLocaleFromNavigator(); // Language from browser (ex: "en-US")
+	if (!browserLanguage) return DEFAULT_LANGUAGE; // Default 'en'
+	const shortLanguage = browserLanguage.split('-')[0]; // Only keep first part (ex: "en")
+	return SUPPORTED_LANGUAGES.includes(shortLanguage) ? shortLanguage : DEFAULT_LANGUAGE; // Default 'en'
 }
 
-// Initialisation avec gestion de localStorage et du navigateur
+// Initialize i18n with default language from browser or user's saved language
 export async function initI18n(): Promise<void> {
 	// For SSR, initialize with default language
 	if (!browser) {
@@ -29,14 +28,14 @@ export async function initI18n(): Promise<void> {
 		return;
 	}
 
-	const savedLanguage = localStorage.getItem(LOCAL_STORAGE_KEY); // Langue sauvegardée
-	const initialLanguage = savedLanguage || getValidLanguage(); // Utiliser localStorage ou détecter
+	const savedLanguage = localStorage.getItem(LOCAL_STORAGE_KEY); // Saved language
+	const initialLanguage = savedLanguage || getValidLanguage(); // Use saved language or browser language
 	await init({
 		fallbackLocale: 'en',
 		initialLocale: initialLanguage
 	});
 
-	// Sauvegarder automatiquement dans localStorage
+	// Automatically save user's language preference
 	locale.subscribe((value) => {
 		if (value) {
 			localStorage.setItem(LOCAL_STORAGE_KEY, value);
@@ -44,5 +43,4 @@ export async function initI18n(): Promise<void> {
 	});
 }
 
-// Exporter `locale` pour utilisation dans l'application
 export { locale };

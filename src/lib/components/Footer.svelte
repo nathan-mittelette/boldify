@@ -9,14 +9,12 @@
 </script>
 
 <footer class="bg-primary text-white text-center py-4 relative">
-	<!-- Texte traduit -->
 	<p class="text-sm">© 2024 Boldify. {$t('footer.rights')}</p>
 
 	<p class="text-xs mt-2">
 		{$t('footer.clarityMessage')}
 	</p>
 
-	<!-- Drapeaux pour changer la langue -->
 	<div
 		class="md:absolute md:top-1/2 md:right-4 md:transform md:-translate-y-1/2 max-md:pt-2 flex justify-center space-x-4"
 	>
