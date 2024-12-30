@@ -17,7 +17,9 @@
 	</p>
 
 	<!-- Drapeaux pour changer la langue -->
-	<div class="absolute top-1/2 right-4 transform -translate-y-1/2 flex space-x-4">
+	<div
+		class="md:absolute md:top-1/2 md:right-4 md:transform md:-translate-y-1/2 max-md:pt-2 flex justify-center space-x-4"
+	>
 		{#each SUPPORTED_LANGUAGES as lang}
 			<button
 				on:click={() => locale.set(lang)}

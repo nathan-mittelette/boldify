@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Intro from '$lib/components/Intro.svelte';
-	import TextEditor from '$lib/components/TextEditor.svelte';
 	import TextPreview from '$lib/components/TextPreview.svelte';
 	import Contribution from '$lib/components/Contribution.svelte';
+	import TextEditor from '$lib/components/TextEditor.svelte';
 </script>
 
 <Intro />

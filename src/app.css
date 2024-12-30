@@ -19,3 +19,7 @@ html {
 .ql-container {
 	@apply bg-white shadow;
 }
+
+.ql-tooltip a {
+	display: none;
+}

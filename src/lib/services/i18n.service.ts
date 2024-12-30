@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import { getLocaleFromNavigator, init, locale, register } from 'svelte-i18n';
 
 // Enregistrer les langues disponibles
@@ -19,6 +20,15 @@ function getValidLanguage() {
 
 // Initialisation avec gestion de localStorage et du navigateur
 export async function initI18n(): Promise<void> {
+	// For SSR, initialize with default language
+	if (!browser) {
+		await init({
+			fallbackLocale: DEFAULT_LANGUAGE,
+			initialLocale: DEFAULT_LANGUAGE
+		});
+		return;
+	}
+
 	const savedLanguage = localStorage.getItem(LOCAL_STORAGE_KEY); // Langue sauvegardée
 	const initialLanguage = savedLanguage || getValidLanguage(); // Utiliser localStorage ou détecter
 	await init({

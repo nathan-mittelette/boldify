@@ -4,20 +4,40 @@
 	import { base } from '$app/paths';
 
 	const name = 'John Doe';
+
+	let customizedText = $derived<{ text: string; highlight: boolean }[]>(
+		$text
+			.split(' ')
+			.flatMap((word) => {
+				return word.split(/(\n)/);
+			})
+			.map((word) => {
+				let text = word;
+
+				if (!text.endsWith('\n')) {
+					text += ' ';
+				}
+
+				if (word.startsWith('#') || word.startsWith('http://') || word.startsWith('https://')) {
+					return { text: text, highlight: true };
+				}
+				return { text: text, highlight: false };
+			})
+	);
 </script>
 
 <div
-	class="flex-1 min-w-[30vw] lg:max-w-[50vw] max-md:w-[90vw] bg-white border shadow rounded flex flex-col h-fit"
+	class="flex-1 min-w-[30vw] md:max-w-[50vw] max-md:w-[90vw] max-h-[80vh] overflow-y-auto bg-white border shadow rounded flex flex-col h-fit"
 >
 	<p class="text-center text-primary font-semibold w-full border-b p-2">{$t('preview.title')}</p>
 	<div class="bg-[#f4f2ee] p-2 flex-1">
 		<div class="flex flex-col bg-white post-container shadow rounded-md m-auto my-4">
 			<div class="px-4 pt-3 mb-2 flex items-center">
-				<img
-					src="https://avatars.githubusercontent.com/u/56169832?v=4"
-					width="48"
-					height="48"
-					alt="avatar"
+				<enhanced:img
+					src="/static/profile.png"
+					width="72"
+					height="72"
+					alt="User Avatar"
 					class="size-12 rounded-full"
 				/>
 				<div class="flex-1 p-[2px] ml-3 cursor-pointer">
@@ -50,7 +70,10 @@
 				</div>
 			</div>
 			<div class="mx-3">
-				<pre class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{$text}</pre>
+				<pre
+					class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word}{#if word.highlight}<span
+								class="highlight">{word.text}</span
+							>{:else}{word.text}{/if}{/each}</pre>
 			</div>
 			<div>
 				<div class="mx-3 py-2 text-right data-container flex justify-between items-center">
@@ -87,7 +110,7 @@
 					</div>
 				</div>
 				<div class="px-4 py-1 flex">
-					<button class="flex-1 action-button flex items-center">
+					<button class="flex-1 action-button flex items-center justify-center" aria-label="Like">
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +129,10 @@
 						</span>
 						<span class="pl-1 max-lg:hidden">{$t('preview.like')}</span></button
 					>
-					<button class="flex-1 action-button flex items-center">
+					<button
+						class="flex-1 action-button flex items-center justify-center"
+						aria-label="Comment"
+					>
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +151,7 @@
 						</span>
 						<span class="pl-1 max-lg:hidden">{$t('preview.comment')}</span></button
 					>
-					<button class="flex-1 action-button flex items-center">
+					<button class="flex-1 action-button flex items-center justify-center" aria-label="Repost">
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +170,7 @@
 						</span>
 						<span class="pl-1 max-lg:hidden">{$t('preview.repost')}</span></button
 					>
-					<button class="flex-1 action-button flex items-center">
+					<button class="flex-1 action-button flex items-center justify-center" aria-label="Send">
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -195,6 +221,17 @@
 
 			&:hover {
 				background-color: rgb(140, 140, 140, 0.1);
+			}
+		}
+
+		.highlight {
+			color: rgb(10, 102, 194);
+			font-weight: 600;
+			font-size: 14px;
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
 			}
 		}
 	}

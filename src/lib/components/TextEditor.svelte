@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Quill from 'quill';
 	import 'quill/dist/quill.snow.css';
+	import type Quill from 'quill';
 	import { text } from '$lib/stores/text.store';
 	import { handleUpdateToText } from '$lib/handlers/handler';
 	import { boldHandler } from '$lib/handlers/bold.handler';
@@ -11,8 +11,7 @@
 	import { overlineHandler } from '$lib/handlers/overline.handler';
 	import { t } from 'svelte-i18n';
 	import { listHandler, type ListType } from '$lib/handlers/list.handler';
-
-	let editor: Quill;
+	import { browser } from '$app/environment';
 
 	const MAX_CHARACTERS = 3000;
 
@@ -28,7 +27,13 @@
 		navigator.clipboard.writeText($text);
 	};
 
-	onMount(() => {
+	let editor: Quill;
+
+	onMount(async () => {
+		if (!browser) return;
+
+		const Quill = (await import('quill')).default;
+
 		const options = {
 			theme: 'snow',
 			history: {
@@ -70,7 +75,7 @@
 	});
 </script>
 
-<article class="max-md:w-[90vw] min-w-[30vw] max-h-[80vh] h-fit">
+<article class="max-md:w-[90vw] md:max-w-[50vw] min-w-[30vw] max-h-[80vh] h-fit">
 	<div id="toolbar">
 		<span class="ql-formats">
 			<button type="button" class="ql-undo" aria-pressed="false" aria-label="undo">
@@ -147,8 +152,16 @@
 		border: 1px solid rgb(140, 140, 140, 0.2);
 	}
 
+	#toolbar {
+		height: 46px;
+	}
+
 	#editor {
 		border-top: none;
 		border-bottom: none;
+
+		:global(.ql-editor) {
+			max-height: calc(80vh - 46px - 46px);
+		}
 	}
 </style>
