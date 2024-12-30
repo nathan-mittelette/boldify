@@ -1,4 +1,3 @@
-
 # Boldify
 
 ![GitHub](https://img.shields.io/github/license/nathan-mittelette/boldify)
