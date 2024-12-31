@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { text } from '$lib/stores/text.store';
 	import { t } from 'svelte-i18n';
-	import { base } from '$app/paths';
 
 	const name = 'John Doe';
 
@@ -80,19 +79,13 @@
 					<div
 						class="flex items-center cursor-pointer hover:text-[#0A66C2FF] text-[#00000099] hover:underline"
 					>
-						<img class="size-4" width="16" height="16" src="{base}/love.svg" alt="Love Icon" />
+						<img class="size-4" width="16" height="16" src="/love.svg" alt="Love Icon" />
+						<img class="size-4 ml-[-4px]" width="16" height="16" src="/like.svg" alt="Like Icon" />
 						<img
 							class="size-4 ml-[-4px]"
 							width="16"
 							height="16"
-							src="{base}/like.svg"
-							alt="Like Icon"
-						/>
-						<img
-							class="size-4 ml-[-4px]"
-							width="16"
-							height="16"
-							src="{base}/interesting.svg"
+							src="/interesting.svg"
 							alt="Interesting Icon"
 						/>
 						<span class="text-sm">100</span>

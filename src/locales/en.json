@@ -11,7 +11,9 @@
 	"editor": {
 		"copy": "Copy",
 		"placeholder": "Write your post here ...",
-		"characters": "characters"
+		"characters": "characters",
+		"copied": "Copied!",
+		"copied_description": "The text has been copied to your clipboard."
 	},
 	"preview": {
 		"title": "Preview your post",
@@ -22,10 +24,11 @@
 		"repost": "Repost",
 		"send": "Send"
 	},
-	"github": {
-		"title": "Contribute to the project",
-		"description": "Help us improve Boldify by contributing to its development!",
-		"cta": "Access the GitHub repository"
+	"contribute": {
+		"title": "Contribute to Boldify",
+		"description": "You can help us improve Boldify by contributing to the codebase or supporting us with a donation to keep the project free for everyone.",
+		"github_cta": "Contribute on GitHub",
+		"donate_cta": "Buy Me a Coffee"
 	},
 	"footer": {
 		"rights": "All rights reserved.",

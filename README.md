@@ -4,6 +4,9 @@
 ![Build Status](https://img.shields.io/github/actions/workflow/status/nathan-mittelette/boldify/deploy.yml)
 ![GitHub contributors](https://img.shields.io/github/contributors/nathan-mittelette/boldify)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nathan-mittelette/boldify)
+![GitHub issues](https://img.shields.io/github/issues/nathan-mittelette/boldify)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/nathan-mittelette/boldify)
+![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-donate-%23FFDD00)
 
 Welcome to **Boldify**, your convenient application for styling LinkedIn texts with ease.
 
@@ -87,6 +90,14 @@ Welcome to **Boldify**, your convenient application for styling LinkedIn texts w
 - **Quill.js**: Rich text editor for the web.
 
 ---
+
+## ☕ Support the Project
+
+Boldify is a free and open-source project designed to make your LinkedIn posts stand out effortlessly. Maintaining the project, including hosting, domain fees, and continuous improvements, requires resources. If you find Boldify useful and want to keep it free for everyone, consider supporting me by buying a coffee!
+
+Your contribution helps keep the project alive and growing. Thank you for your support! ❤️
+
+[![Buy Me a Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=boldify&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/boldify)
 
 ## 🤝 Contributing
 

@@ -12,6 +12,7 @@
 	import { t } from 'svelte-i18n';
 	import { listHandler, type ListType } from '$lib/handlers/list.handler';
 	import { browser } from '$app/environment';
+	import { addSnackbar } from '$lib/stores/snackbar.store';
 
 	const MAX_CHARACTERS = 3000;
 
@@ -25,6 +26,10 @@
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText($text);
+		addSnackbar({
+			title: $t('editor.copied'),
+			description: $t('editor.copied_description')
+		});
 	};
 
 	let editor: Quill;

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to AWS CDN + S3
 
 on:
   push:
@@ -7,14 +7,12 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: aws
+      url: 'https://boldify.net'
     runs-on: ubuntu-latest
 
     steps:
@@ -33,18 +31,34 @@ jobs:
         run: pnpm install
 
       - name: Build project
-        env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
         run: pnpm build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          path: 'build'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'eu-west-1'
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.2
+          terraform_wrapper: false
+
+      - name: Terraform apply
+        run: |
+          cd devops/terraform
+          terraform init
+          terraform apply --var-file .tfvars -auto-approve
+          echo "BUCKET_NAME=$(terraform output -raw bucket_name)" >> $GITHUB_ENV
+          echo "CLOUDFRONT_ID=$(terraform output -raw cloudfront_id)" >> $GITHUB_ENV
+
+      - name: Deploy sources
+        run: |
+          aws s3 rm s3://$BUCKET_NAME --recursive
+          aws s3 cp build s3://$BUCKET_NAME --recursive
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"

@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Snackbar from '$lib/components/Snackbar.svelte';
 
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -14,4 +15,5 @@
 	<Navbar />
 	{@render children?.()}
 	<Footer />
+	<Snackbar />
 </div>

@@ -4,7 +4,7 @@
 	const navItems = [
 		{ key: 'nav.home', href: '#introduction' },
 		{ key: 'nav.editor', href: '#text-editor' },
-		{ key: 'nav.contribute', href: '#github' }
+		{ key: 'nav.contribute', href: '#contribute' }
 	];
 </script>
 

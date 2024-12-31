@@ -24,3 +24,9 @@ vite.config.ts.timestamp-*
 
 # Jetbrains
 .idea
+
+
+# Terraform
+.terraform
+_override.tf
+_override.tf.json

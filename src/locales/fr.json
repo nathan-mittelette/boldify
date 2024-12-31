@@ -8,10 +8,16 @@
 		"title": "Transformez vos textes pour LinkedIn",
 		"description": "Un éditeur simple et puissant pour styliser vos publications en quelques clics."
 	},
+	"donate": {
+		"title": "Soutenez Boldify",
+		"description": "Si vous aimez utiliser Boldify et souhaitez qu'il reste gratuit, envisagez de m'offrir un café pour aider à couvrir les frais d'hébergement. Chaque contribution compte !"
+	},
 	"editor": {
 		"copy": "Copier",
 		"placeholder": "Écrivez votre post ici ...",
-		"characters": "caractères"
+		"characters": "caractères",
+		"copied": "Copié !",
+		"copied_description": "Le texte a été copié dans votre presse-papiers."
 	},
 	"preview": {
 		"title": "Aperçu de votre post",
@@ -22,10 +28,11 @@
 		"repost": "Republier",
 		"send": "Envoyer"
 	},
-	"github": {
-		"title": "Contribuez au projet",
-		"description": "Aidez-nous à améliorer Boldify en participant au développement !",
-		"cta": "Accéder au repository GitHub"
+	"contribute": {
+		"title": "Contribuez à Boldify",
+		"description": "Vous pouvez nous aider à améliorer Boldify en contribuant au code ou en faisant un don pour que le projet reste gratuit pour tous.",
+		"github_cta": "Contribuer sur GitHub",
+		"donate_cta": "Offrir un café"
 	},
 	"footer": {
 		"rights": "Tous droits réservés.",
