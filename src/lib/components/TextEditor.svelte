@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import 'quill/dist/quill.snow.css';
 	import type Quill from 'quill';
 	import { text } from '$lib/stores/text.store';
@@ -19,10 +19,13 @@
 	const getProgressColor = (nbCharcters: number) => {
 		const percent = ((MAX_CHARACTERS - nbCharcters) / MAX_CHARACTERS) * 100;
 		const hue = (percent / 100) * 120; // Maps percent to range from red (0) to green (120)
-		return `hsl(${hue}, 80%, 40%)`; // Softer green with reduced saturation and brightness
+		return `hsl(${hue}, 80%, 30%)`; // Softer green with reduced saturation and brightness
 	};
 
 	let characters = $derived<number>($text.length - 1); // -1 because Quill adds a newline character
+
+	let editorRef: HTMLDivElement;
+	let observer: MutationObserver;
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText($text);
@@ -36,6 +39,18 @@
 
 	onMount(async () => {
 		if (!browser) return;
+
+		if (editorRef) {
+			observer = new MutationObserver(() => {
+				const tooltips = editorRef.querySelectorAll('.ql-tooltip');
+				tooltips.forEach((tooltip) => tooltip.remove());
+			});
+
+			observer.observe(editorRef, {
+				childList: true,
+				subtree: true
+			});
+		}
 
 		const Quill = (await import('quill')).default;
 
@@ -77,6 +92,12 @@
 				text.set($t('editor.placeholder') + ' ');
 			}
 		});
+	});
+
+	onDestroy(() => {
+		if (observer) {
+			return () => observer.disconnect();
+		}
 	});
 </script>
 
@@ -121,7 +142,7 @@
 			></button>
 		</span>
 	</div>
-	<div id="editor"></div>
+	<div id="editor" bind:this={editorRef}></div>
 	<div
 		class="w-full text-editor-actions rounded-b bg-white shadow p-2 flex justify-between items-center"
 	>

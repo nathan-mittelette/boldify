@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Intro from '$lib/components/Intro.svelte';
 	import TextPreview from '$lib/components/TextPreview.svelte';
-	import Contribution from '$lib/components/Contribution.svelte';
+	import Contribution from '$lib/components/Contribute.svelte';
 	import TextEditor from '$lib/components/TextEditor.svelte';
 </script>
 

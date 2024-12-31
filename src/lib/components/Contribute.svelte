@@ -14,6 +14,8 @@
 				aria-label="Buy me a coffee"
 				class="h-[50px] w-[235px]"
 				><img
+					width="235"
+					height="50"
 					alt="Buy me a coffee"
 					aria-label="Buy me a coffee"
 					src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=boldify&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
