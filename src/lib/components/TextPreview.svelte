@@ -80,8 +80,22 @@
 					<div
 						class="flex items-center cursor-pointer hover:text-[#0A66C2FF] text-[#00000099] hover:underline"
 					>
-						<img class="size-4" width="16" height="16" src="/love.svg" alt="Love Icon" title="Love Icon" />
-						<img class="size-4 ml-[-4px]" width="16" height="16" src="/like.svg" alt="Like Icon" title="Like Icon" />
+						<img
+							class="size-4"
+							width="16"
+							height="16"
+							src="/love.svg"
+							alt="Love Icon"
+							title="Love Icon"
+						/>
+						<img
+							class="size-4 ml-[-4px]"
+							width="16"
+							height="16"
+							src="/like.svg"
+							alt="Like Icon"
+							title="Like Icon"
+						/>
 						<img
 							class="size-4 ml-[-4px]"
 							width="16"
