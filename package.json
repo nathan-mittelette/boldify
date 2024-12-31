@@ -5,12 +5,14 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && pnpm post:build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"post:build": "node devops/scripts/generate_robots.js && node devops/scripts/generate_sitemap.js",
+		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run build"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.4",
