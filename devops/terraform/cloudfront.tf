@@ -29,15 +29,15 @@ resource "aws_cloudfront_distribution" "cd" {
   }
 
   default_cache_behavior {
-    cache_policy_id            = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id            = data.aws_cloudfront_cache_policy.cache_optimized_policy.id
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]
-    target_origin_id = "${local.resources_name}-sb"
-    compress = true
-    default_ttl = 0
-    max_ttl = 0
-    origin_request_policy_id   = "acba4595-bd28-49b8-b9fe-13317c0390fa"
-    response_headers_policy_id = "60669652-455b-4ae9-85a4-c4c02393f86c"
+    target_origin_id           = "${local.resources_name}-sb"
+    compress                   = true
+    default_ttl                = 0
+    max_ttl                    = 0
+    origin_request_policy_id   = data.aws_cloudfront_origin_request_policy.cors_s3_policy.id
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_seo_policy.id
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
@@ -65,6 +65,60 @@ resource "aws_cloudfront_origin_access_control" "oac" {
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
+}
+
+resource "aws_cloudfront_response_headers_policy" "security_seo_policy" {
+  name = "security-seo-headers-policy"
+
+  security_headers_config {
+    content_security_policy {
+      content_security_policy = "default-src 'self'; script-src 'self' https://*.clarity.ms 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://img.buymeacoffee.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src 'self'"
+      override                = true
+    }
+    content_type_options {
+      override = true
+    }
+    frame_options {
+      frame_option = "SAMEORIGIN"
+      override     = true
+    }
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+    xss_protection {
+      protection = true
+      mode_block = true
+      override   = true
+    }
+  }
+
+  custom_headers_config {
+    items {
+      header   = "Permissions-Policy"
+      value    = "geolocation=(), microphone=(), camera=()"
+      override = true
+    }
+    items {
+      header   = "X-Permitted-Cross-Domain-Policies"
+      value    = "none"
+      override = true
+    }
+  }
+}
+
+data "aws_cloudfront_origin_request_policy" "cors_s3_policy" {
+  name = "Managed-CORS-S3Origin"
+}
+
+data "aws_cloudfront_cache_policy" "cache_optimized_policy" {
+  name = "Managed-CachingOptimized"
 }
 
 output "cloudfront_domain_name" {

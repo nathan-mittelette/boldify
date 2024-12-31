@@ -34,6 +34,7 @@
 			<div class="px-4 pt-3 mb-2 flex items-center">
 				<enhanced:img
 					src="/static/profile.png"
+					title="User Avatar"
 					width="72"
 					height="72"
 					alt="User Avatar"
@@ -79,12 +80,13 @@
 					<div
 						class="flex items-center cursor-pointer hover:text-[#0A66C2FF] text-[#00000099] hover:underline"
 					>
-						<img class="size-4" width="16" height="16" src="/love.svg" alt="Love Icon" />
-						<img class="size-4 ml-[-4px]" width="16" height="16" src="/like.svg" alt="Like Icon" />
+						<img class="size-4" width="16" height="16" src="/love.svg" alt="Love Icon" title="Love Icon" />
+						<img class="size-4 ml-[-4px]" width="16" height="16" src="/like.svg" alt="Like Icon" title="Like Icon" />
 						<img
 							class="size-4 ml-[-4px]"
 							width="16"
 							height="16"
+							title="Interesting Icon"
 							src="/interesting.svg"
 							alt="Interesting Icon"
 						/>

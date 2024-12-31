@@ -16,6 +16,7 @@
 				><img
 					width="235"
 					height="50"
+					title="Buy me a coffee"
 					alt="Buy me a coffee"
 					aria-label="Buy me a coffee"
 					src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=boldify&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
@@ -24,6 +25,7 @@
 			<a
 				href="https://github.com/nathan-mittelette/boldify"
 				target="_blank"
+				rel="noopener"
 				class="flex items-center justify-center h-[50px] w-[235px] space-x-2 bg-secondary text-white font-semibold rounded-lg"
 			>
 				<svg
