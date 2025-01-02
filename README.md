@@ -15,6 +15,7 @@ Welcome to **Boldify**, your convenient application for styling LinkedIn texts w
 ## 📋 Table of Contents
 
 - Description
+- Access
 - Features
 - Installation
 - Usage
@@ -28,6 +29,12 @@ Welcome to **Boldify**, your convenient application for styling LinkedIn texts w
 ## 📝 Description
 
 **Boldify** is a web application that allows you to transform and style your texts for LinkedIn posts. With a simple and intuitive interface, style your texts in just a few clicks to make them more impactful.
+
+---
+
+## 🌐 Access
+
+You can access the Boldify application [here](https://boldify.net).
 
 ---
 
