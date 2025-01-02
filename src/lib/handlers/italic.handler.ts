@@ -1,8 +1,7 @@
 import type { Handler } from '$lib/handlers/handler';
 
-const baseUpperItalicCode = 0x1d434;
-const baseLowerItalicCode = 0x1d44e;
-const baseNumberItalicCode = 0x1d7ce;
+const baseUpperItalicCode = 0x1d608;
+const baseLowerItalicCode = 0x1d622;
 
 const italicMap: Record<string, string> = {};
 const invertItalicMap: Record<string, string> = {};
@@ -81,24 +80,16 @@ const isNormalUnicode = (char: string): boolean => {
 
 const buildItalicMap = () => {
 	for (let i = 0; i < 26; i++) {
-		const upperBoldChar = String.fromCodePoint(i + baseUpperItalicCode);
-		const lowerBoldChar = String.fromCodePoint(i + baseLowerItalicCode);
+		const upperItalicChar = String.fromCodePoint(i + baseUpperItalicCode);
+		const lowerItalicChar = String.fromCodePoint(i + baseLowerItalicCode);
 
 		const upperChar = String.fromCodePoint(i + 'A'.codePointAt(0)!);
 		const lowerChar = String.fromCodePoint(i + 'a'.codePointAt(0)!);
 
-		italicMap[upperChar] = upperBoldChar;
-		italicMap[lowerChar] = lowerBoldChar;
-		invertItalicMap[upperBoldChar] = upperChar;
-		invertItalicMap[lowerBoldChar] = lowerChar;
-	}
-
-	for (let i = 0; i < 10; i++) {
-		const numberBoldChar = String.fromCodePoint(i + baseNumberItalicCode);
-		const numberChar = String.fromCodePoint(i + '0'.codePointAt(0)!);
-
-		italicMap[numberChar] = numberBoldChar;
-		invertItalicMap[numberBoldChar] = numberChar;
+		italicMap[upperChar] = upperItalicChar;
+		italicMap[lowerChar] = lowerItalicChar;
+		invertItalicMap[upperItalicChar] = upperChar;
+		invertItalicMap[lowerItalicChar] = lowerChar;
 	}
 
 	for (const [key, value] of Object.entries(accentMap)) {

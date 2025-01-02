@@ -7,6 +7,6 @@ export function addSnackbar(snackbar: Snackbar) {
 	snackbars.update((snackbars) => [...snackbars, snackbar]);
 
 	setTimeout(() => {
-		// snackbars.update((snackbars) => snackbars.filter((snackbar) => snackbar !== snackbar));
+		snackbars.update((snackbars) => snackbars.filter((snackbar) => snackbar !== snackbar));
 	}, 3000);
 }

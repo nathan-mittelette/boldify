@@ -1,8 +1,8 @@
 import type { Handler } from '$lib/handlers/handler';
 
-const baseUpperBoldCode = 0x1d400;
-const baseLowerBoldCode = 0x1d41a;
-const baseNumberBoldCode = 0x1d7ce;
+const baseUpperBoldCode = 0x1d5d4;
+const baseLowerBoldCode = 0x1d5ee;
+const baseNumberBoldCode = 0x1d7ec;
 
 const boldMap: Record<string, string> = {};
 const invertBoldMap: Record<string, string> = {};
