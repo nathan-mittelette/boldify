@@ -10,7 +10,7 @@
 
 <nav class="bg-primary text-white p-4 shadow-md">
 	<div class="container mx-auto flex justify-between items-center">
-		<h1 class="text-3xl font-bold">Boldify</h1>
+		<h1 class="text-3xl font-bold flex items-center">Boldify</h1>
 		<ul class="flex gap-4">
 			{#each navItems as { key, href }}
 				<li>

@@ -6,7 +6,8 @@
 	},
 	"introduction": {
 		"title": "Transform your texts for LinkedIn",
-		"description": "A simple and powerful editor to style your posts in just a few clicks."
+		"description": "A simple and powerful editor to style your posts in just a few clicks.",
+		"beta": "This is a beta version. If you find any bugs or have suggestions, please let us know."
 	},
 	"editor": {
 		"copy": "Copy",

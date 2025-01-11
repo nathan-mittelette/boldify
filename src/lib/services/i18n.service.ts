@@ -6,7 +6,7 @@ register('en', () => import('../../locales/en.json'));
 register('fr', () => import('../../locales/fr.json'));
 
 export const SUPPORTED_LANGUAGES = ['en', 'fr'];
-const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_LANGUAGE = 'fr';
 const LOCAL_STORAGE_KEY = 'boldify-language';
 
 // Detect language from browser or use default
@@ -31,7 +31,7 @@ export async function initI18n(): Promise<void> {
 	const savedLanguage = localStorage.getItem(LOCAL_STORAGE_KEY); // Saved language
 	const initialLanguage = savedLanguage || getValidLanguage(); // Use saved language or browser language
 	await init({
-		fallbackLocale: 'en',
+		fallbackLocale: DEFAULT_LANGUAGE,
 		initialLocale: initialLanguage
 	});
 

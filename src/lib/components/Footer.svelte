@@ -9,7 +9,7 @@
 </script>
 
 <footer class="bg-primary text-white text-center py-4 relative">
-	<p class="text-sm">© 2024 Boldify. {$t('footer.rights')}</p>
+	<p class="text-sm">© 2025 Boldify. {$t('footer.rights')}</p>
 
 	<p class="text-xs mt-2">
 		{$t('footer.clarityMessage')}

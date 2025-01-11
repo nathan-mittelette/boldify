@@ -6,7 +6,8 @@
 	},
 	"introduction": {
 		"title": "Transformez vos textes pour LinkedIn",
-		"description": "Un éditeur simple et puissant pour styliser vos publications en quelques clics."
+		"description": "Un éditeur simple et puissant pour styliser vos publications en quelques clics.",
+		"beta": "Ceci est une version bêta. Si vous trouvez des bugs ou avez des suggestions, n'hésitez pas à nous en faire part."
 	},
 	"donate": {
 		"title": "Soutenez Boldify",
