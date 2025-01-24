@@ -144,7 +144,7 @@
 	</div>
 	<div id="editor" bind:this={editorRef}></div>
 	<div
-		class="w-full text-editor-actions rounded-b bg-white shadow p-2 flex justify-between items-center"
+		class="w-full text-editor-actions rounded-b bg-white shadow-sm p-2 flex justify-between items-center"
 	>
 		<button
 			onclick={copyToClipboard}

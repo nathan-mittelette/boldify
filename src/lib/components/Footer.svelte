@@ -21,7 +21,7 @@
 		{#each SUPPORTED_LANGUAGES as lang}
 			<button
 				on:click={() => locale.set(lang)}
-				class="text-xl hover:opacity-80 focus:outline-none lang-button bg-white rounded-full"
+				class="text-xl hover:opacity-80 focus:outline-hidden lang-button bg-white rounded-full"
 				aria-label="{$_('footer.changeLanguage')} {lang}"
 			>
 				{FLAGS[lang] ?? lang}
