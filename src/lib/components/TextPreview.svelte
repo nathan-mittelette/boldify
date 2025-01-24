@@ -28,7 +28,9 @@
 <div
 	class="flex-1 min-w-[30vw] md:max-w-[50vw] max-md:w-[90vw] max-h-[80vh] overflow-y-auto bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col h-fit"
 >
-	<p class="text-center text-primary font-semibold w-full border-gray-200 border-b p-2">{$t('preview.title')}</p>
+	<p class="text-center text-primary font-semibold w-full border-gray-200 border-b p-2">
+		{$t('preview.title')}
+	</p>
 	<div class="bg-[#f4f2ee] p-2 flex-1">
 		<div class="flex flex-col bg-white post-container shadow-sm rounded-md m-auto my-4">
 			<div class="px-4 pt-3 mb-2 flex items-center">
