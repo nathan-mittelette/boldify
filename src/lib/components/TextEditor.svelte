@@ -148,7 +148,7 @@
 	>
 		<button
 			onclick={copyToClipboard}
-			class="flex items-center bg-secondary text-sm font-light text-white px-3 py-1 rounded-md hover:brightness-110"
+			class="flex items-center bg-secondary text-sm font-light text-white px-3 py-1 rounded-md hover:brightness-110 hover:cursor-pointer"
 		>
 			<span class="mr-1">
 				<svg

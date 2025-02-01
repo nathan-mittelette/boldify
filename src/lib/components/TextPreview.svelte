@@ -121,7 +121,10 @@
 					</div>
 				</div>
 				<div class="px-4 py-1 flex">
-					<button class="flex-1 action-button flex items-center justify-center" aria-label="Like">
+					<button
+						class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+						aria-label="Like"
+					>
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +144,7 @@
 						<span class="pl-1 max-lg:hidden">{$t('preview.like')}</span></button
 					>
 					<button
-						class="flex-1 action-button flex items-center justify-center"
+						class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
 						aria-label="Comment"
 					>
 						<span>
@@ -162,7 +165,10 @@
 						</span>
 						<span class="pl-1 max-lg:hidden">{$t('preview.comment')}</span></button
 					>
-					<button class="flex-1 action-button flex items-center justify-center" aria-label="Repost">
+					<button
+						class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+						aria-label="Repost"
+					>
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +187,10 @@
 						</span>
 						<span class="pl-1 max-lg:hidden">{$t('preview.repost')}</span></button
 					>
-					<button class="flex-1 action-button flex items-center justify-center" aria-label="Send">
+					<button
+						class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+						aria-label="Send"
+					>
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
