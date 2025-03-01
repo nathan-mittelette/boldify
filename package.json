@@ -33,7 +33,7 @@
 		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run build"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.2.6",
+		"@eslint/compat": "^1.2.7",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/enhanced-img": "^0.4.4",
 		"@sveltejs/kit": "^2.16.1",
