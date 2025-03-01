@@ -41,7 +41,7 @@
 		"@tailwindcss/vite": "^4.0.3",
 		"@types/node": "^22.13.0",
 		"eslint": "^9.19.0",
-		"eslint-config-prettier": "^10.0.1",
+		"eslint-config-prettier": "^10.0.2",
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.14.0",
 		"path": "^0.12.7",
