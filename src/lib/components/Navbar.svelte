@@ -12,7 +12,7 @@
 	<div class="container mx-auto flex justify-between items-center">
 		<h1 class="text-3xl font-bold flex items-center">Boldify</h1>
 		<ul class="flex gap-4">
-			{#each navItems as { key, href }}
+			{#each navItems as { key, href } (key)}
 				<li>
 					<a {href} class="hover:text-secondary transition duration-300">{$t(key)}</a>
 				</li>

@@ -73,7 +73,7 @@
 			</div>
 			<div class="mx-3">
 				<pre
-					class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word}{#if word.highlight}<span
+					class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word (word)}{#if word.highlight}<span
 								class="highlight">{word.text}</span
 							>{:else}{word.text}{/if}{/each}</pre>
 			</div>
@@ -221,10 +221,11 @@
 		max-width: 555px;
 
 		* {
-			font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-				'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans',
-				'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande',
-				Helvetica, Arial, sans-serif;
+			font-family:
+				-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+				'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji',
+				'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial,
+				sans-serif;
 		}
 
 		.data-container {

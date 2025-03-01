@@ -18,7 +18,7 @@
 	<div
 		class="md:absolute md:top-1/2 md:right-4 md:transform md:-translate-y-1/2 max-md:pt-2 flex justify-center space-x-4"
 	>
-		{#each SUPPORTED_LANGUAGES as lang}
+		{#each SUPPORTED_LANGUAGES as lang (lang)}
 			<button
 				on:click={() => locale.set(lang)}
 				class="text-xl hover:opacity-80 focus:outline-hidden lang-button bg-white rounded-full hover:cursor-pointer"
