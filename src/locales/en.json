@@ -7,17 +7,25 @@
 	"introduction": {
 		"title": "Transform your texts for LinkedIn",
 		"description": "A simple and powerful editor to style your posts in just a few clicks.",
-		"beta": "This is a beta version. If you find any bugs or have suggestions, please let us know."
+		"beta": "This is a beta version. If you find any bugs or have suggestions, please let us know.",
+		"try_button": "Try it now",
+		"learn_more": "Learn more",
+		"preview": "🎉 𝗡𝗲𝘄 𝗼𝗻 𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻 ! 🎉\n\nDiscover our revolutionary tool for formatting your texts! 🌟\n\n𝗪𝗵𝘆 𝘁𝗿𝘆 𝗶𝘁 ?\n\n• 𝗣𝘂𝘁 𝗶𝗻 𝗮𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗳𝗼𝗿𝗺: lists, 𝗶𝘁𝗮𝗹𝗶𝗰𝘀, 𝗯𝗼𝗹𝗱, etc.\n• 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹𝗶𝘇𝗮𝘁𝗶𝗼𝗻: Adapt your posts to your image.\n• 𝗧𝗶𝗺𝗲 𝗴𝗮𝗶𝗻: Automate formatting in one click!\n\n𝗛𝗼𝘄 𝗱𝗼𝗲𝘀 𝗶𝘁 𝘄𝗼𝗿𝗸 ?\n\n1. 𝗗𝗿𝗮𝗳𝘁 your text.\n2. 𝗙𝗼𝗿𝗺𝗮𝘁 with our tool.\n3. 𝗣𝘂𝗯𝗹𝗶𝘀𝗵 on LinkedIn!\n\n#LinkedIn #Innovation #Formatting"
 	},
 	"editor": {
 		"copy": "Copy",
+		"default_text": "🎉 𝗡𝗲𝘄 𝗼𝗻 𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻 ! 🎉\n\nDiscover our revolutionary tool for formatting your texts! 🌟\n\n𝗪𝗵𝘆 𝘁𝗿𝘆 𝗶𝘁 ?\n\n• 𝗣𝘂𝘁 𝗶𝗻 𝗮𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗳𝗼𝗿𝗺: lists, 𝗶𝘁𝗮𝗹𝗶𝗰𝘀, 𝗯𝗼𝗹𝗱, etc.\n• 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹𝗶𝘇𝗮𝘁𝗶𝗼𝗻: Adapt your posts to your image.\n• 𝗧𝗶𝗺𝗲 𝗴𝗮𝗶𝗻: Automate formatting in one click!\n\n𝗛𝗼𝘄 𝗱𝗼𝗲𝘀 𝗶𝘁 𝘄𝗼𝗿𝗸 ?\n\n1. 𝗗𝗿𝗮𝗳𝘁 your text.\n2. 𝗙𝗼𝗿𝗺𝗮𝘁 with our tool.\n3. 𝗣𝘂𝗯𝗹𝗶𝘀𝗵 on LinkedIn!\n\n#LinkedIn #Innovation #Formatting",
 		"placeholder": "Write your post here ...",
 		"characters": "characters",
 		"copied": "Copied!",
-		"copied_description": "The text has been copied to your clipboard."
+		"copied_description": "The text has been copied to your clipboard.",
+		"section_title": "Format Your Text",
+		"section_description": "Use our intuitive editor to format your text with various styles, then see the live preview instantly."
 	},
 	"preview": {
 		"title": "Preview your post",
+		"section_title": "Preview your post",
+		"section_description": "See how your formatted text will appear in social media posts. This live preview updates as you type.",
 		"comments": "comments",
 		"reposts": "reposts",
 		"like": "Like",
@@ -29,11 +37,22 @@
 		"title": "Contribute to Boldify",
 		"description": "You can help us improve Boldify by contributing to the codebase or supporting us with a donation to keep the project free for everyone.",
 		"github_cta": "Contribute on GitHub",
-		"donate_cta": "Buy Me a Coffee"
+		"support_cta": "Buy Me a Coffee",
+		"github_title": "Contribute on GitHub",
+		"github_description": "Contribute to the code of Boldify on GitHub. Make MR, report bugs, etc.",
+		"support_title": "Support Boldify",
+		"support_description": "If you like to use Boldify and want it to remain free, consider buying me a coffee to help cover hosting costs. Every contribution counts!"
 	},
 	"footer": {
 		"rights": "All rights reserved.",
 		"changeLanguage": "Change language to ",
-		"clarityMessage": "We use Microsoft Clarity to improve our services. All data is anonymized."
+		"clarityMessage": "We use Microsoft Clarity to improve our services. All data is anonymized.",
+		"description": "Boldify is an open source project developed by the Boldify team.",
+		"navigation": "Navigation",
+		"resources": "Resources",
+		"support": "Support",
+		"buy_coffee": "Buy Me a Coffee",
+		"github": "GitHub",
+		"report_issue": "Report an issue"
 	}
 }

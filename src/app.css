@@ -1,15 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
-	--color-primary: #1e3a8a;
-	--color-secondary: #2563eb;
+	--color-primary: #2563eb;
+	--color-primary-dark: #1e40af;
+	--color-secondary: #3b82f6;
+	--color-secondary-light: #60a5fa;
 	--color-accent: #facc15;
-	--color-background: #f1f5f9;
+	--color-accent-light: #fef08a;
+	--color-background: #f9fafb;
 	--color-text: #1f2937;
+	--color-text-light: #6b7280;
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+	--color-white: #ffffff;
+	--color-neutral-50: #f9fafb;
+	--color-neutral-100: #f3f4f6;
+	--color-neutral-200: #e5e7eb;
+	--color-neutral-300: #d1d5db;
+	--color-neutral-400: #9ca3af;
+	--color-neutral-500: #6b7280;
+	--color-neutral-600: #4b5563;
+	--color-neutral-700: #374151;
+	--color-neutral-800: #1f2937;
+	--color-neutral-900: #111827;
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+:root {
+	font-family:
+		'Inter',
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
 }
 
 html {
 	scroll-behavior: smooth;
+	background-color: var(--color-background);
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -18,12 +57,82 @@ html {
 	}
 }
 
+/* Modern card design */
+.card {
+	@apply bg-white rounded-xl shadow-md overflow-hidden border border-neutral-200 transition-all duration-300;
+}
+
+.card:hover {
+	@apply shadow-lg transform -translate-y-1;
+}
+
+/* Button styles */
+.btn {
+	@apply inline-flex items-center justify-center px-5 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+	@apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+}
+
+.btn-secondary {
+	@apply bg-secondary text-white hover:bg-secondary-light focus:ring-secondary;
+}
+
+.btn-outline {
+	@apply border border-neutral-300 text-neutral-700 hover:bg-neutral-100 focus:ring-neutral-300;
+}
+
+.btn-accent {
+	@apply bg-accent text-neutral-900 hover:bg-accent-light focus:ring-accent;
+}
+
+/* Section styles */
+.section {
+	@apply py-12 lg:py-16;
+}
+
+/* Text styles */
+.gradient-text {
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+	animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.animate-slide-up {
+	animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* Quill editor styling */
 .ql-toolbar {
-	@apply bg-white shadow-sm rounded-t;
+	@apply bg-white shadow-sm rounded-t border-neutral-300;
 }
 
 .ql-container {
-	@apply bg-white shadow-sm;
+	@apply bg-white shadow-sm border-neutral-300 rounded-b;
 }
 
 .ql-tooltip a {

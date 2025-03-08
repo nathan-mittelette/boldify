@@ -7,21 +7,25 @@
 	"introduction": {
 		"title": "Transformez vos textes pour LinkedIn",
 		"description": "Un éditeur simple et puissant pour styliser vos publications en quelques clics.",
-		"beta": "Ceci est une version bêta. Si vous trouvez des bugs ou avez des suggestions, n'hésitez pas à nous en faire part."
-	},
-	"donate": {
-		"title": "Soutenez Boldify",
-		"description": "Si vous aimez utiliser Boldify et souhaitez qu'il reste gratuit, envisagez de m'offrir un café pour aider à couvrir les frais d'hébergement. Chaque contribution compte !"
+		"beta": "Ceci est une version bêta. Si vous trouvez des bugs ou avez des suggestions, n'hésitez pas à nous en faire part.",
+		"try_button": "Essayez l'éditeur",
+		"learn_more": "En savoir plus",
+		"preview": "🎉 𝗡𝗼𝘂𝘃𝗲𝗮𝘂 𝘀𝘂𝗿 𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻 ! 🎉\n\nDécouvrez notre outil révolutionnaire pour formater vos textes ! 🌟\n\n𝗣𝗼𝘂𝗿𝗾𝘂𝗼𝗶 𝗹'𝗲𝘀𝘀𝗮𝘆𝗲𝗿 ?\n\n• 𝗠𝗶𝘀𝗲 𝗲𝗻 𝗳𝗼𝗿𝗺𝗲 𝗮𝘃𝗮𝗻𝗰𝗲́𝗲 : listes, 𝘪𝘵𝘢𝘭𝘪𝘲𝘶𝘦, 𝗴𝗿𝗮𝘀, etc.\n• 𝗣𝗲𝗿𝘀𝗼𝗻𝗻𝗮𝗹𝗶𝘀𝗮𝘁𝗶𝗼𝗻 𝗳𝗮𝗰𝗶𝗹𝗲 : Adaptez vos posts à votre image.\n• 𝗚𝗮𝗶𝗻 𝗱𝗲 𝘁𝗲𝗺𝗽𝘀 : Automatisez le formatage en un clic !\n\n𝗖𝗼𝗺𝗺𝗲𝗻𝘁 𝗰̧𝗮 𝗺𝗮𝗿𝗰𝗵𝗲 ?\n\n1. 𝗥𝗲́𝗱𝗶𝗴𝗲𝘇 votre texte.\n2. 𝗙𝗼𝗿𝗺𝗮𝘁𝗲𝘇 avec notre outil.\n3. 𝗣𝘂𝗯𝗹𝗶𝗲𝘇 sur LinkedIn !\n\n#LinkedIn #Innovation #Formatage"
 	},
 	"editor": {
 		"copy": "Copier",
+		"default_text": "🎉 𝗡𝗼𝘂𝘃𝗲𝗮𝘂 𝘀𝘂𝗿 𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻 ! 🎉\n\nDécouvrez notre outil révolutionnaire pour formater vos textes ! 🌟\n\n𝗣𝗼𝘂𝗿𝗾𝘂𝗼𝗶 𝗹'𝗲𝘀𝘀𝗮𝘆𝗲𝗿 ?\n\n• 𝗠𝗶𝘀𝗲 𝗲𝗻 𝗳𝗼𝗿𝗺𝗲 𝗮𝘃𝗮𝗻𝗰𝗲́𝗲 : listes, 𝘪𝘵𝘢𝘭𝘪𝘲𝘶𝘦, 𝗴𝗿𝗮𝘀, etc.\n• 𝗣𝗲𝗿𝘀𝗼𝗻𝗻𝗮𝗹𝗶𝘀𝗮𝘁𝗶𝗼𝗻 𝗳𝗮𝗰𝗶𝗹𝗲 : Adaptez vos posts à votre image.\n• 𝗚𝗮𝗶𝗻 𝗱𝗲 𝘁𝗲𝗺𝗽𝘀 : Automatisez le formatage en un clic !\n\n𝗖𝗼𝗺𝗺𝗲𝗻𝘁 𝗰̧𝗮 𝗺𝗮𝗿𝗰𝗵𝗲 ?\n\n1. 𝗥𝗲́𝗱𝗶𝗴𝗲𝘇 votre texte.\n2. 𝗙𝗼𝗿𝗺𝗮𝘁𝗲𝘇 avec notre outil.\n3. 𝗣𝘂𝗯𝗹𝗶𝗲𝘇 sur LinkedIn !\n\n#LinkedIn #Innovation #Formatage",
 		"placeholder": "Écrivez votre post ici ...",
 		"characters": "caractères",
 		"copied": "Copié !",
-		"copied_description": "Le texte a été copié dans votre presse-papiers."
+		"copied_description": "Le texte a été copié dans votre presse-papiers.",
+		"section_title": "Formatez Votre Texte",
+		"section_description": "Utilisez notre éditeur intuitif pour mettre en forme votre texte avec différents styles, puis visualisez instantanément l'aperçu."
 	},
 	"preview": {
 		"title": "Aperçu de votre post",
+		"section_title": "Aperçu de votre post",
+		"section_description": "Voir comment votre texte formaté apparaîtra dans les publications sur les réseaux sociaux. Cet aperçu en direct se met à jour au moment de la saisie.",
 		"comments": "commentaires",
 		"reposts": "republication",
 		"like": "J'aime",
@@ -33,11 +37,22 @@
 		"title": "Contribuez à Boldify",
 		"description": "Vous pouvez nous aider à améliorer Boldify en contribuant au code ou en faisant un don pour que le projet reste gratuit pour tous.",
 		"github_cta": "Contribuer sur GitHub",
-		"donate_cta": "Offrir un café"
+		"support_cta": "Offrir un café",
+		"github_title": "Contribuer sur GitHub",
+		"github_description": "Contribuez au code de Boldify sur GitHub. Effectuez des MR, reportez des bugs, etc.",
+		"support_title": "Soutenir Boldify",
+		"support_description": "Si vous aimez utiliser Boldify et souhaitez qu'il reste gratuit, envisagez de m'offrir un café pour aider à couvrir les frais d'hébergement. Chaque contribution compte !"
 	},
 	"footer": {
 		"rights": "Tous droits réservés.",
 		"changeLanguage": "Changer la langue vers ",
-		"clarityMessage": "Nous utilisons Microsoft Clarity pour améliorer nos services. Toutes les données sont anonymisées."
+		"clarityMessage": "Nous utilisons Microsoft Clarity pour améliorer nos services. Toutes les données sont anonymisées.",
+		"description": "Boldify est un projet open source développé par l'équipe de Boldify.",
+		"navigation": "Navigation",
+		"resources": "Ressources",
+		"support": "Soutenir",
+		"buy_coffee": "Offrir un café",
+		"github": "GitHub",
+		"report_issue": "Signaler un problème"
 	}
 }
