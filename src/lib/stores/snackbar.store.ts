@@ -6,8 +6,9 @@ export const snackbars = writable<Snackbar[]>([]);
 /**
  * Adds a new snackbar notification
  * @param snackbar The snackbar data to add
+ * @param duration The snackbar duration
  */
-export function addSnackbar(snackbar: Omit<Snackbar, 'id'>) {
+export function addSnackbar(snackbar: Omit<Snackbar, 'id'>, duration: number = 4000) {
 	// Generate a unique ID for this snackbar
 	const id = `snackbar-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
 
@@ -16,10 +17,9 @@ export function addSnackbar(snackbar: Omit<Snackbar, 'id'>) {
 	snackbars.update((snackbars) => [...snackbars, newSnackbar]);
 
 	// Auto-remove after timeout unless it's an error that might need attention
-	const timeout = snackbar.type === 'error' ? 6000 : 4000;
 	setTimeout(() => {
 		removeSnackbar(id);
-	}, timeout);
+	}, duration);
 
 	return id; // Return the ID in case it's needed for reference or early removal
 }

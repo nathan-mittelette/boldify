@@ -13,6 +13,7 @@
 	import { listHandler, type ListType } from '$lib/handlers/list.handler';
 	import { browser } from '$app/environment';
 	import { addSnackbar } from '$lib/stores/snackbar.store';
+	import type { Snackbar } from '$lib/models/snackbar.model';
 
 	const MAX_CHARACTERS = 3000;
 
@@ -32,7 +33,7 @@
 		addSnackbar({
 			title: $t('editor.copied'),
 			description: $t('editor.copied_description')
-		});
+		} as Snackbar);
 	};
 
 	let editor: Quill;

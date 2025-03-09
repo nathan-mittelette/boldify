@@ -1,9 +1,4 @@
 /**
- * Type of snackbar notification that determines its appearance
- */
-export type SnackbarType = 'success' | 'error' | 'warning' | 'info';
-
-/**
  * Interface for snackbar notifications
  */
 export interface Snackbar {
@@ -13,6 +8,4 @@ export interface Snackbar {
 	title: string;
 	/** Optional descriptive text providing more detail */
 	description?: string;
-	/** The type/severity of the notification which affects styling */
-	type?: SnackbarType;
 }
