@@ -159,7 +159,7 @@
 			<div
 				class="w-full text-editor-actions rounded-b bg-white p-3 flex flex-wrap justify-between items-center gap-2"
 			>
-				<button onclick={copyToClipboard} class="btn btn-primary py-2 px-4 text-sm">
+				<button onclick={copyToClipboard} class="btn btn-primary py-2 px-4 text-sm cursor-pointer">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"

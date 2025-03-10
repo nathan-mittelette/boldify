@@ -42,7 +42,7 @@
 		"@types/node": "^22.13.10",
 		"eslint": "^9.22.0",
 		"eslint-config-prettier": "^10.1.1",
-		"eslint-plugin-svelte": "^3.0.3",
+		"eslint-plugin-svelte": "^3.1.0",
 		"globals": "^16.0.0",
 		"path": "^0.12.7",
 		"prettier": "^3.5.3",
@@ -52,7 +52,7 @@
 		"svelte-check": "^4.1.5",
 		"tailwindcss": "^4.0.12",
 		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.26.0",
+		"typescript-eslint": "^8.26.1",
 		"vite": "^6.2.1"
 	},
 	"dependencies": {
@@ -60,10 +60,11 @@
 		"quill": "^2.0.3",
 		"svelte-i18n": "^4.0.1"
 	},
-	"packageManager": "pnpm@10.6.1",
+	"packageManager": "pnpm@10.6.2",
 	"pnpm": {
 		"onlyBuiltDependencies": [
-			"esbuild"
+			"esbuild",
+			"sharp"
 		]
 	}
 }

@@ -72,9 +72,16 @@
 			<div class="lg:col-span-5 animate-fade-in" style="transition-delay: 300ms;">
 				<div class="relative rotate-1">
 					<div
-						class="absolute -top-6 -right-6 bg-primary/20 rounded-full w-32 h-32 blur-xl animate-pulse hidden lg:block"
+						class="absolute z-0 -top-6 -right-6 bg-primary/20 rounded-full w-32 h-32 blur-xl animate-pulse hidden lg:block"
 					></div>
-					<TextPreview text={$t('introduction.preview')} {name} {degree} {position} {timePosted} />
+					<TextPreview
+						text={$t('introduction.preview')}
+						{name}
+						{degree}
+						{position}
+						{timePosted}
+						smallButtons={true}
+					/>
 				</div>
 			</div>
 		</div>

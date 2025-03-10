@@ -7,6 +7,7 @@
 		position: string;
 		timePosted: string;
 		text: string;
+		smallButtons: boolean;
 	}
 
 	interface TextHiglight {
@@ -14,7 +15,7 @@
 		highlight: boolean;
 	}
 
-	let { name, degree, position, timePosted, text }: Props = $props();
+	let { name, degree, position, timePosted, text, smallButtons }: Props = $props();
 
 	let customizedText = $state<TextHiglight[]>([]);
 
@@ -39,7 +40,7 @@
 	});
 </script>
 
-<div class="flex flex-col bg-white post-container shadow-sm rounded-md m-auto my-4">
+<div class="flex flex-col bg-white post-container shadow-sm rounded-md m-auto my-4 z-10">
 	<div class="px-4 pt-3 mb-2 flex items-center">
 		<enhanced:img
 			src="/static/profile.png"
@@ -54,23 +55,23 @@
 				<p>
 					<span
 						class="text-sm font-semibold text-[#000000E5] hover:text-[#0A66C2FF] hover:underline"
-						>{name}
+					>{name}
 					</span><span class="text-sm font-light text-[#00000099]">• {degree}</span>
 				</p>
 				<p class="text-xs text-[#00000099]">{position}</p>
 				<div class="flex justify-start">
 					<span class="text-xs text-[#00000099]">{timePosted} • </span>
 					<span class="ml-1"
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 16 16"
-							data-supported-dps="16x16"
-							fill="currentColor"
-							class="mercado-match"
-							width="16"
-							height="16"
-							focusable="false"
-						>
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 16 16"
+						data-supported-dps="16x16"
+						fill="currentColor"
+						class="mercado-match"
+						width="16"
+						height="16"
+						focusable="false"
+					>
 							<path
 								d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"
 							></path>
@@ -79,7 +80,7 @@
 				</div>
 			</div>
 			<button
-				class="ml-auto p-1 text-gray-400 hover:text-gray-600 rounded-full h-fit hover:bg-gray-200 transition-colors"
+				class="ml-auto p-1 text-gray-400 hover:text-gray-600 rounded-full h-fit hover:bg-gray-200 transition-colors cursor-pointer"
 				aria-label="More"
 			>
 				<svg
@@ -95,11 +96,11 @@
 			</button>
 		</div>
 	</div>
-	<div class="mx-3">
+	<div class="mx-3 text-container">
 		<pre
 			class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word (word)}{#if word.highlight}<span
-						class="highlight">{word.text}</span
-					>{:else}{word.text}{/if}{/each}</pre>
+			class="highlight">{word.text}</span
+		>{:else}{word.text}{/if}{/each}</pre>
 	</div>
 	<div>
 		<div class="mx-3 py-2 text-right data-container flex justify-between items-center">
@@ -134,17 +135,19 @@
 			</div>
 			<div>
 				<span class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF] hover:underline"
-					>12 {$t('preview.comments')}</span
+				>12 {$t('preview.comments')}</span
 				>
 				<span> • </span>
 				<span class="cursor-pointer text-sm text-[#00000099] hover:text-[#0A66C2FF] hover:underline"
-					>4 {$t('preview.reposts')}</span
+				>4 {$t('preview.reposts')}</span
 				>
 			</div>
 		</div>
 		<div class="px-4 py-1 flex">
 			<button
-				class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+				class="flex-1 action-button{smallButtons
+					? ' action-button-small'
+					: ''} flex items-center justify-center hover:cursor-pointer"
 				aria-label="Like"
 			>
 				<span>
@@ -166,7 +169,9 @@
 				<span class="pl-1 max-lg:hidden">{$t('preview.like')}</span></button
 			>
 			<button
-				class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+				class="flex-1 action-button{smallButtons
+					? ' action-button-small'
+					: ''} flex items-center justify-center hover:cursor-pointer"
 				aria-label="Comment"
 			>
 				<span>
@@ -188,7 +193,9 @@
 				<span class="pl-1 max-lg:hidden">{$t('preview.comment')}</span></button
 			>
 			<button
-				class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+				class="flex-1 action-button{smallButtons
+					? ' action-button-small'
+					: ''} flex items-center justify-center hover:cursor-pointer"
 				aria-label="Repost"
 			>
 				<span>
@@ -210,7 +217,9 @@
 				<span class="pl-1 max-lg:hidden">{$t('preview.repost')}</span></button
 			>
 			<button
-				class="flex-1 action-button flex items-center justify-center hover:cursor-pointer"
+				class="flex-1 action-button{smallButtons
+					? ' action-button-small'
+					: ''} flex items-center justify-center hover:cursor-pointer"
 				aria-label="Send"
 			>
 				<span>
@@ -235,48 +244,56 @@
 </div>
 
 <style lang="scss">
-	.post-container {
-		color: rgba(0, 0, 0, 0.6);
-		border: 1px solid var(--color-neutral-200);
-		max-width: 555px;
+  .post-container {
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--color-neutral-200);
+    max-width: 555px;
 
-		* {
-			font-family:
-				-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-				'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji',
-				'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
-		}
+    * {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    }
 
-		.data-container {
-			border-bottom: 1px solid var(--color-neutral-200);
-		}
+    .data-container {
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
 
-		.action-button {
-			color: rgba(0, 0, 0, 0.6);
-			font-size: 14px;
-			line-height: 20px;
-			font-weight: 600;
-			padding: 0.4rem 1.6rem;
-			border-radius: 4px;
-			transition: all 0.2s ease;
+    .text-container {
+      max-height: calc(60vh - 46px - 46px);
+      overflow-y: auto;
+    }
 
-			&:hover {
-				background-color: var(--color-neutral-100);
-				color: var(--color-primary);
-			}
-		}
+    .action-button {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      padding: 0.4rem 1.6rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
 
-		.highlight {
-			color: var(--color-primary);
-			font-weight: 600;
-			font-size: 14px;
-			cursor: pointer;
-			transition: all 0.15s ease;
+      &.action-button-small {
+        padding: 0.4rem 1rem;
+      }
 
-			&:hover {
-				text-decoration: underline;
-				color: var(--color-primary-dark);
-			}
-		}
-	}
+      &:hover {
+        background-color: var(--color-neutral-100);
+        color: var(--color-primary);
+      }
+    }
+
+    .highlight {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+
+      &:hover {
+        text-decoration: underline;
+        color: var(--color-primary-dark);
+      }
+    }
+  }
 </style>

@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="bg-gray-100 p-3 flex-1">
-			<TextPreview {name} {degree} {position} {timePosted} text={$text} />
+			<TextPreview {name} {degree} {position} {timePosted} text={$text} smallButtons={false} />
 		</div>
 	</div>
 </section>
