@@ -17,27 +17,25 @@
 
 	let { name, degree, position, timePosted, text, smallButtons }: Props = $props();
 
-	let customizedText = $state<TextHiglight[]>([]);
-
-	$effect(() => {
-		customizedText = text
+	let customizedText = $derived(
+		text
 			.split(' ')
 			.flatMap((word) => {
 				return word.split(/(\n)/);
 			})
 			.map((word) => {
-				let text = word;
+				let wordText = word;
 
-				if (!text.endsWith('\n')) {
-					text += ' ';
+				if (!wordText.endsWith('\n')) {
+					wordText += ' ';
 				}
 
 				if (word.startsWith('#') || word.startsWith('http://') || word.startsWith('https://')) {
-					return { text: text, highlight: true } as TextHiglight;
+					return { text: wordText, highlight: true } as TextHiglight;
 				}
-				return { text: text, highlight: false } as TextHiglight;
-			});
-	});
+				return { text: wordText, highlight: false } as TextHiglight;
+			})
+	);
 </script>
 
 <div class="flex flex-col bg-white post-container shadow-sm rounded-md m-auto my-4 z-10">
