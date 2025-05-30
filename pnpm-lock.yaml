@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.1.8
+        version: 4.1.8(vite@6.3.5(@types/node@22.15.27)(jiti@2.4.2)(lightningcss@1.30.1)(sass-embedded@1.89.0)(yaml@2.7.0))
       quill:
         specifier: ^2.0.3
         version: 2.0.3
@@ -33,9 +36,6 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.3
         version: 5.0.3(svelte@5.33.10)(vite@6.3.5(@types/node@22.15.27)(jiti@2.4.2)(lightningcss@1.30.1)(sass-embedded@1.89.0)(yaml@2.7.0))
-      '@tailwindcss/vite':
-        specifier: ^4.1.8
-        version: 4.1.8(vite@6.3.5(@types/node@22.15.27)(jiti@2.4.2)(lightningcss@1.30.1)(sass-embedded@1.89.0)(yaml@2.7.0))
       '@types/node':
         specifier: ^22.15.27
         version: 22.15.27
