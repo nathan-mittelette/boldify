@@ -42,7 +42,7 @@
 		"@types/node": "^22.15.27",
 		"eslint": "^9.27.0",
 		"eslint-config-prettier": "^10.1.5",
-		"eslint-plugin-svelte": "^3.9.0",
+		"eslint-plugin-svelte": "^3.11.0",
 		"globals": "^16.2.0",
 		"path": "^0.12.7",
 		"prettier": "^3.5.3",
