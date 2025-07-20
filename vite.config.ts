@@ -4,12 +4,5 @@ import { enhancedImages } from '@sveltejs/enhanced-img';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-	plugins: [enhancedImages(), sveltekit(), tailwindcss()],
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: 'modern'
-			}
-		}
-	}
+	plugins: [enhancedImages(), sveltekit(), tailwindcss()]
 });
