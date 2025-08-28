@@ -29,12 +29,16 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
+		"test": "playwright test",
+		"test:ui": "playwright test --ui",
+		"test:debug": "playwright test --debug",
 		"post:build": "node devops/scripts/generate_robots.js && node devops/scripts/generate_sitemap.js && node devops/scripts/generate_indexnow.js",
-		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run build"
+		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run test && pnpm run build"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.1",
 		"@eslint/js": "^9.39.2",
+		"@playwright/test": "^1.55.0",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/enhanced-img": "^0.9.3",
 		"@sveltejs/kit": "^2.50.0",
