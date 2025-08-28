@@ -41,10 +41,8 @@ export const boldHandler: Handler<void> = (text) => {
 	}
 
 	if (isNormalUnicode(firstChar)) {
-		console.log('convert to bold');
 		return splitByMaxLength(text).map(convertCharToBold).join('');
 	} else {
-		console.log('convert to normal');
 		return splitByMaxLength(text).map(convertCharToNormal).join('');
 	}
 };
