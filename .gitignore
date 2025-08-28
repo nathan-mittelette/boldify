@@ -25,6 +25,9 @@ vite.config.ts.timestamp-*
 # Jetbrains
 .idea
 
+# Playwright
+test-results/
+playwright-report/
 
 # Terraform
 .terraform
