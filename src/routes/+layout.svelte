@@ -23,9 +23,7 @@
 			document.documentElement.lang = $locale;
 		}
 
-		return () => {
-			unsubscriber();
-		};
+		return unsubscriber;
 	});
 </script>
 
