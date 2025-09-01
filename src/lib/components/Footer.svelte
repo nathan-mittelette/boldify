@@ -20,8 +20,12 @@
 		locale.set(lang);
 
 		if ('lang' in params) {
-			const currentPath = page.url.pathname;
-			const newPath = currentPath.replace(`/${$locale}`, `/${lang}`);
+			const segments = currentPath.split('/');
+			// segments[0] is always '', segments[1] is the locale
+			if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
+				segments[1] = lang;
+			}
+			const newPath = segments.join('/');
 
 			goto(newPath);
 		} else {
