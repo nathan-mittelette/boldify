@@ -19,6 +19,6 @@ variable "root_domain" {
 }
 
 variable "domain_name" {
-    description = "The domain name to use for the project"
-    type        = string
+  description = "The domain name to use for the project"
+  type        = string
 }

@@ -1,4 +1,4 @@
-data aws_route53_zone "zone" {
+data "aws_route53_zone" "zone" {
   name = var.root_domain
 }
 
@@ -17,7 +17,7 @@ resource "aws_route53_record" "subdomain" {
 resource "aws_acm_certificate" "certificate" {
   domain_name       = var.domain_name
   validation_method = "DNS"
-  provider = aws.virginia
+  provider          = aws.virginia
 }
 
 resource "aws_route53_record" "validate_certificate" {

@@ -7,16 +7,16 @@ resource "aws_s3_bucket_policy" "sbp" {
 
   policy = jsonencode({
     Version = "2008-10-17"
-    Id = "PolicyForCloudFrontPrivateContent"
+    Id      = "PolicyForCloudFrontPrivateContent"
     Statement = [
       {
-        Sid       = "AllowCloudFrontServicePrincipal"
-        Effect    = "Allow"
+        Sid    = "AllowCloudFrontServicePrincipal"
+        Effect = "Allow"
         Principal = {
           Service = "cloudfront.amazonaws.com"
         }
-        Action    = "s3:GetObject"
-        Resource  = "${aws_s3_bucket.sb.arn}/*"
+        Action   = "s3:GetObject"
+        Resource = "${aws_s3_bucket.sb.arn}/*"
         Condition = {
           StringEquals = {
             "AWS:SourceArn" = aws_cloudfront_distribution.cd.arn

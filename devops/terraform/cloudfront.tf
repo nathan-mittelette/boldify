@@ -30,8 +30,8 @@ resource "aws_cloudfront_distribution" "cd" {
 
   default_cache_behavior {
     cache_policy_id            = data.aws_cloudfront_cache_policy.cache_optimized_policy.id
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
-    cached_methods = ["GET", "HEAD", "OPTIONS"]
+    allowed_methods            = ["GET", "HEAD", "OPTIONS"]
+    cached_methods             = ["GET", "HEAD", "OPTIONS"]
     target_origin_id           = "${local.resources_name}-sb"
     compress                   = true
     default_ttl                = 0
@@ -72,7 +72,7 @@ resource "aws_cloudfront_response_headers_policy" "security_seo_policy" {
 
   security_headers_config {
     content_security_policy {
-      content_security_policy = "default-src 'self'; script-src 'self' https://*.clarity.ms 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://img.buymeacoffee.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src 'self'"
+      content_security_policy = "default-src 'self'; script-src 'self' https://*.clarity.ms 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://img.buymeacoffee.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src 'self'"
       override                = true
     }
     content_type_options {
