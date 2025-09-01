@@ -1,15 +1,18 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { locale } from '$lib/services/i18n.service';
 
-	let scrollY = 0;
-	let innerWidth = 0;
-	let mobileMenuOpen = false;
+	let scrollY = $state(0);
+	let innerWidth = $state(0);
+	let mobileMenuOpen = $state(false);
+	let isScrolled = $derived(scrollY > 20);
 
-	const navItems = [
-		{ key: 'nav.home', href: '#introduction' },
-		{ key: 'nav.editor', href: '#text-editor' },
-		{ key: 'nav.contribute', href: '#contribute' }
-	];
+	const navItems = $derived([
+		{ key: 'nav.home', href: `/${$locale}` },
+		{ key: 'nav.about', href: `/${$locale}/about` },
+		{ key: 'nav.how_it_works', href: `/${$locale}/how-it-works` },
+		{ key: 'nav.help', href: `/${$locale}/help` }
+	]);
 
 	function toggleMobileMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
@@ -18,8 +21,6 @@
 	function closeMobileMenu() {
 		mobileMenuOpen = false;
 	}
-
-	$: isScrolled = scrollY > 20;
 </script>
 
 <svelte:window bind:scrollY bind:innerWidth />
@@ -32,7 +33,7 @@
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<h1 class="text-2xl font-bold">
-				<span class="gradient-text">Boldify</span>
+				<a class="gradient-text" href="/{$locale}">Boldify</a>
 			</h1>
 		</div>
 
@@ -45,7 +46,7 @@
 						class="font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full {isScrolled
 							? 'text-neutral-700 hover:text-primary'
 							: 'text-gray-400 hover:text-primary'}"
-						on:click={closeMobileMenu}
+						onclick={closeMobileMenu}
 					>
 						{$t(key)}
 					</a>
@@ -80,7 +81,7 @@
 		<!-- Mobile Menu Toggle -->
 		<button
 			class="md:hidden text-neutral-800 focus:outline-none"
-			on:click={toggleMobileMenu}
+			onclick={toggleMobileMenu}
 			aria-label="Toggle menu"
 		>
 			{#if mobileMenuOpen}
@@ -128,7 +129,7 @@
 						<a
 							{href}
 							class="block py-2 font-medium text-neutral-700 hover:text-primary"
-							on:click={closeMobileMenu}
+							onclick={closeMobileMenu}
 						>
 							{$t(key)}
 						</a>
