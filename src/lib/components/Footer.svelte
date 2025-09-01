@@ -1,13 +1,33 @@
 <script lang="ts">
 	import { _, t } from 'svelte-i18n';
 	import { locale, SUPPORTED_LANGUAGES } from '$lib/services/i18n.service';
+	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
+	import type { SupportedLanguages } from '../../params/lang';
 
-	const FLAGS: Record<string, string> = {
+	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
 		en: '🇬🇧'
 	};
 
 	const currentYear = new Date().getFullYear();
+
+	const onLocalChange = (lang: SupportedLanguages) => {
+		if ($locale === lang) return;
+
+		const params = page.params;
+
+		locale.set(lang);
+
+		if ('lang' in params) {
+			const currentPath = page.url.pathname;
+			const newPath = currentPath.replace(`/${$locale}`, `/${lang}`);
+
+			goto(newPath);
+		} else {
+			goto(`/${lang}`);
+		}
+	};
 </script>
 
 <footer class="bg-neutral-900 text-white pt-16 pb-8">
@@ -19,11 +39,17 @@
 				</div>
 				<p class="text-neutral-400 mb-4">
 					{$t('footer.description')}
+					<a
+						href="https://www.linkedin.com/in/nathan-mittelette/"
+						target="_blank"
+						rel="noopener"
+						class="text-blue-400 hover:text-blue-300 transition-colors">Nathan Mittelette</a
+					>.
 				</p>
 				<div class="flex items-center space-x-4">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
 						<button
-							on:click={() => locale.set(lang)}
+							on:click={() => onLocalChange(lang)}
 							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 						>
@@ -38,7 +64,7 @@
 				<ul class="space-y-3">
 					<li>
 						<a
-							href="#introduction"
+							href="/{$locale}"
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.home')}
@@ -46,18 +72,26 @@
 					</li>
 					<li>
 						<a
-							href="#text-editor"
+							href="/{$locale}/about"
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
-							{$t('nav.editor')}
+							{$t('nav.about')}
 						</a>
 					</li>
 					<li>
 						<a
-							href="#contribute"
+							href="/{$locale}/how-it-works"
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
-							{$t('nav.contribute')}
+							{$t('nav.how_it_works')}
+						</a>
+					</li>
+					<li>
+						<a
+							href="/{$locale}/help"
+							class="text-neutral-400 hover:text-white transition-colors duration-300"
+						>
+							{$t('nav.help')}
 						</a>
 					</li>
 				</ul>

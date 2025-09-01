@@ -8,7 +8,17 @@ if (!fs.existsSync(outputDir)) {
 	console.log(`📁 Created directory: ${outputDir}`);
 }
 
-const routes = [{ loc: 'https://boldify.net', priority: '1.0' }];
+const routes = [
+	{ loc: 'https://boldify.net', priority: '1.0' },
+	{ loc: 'https://boldify.net/fr', priority: '1.0' },
+	{ loc: 'https://boldify.net/en', priority: '1.0' },
+	{ loc: 'https://boldify.net/fr/about', priority: '0.9' },
+	{ loc: 'https://boldify.net/en/about', priority: '0.9' },
+	{ loc: 'https://boldify.net/fr/how-it-works', priority: '0.9' },
+	{ loc: 'https://boldify.net/en/how-it-works', priority: '0.9' },
+	{ loc: 'https://boldify.net/fr/help', priority: '0.7' },
+	{ loc: 'https://boldify.net/en/help', priority: '0.7' }
+];
 
 const today = new Date().toISOString().split('T')[0];
 

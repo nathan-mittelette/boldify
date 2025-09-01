@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { locale } from '$lib/services/i18n.service';
 
 	let scrollY = 0;
 	let innerWidth = 0;
 	let mobileMenuOpen = false;
 
 	const navItems = [
-		{ key: 'nav.home', href: '#introduction' },
-		{ key: 'nav.editor', href: '#text-editor' },
-		{ key: 'nav.contribute', href: '#contribute' }
+		{ key: 'nav.home', href: `/${$locale}` },
+		{ key: 'nav.about', href: `/${$locale}/about` },
+		{ key: 'nav.how_it_works', href: `/${$locale}/how-it-works` },
+		{ key: 'nav.help', href: `/${$locale}/help` }
 	];
 
 	function toggleMobileMenu() {
@@ -32,7 +34,7 @@
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<h1 class="text-2xl font-bold">
-				<span class="gradient-text">Boldify</span>
+				<a class="gradient-text" href="/{$locale}">Boldify</a>
 			</h1>
 		</div>
 
