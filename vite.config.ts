@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { existsSync, readdirSync, statSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import config from './svelte.config';
+import { supportedLanguages } from './src/params/lang';
 
 const langPlugin = () =>
 	({
@@ -26,10 +27,16 @@ const langPlugin = () =>
 					} else if (file.endsWith('.html')) {
 						const content = readFileSync(filePath, 'utf8');
 
-						// Determine language from file path
-						let lang = 'fr'; // default
-						if (filePath.includes('/en') || file === 'en.html') {
-							lang = 'en';
+						// Determine language from file path using supportedLanguages
+						// default to the first supported language
+						let lang = supportedLanguages[0] ?? 'fr';
+
+						for (const l of supportedLanguages) {
+							// match directory like `/en/` or filename like `en.html`
+							if (filePath.includes(`/${l}/`) || file === `${l}.html`) {
+								lang = l;
+								break;
+							}
 						}
 
 						// Replace lang attribute

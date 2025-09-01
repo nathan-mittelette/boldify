@@ -20,6 +20,7 @@
 		locale.set(lang);
 
 		if ('lang' in params) {
+			const currentPath = page.url.pathname;
 			const segments = currentPath.split('/');
 			// segments[0] is always '', segments[1] is the locale
 			if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
@@ -53,7 +54,7 @@
 				<div class="flex items-center space-x-4">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
 						<button
-							on:click={() => onLocalChange(lang)}
+							onclick={() => onLocalChange(lang)}
 							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 						>
