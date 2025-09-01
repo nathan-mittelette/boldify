@@ -19,7 +19,7 @@
 	title={$t('help.title')}
 	description={$t('help.description')}
 	keywords={$t('help.keywords')}
-	canonicalUrl="https://boldify.net/${$locale}/help"
+	canonicalUrl="https://boldify.net/{$locale}/help"
 	{languages}
 />
 
