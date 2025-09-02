@@ -17,15 +17,15 @@ resource "aws_cloudfront_distribution" "cd" {
   custom_error_response {
     error_code            = 404
     error_caching_min_ttl = 10
-    response_page_path    = "/index.html"
-    response_code         = 200
+    response_page_path    = "/404.html"
+    response_code         = 404
   }
 
   custom_error_response {
     error_code            = 403
     error_caching_min_ttl = 10
-    response_page_path    = "/index.html"
-    response_code         = 200
+    response_page_path    = "/404.html"
+    response_code         = 404
   }
 
   default_cache_behavior {
@@ -41,6 +41,11 @@ resource "aws_cloudfront_distribution" "cd" {
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.redirect.arn
+    }
   }
 
   viewer_certificate {
@@ -57,6 +62,14 @@ resource "aws_cloudfront_distribution" "cd" {
       restriction_type = "none"
     }
   }
+}
+
+resource "aws_cloudfront_function" "redirect" {
+  name    = "${local.resources_name}-redirect"
+  runtime = "cloudfront-js-2.0"
+  comment = "Function for ${local.resources_name} to redirect to HTML files"
+  publish = true
+  code    = file("${path.module}/redirect.js")
 }
 
 resource "aws_cloudfront_origin_access_control" "oac" {

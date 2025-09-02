@@ -1,17 +1,17 @@
 terraform {
 
   backend "s3" {
-    bucket         = "boldify-tf-state"
-    key            = "terraform/terraform.tfstate"
-    region         = "eu-west-1"
-    dynamodb_table = "terraform-locks"
-    encrypt        = true
+    bucket       = "boldify-tf-state"
+    key          = "terraform/terraform.tfstate"
+    region       = "eu-west-1"
+    use_lockfile = true
+    encrypt      = true
   }
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
 }
