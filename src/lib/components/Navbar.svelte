@@ -32,9 +32,9 @@
 >
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
-			<h1 class="text-2xl font-bold">
+			<p class="text-2xl font-bold">
 				<a class="gradient-text" href="/{$locale}">Boldify</a>
-			</h1>
+			</p>
 		</div>
 
 		<!-- Desktop Menu -->

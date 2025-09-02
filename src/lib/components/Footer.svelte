@@ -2,7 +2,6 @@
 	import { _, t } from 'svelte-i18n';
 	import { locale, SUPPORTED_LANGUAGES } from '$lib/services/i18n.service';
 	import { page } from '$app/state';
-	import { goto } from '$app/navigation';
 	import type { SupportedLanguages } from '../../params/lang';
 
 	const FLAGS: Record<SupportedLanguages, string> = {
@@ -12,27 +11,27 @@
 
 	const currentYear = new Date().getFullYear();
 
-	const onLocalChange = (lang: SupportedLanguages) => {
-		if ($locale === lang) return;
+	const languageUrls = $derived(
+		SUPPORTED_LANGUAGES.reduce(
+			(acc, lang) => {
+				const params = page.params;
 
-		const params = page.params;
-
-		locale.set(lang);
-
-		if ('lang' in params) {
-			const currentPath = page.url.pathname;
-			const segments = currentPath.split('/');
-			// segments[0] is always '', segments[1] is the locale
-			if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
-				segments[1] = lang;
-			}
-			const newPath = segments.join('/');
-
-			goto(newPath);
-		} else {
-			goto(`/${lang}`);
-		}
-	};
+				if ('lang' in params) {
+					const currentPath = page.url.pathname;
+					const segments = currentPath.split('/');
+					// segments[0] is always '', segments[1] is the locale
+					if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
+						segments[1] = lang;
+					}
+					acc[lang] = segments.join('/');
+				} else {
+					acc[lang] = `/${lang}`;
+				}
+				return acc;
+			},
+			{} as Record<SupportedLanguages, string>
+		)
+	);
 </script>
 
 <footer class="bg-neutral-900 text-white pt-16 pb-8">
@@ -53,13 +52,14 @@
 				</p>
 				<div class="flex items-center space-x-4">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
-						<button
-							onclick={() => onLocalChange(lang)}
+						<a
+							href={languageUrls[lang]}
 							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
+							hreflang={lang}
 						>
 							<span class="text-lg">{FLAGS[lang] ?? lang}</span>
-						</button>
+						</a>
 					{/each}
 				</div>
 			</div>

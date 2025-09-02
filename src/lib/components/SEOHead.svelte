@@ -1,10 +1,43 @@
 <script lang="ts">
-	export let title: string;
-	export let description: string;
-	export let keywords: string;
-	export let canonicalUrl: string = 'https://boldify.net/';
-	export let ogImage: string = 'https://boldify.net/favicon-96x96.png';
-	export let languages: { lang: string; url: string }[] = [];
+	import { locale } from '$lib/services/i18n.service';
+	import { page } from '$app/stores';
+
+	interface Props {
+		title: string;
+		description: string;
+		keywords: string;
+		canonicalUrl?: string;
+		ogImage?: string;
+		languages?: { lang: string; url: string }[];
+	}
+
+	const {
+		title,
+		description,
+		keywords,
+		canonicalUrl = 'https://boldify.net/',
+		ogImage = 'https://boldify.net/favicon-96x96.png',
+		languages = []
+	}: Props = $props();
+
+	const allLanguages = $derived.by(() => {
+		const allLangs = [...languages];
+
+		if ($locale) {
+			const currentLangIndex = allLangs.findIndex((lang) => lang.lang === $locale);
+			const currentUrl = `https://boldify.net${$page.url.pathname}`;
+
+			if (currentLangIndex !== -1) {
+				// Update existing current language URL to match current page
+				allLangs[currentLangIndex].url = currentUrl;
+			} else {
+				// Add current language with current page URL
+				allLangs.push({ lang: $locale, url: currentUrl });
+			}
+		}
+
+		return allLangs;
+	});
 </script>
 
 <svelte:head>
@@ -21,8 +54,8 @@
 	<meta name="twitter:url" content={canonicalUrl} />
 	<meta name="twitter:image" content={ogImage} />
 
-	{#if languages.length > 0}
-		{#each languages as { lang, url } (lang)}
+	{#if allLanguages.length > 0}
+		{#each allLanguages as { lang, url } (lang)}
 			<link rel="alternate" hreflang={lang} href={url} />
 		{/each}
 	{/if}
