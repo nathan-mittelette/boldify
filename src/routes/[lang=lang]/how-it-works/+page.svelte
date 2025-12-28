@@ -2,6 +2,7 @@
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import { locale } from '$lib/services/i18n.service';
+	import { resolve } from '$app/paths';
 
 	const languages = [
 		{ lang: 'en', url: 'https://boldify.net/en/how-it-works' },
@@ -81,7 +82,7 @@
 			{$t('how_it_works.cta_description')}
 		</p>
 		<a
-			href="/{$locale}#text-editor"
+			href={resolve(`/${$locale}#text-editor`)}
 			class="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
 		>
 			{$t('how_it_works.cta_button')}

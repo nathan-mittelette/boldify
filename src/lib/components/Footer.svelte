@@ -3,6 +3,7 @@
 	import { locale, SUPPORTED_LANGUAGES } from '$lib/services/i18n.service';
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
+	import { resolve } from '$app/paths';
 
 	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
@@ -23,13 +24,13 @@
 					if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
 						segments[1] = lang;
 					}
-					acc[lang] = segments.join('/');
+					acc[lang] = segments.join('/') as `/${SupportedLanguages}${string}`;
 				} else {
 					acc[lang] = `/${lang}`;
 				}
 				return acc;
 			},
-			{} as Record<SupportedLanguages, string>
+			{} as Record<SupportedLanguages, `/${SupportedLanguages}${string}`>
 		)
 	);
 </script>
@@ -53,7 +54,7 @@
 				<div class="flex items-center space-x-4">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
 						<a
-							href={languageUrls[lang]}
+							href={resolve(languageUrls[lang])}
 							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 							hreflang={lang}
@@ -69,7 +70,7 @@
 				<ul class="space-y-3">
 					<li>
 						<a
-							href="/{$locale}"
+							href={resolve(`/${$locale}`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.home')}
@@ -77,7 +78,7 @@
 					</li>
 					<li>
 						<a
-							href="/{$locale}/about"
+							href={resolve(`/${$locale}/about`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.about')}
@@ -85,7 +86,7 @@
 					</li>
 					<li>
 						<a
-							href="/{$locale}/how-it-works"
+							href={resolve(`/${$locale}/how-it-works`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.how_it_works')}
@@ -93,7 +94,7 @@
 					</li>
 					<li>
 						<a
-							href="/{$locale}/help"
+							href={resolve(`/${$locale}/help`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.help')}

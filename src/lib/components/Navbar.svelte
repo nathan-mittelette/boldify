@@ -1,17 +1,24 @@
 <script lang="ts">
+	type NavItem = {
+		key: string;
+		href: `/${SupportedLanguages}${string}`;
+	};
+
 	import { t } from 'svelte-i18n';
 	import { locale } from '$lib/services/i18n.service';
+	import { resolve } from '$app/paths';
+	import type { SupportedLanguages } from '../../params/lang';
 
 	let scrollY = $state(0);
 	let innerWidth = $state(0);
 	let mobileMenuOpen = $state(false);
 	let isScrolled = $derived(scrollY > 20);
 
-	const navItems = $derived([
-		{ key: 'nav.home', href: `/${$locale}` },
-		{ key: 'nav.about', href: `/${$locale}/about` },
-		{ key: 'nav.how_it_works', href: `/${$locale}/how-it-works` },
-		{ key: 'nav.help', href: `/${$locale}/help` }
+	const navItems = $derived<NavItem[]>([
+		{ key: 'nav.home', href: `/${$locale as SupportedLanguages}` },
+		{ key: 'nav.about', href: `/${$locale as SupportedLanguages}/about` },
+		{ key: 'nav.how_it_works', href: `/${$locale as SupportedLanguages}/how-it-works` },
+		{ key: 'nav.help', href: `/${$locale as SupportedLanguages}/help` }
 	]);
 
 	function toggleMobileMenu() {
@@ -33,7 +40,7 @@
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<p class="text-2xl font-bold">
-				<a class="gradient-text" href="/{$locale}">Boldify</a>
+				<a class="gradient-text" href={resolve(`/${$locale}`)}>Boldify</a>
 			</p>
 		</div>
 
@@ -42,7 +49,7 @@
 			{#each navItems as { key, href } (key)}
 				<li>
 					<a
-						{href}
+						href={resolve(href)}
 						class="font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full {isScrolled
 							? 'text-neutral-700 hover:text-primary'
 							: 'text-gray-400 hover:text-primary'}"
@@ -127,7 +134,7 @@
 				{#each navItems as { key, href } (key)}
 					<li>
 						<a
-							{href}
+							href={resolve(href)}
 							class="block py-2 font-medium text-neutral-700 hover:text-primary"
 							onclick={closeMobileMenu}
 						>
