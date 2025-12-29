@@ -6,7 +6,11 @@ test.describe('Core Functionality Tests', () => {
 		await page.waitForSelector('#editor', { state: 'visible' });
 		await page.waitForSelector('.post-container', { state: 'visible' });
 		await page.waitForSelector('#editor .ql-editor', { state: 'visible' });
-		await page.waitForTimeout(1000);
+		// Wait for Quill editor to be fully initialized
+		await page.waitForFunction(() => {
+			const editor = document.querySelector('#editor .ql-editor');
+			return editor && editor.textContent && editor.textContent.length > 0;
+		});
 	});
 
 	test('should display main components correctly', async ({ page }) => {
@@ -24,8 +28,8 @@ test.describe('Core Functionality Tests', () => {
 		// Check preview is visible
 		await expect(page.locator('.post-container').first()).toBeVisible();
 
-		// Check copy button is visible
-		await expect(page.getByText('Copy', { exact: false })).toBeVisible();
+		// Check copy button is visible (using aria-label for language independence)
+		await expect(page.getByRole('button', { name: 'Copy to clipboard' })).toBeVisible();
 
 		// Check character counter is visible
 		await expect(page.getByText(/\d+ \/ 3000/)).toBeVisible();
@@ -53,24 +57,18 @@ test.describe('Core Functionality Tests', () => {
 		await page.keyboard.type('Test formatting');
 		await page.keyboard.press('Control+A');
 
-		// Test each formatting button can be clicked
+		// Test each formatting button can be clicked without errors
 		await page.locator('.ql-bold').click();
-		await page.waitForTimeout(100);
-
 		await page.locator('.ql-italic').click();
-		await page.waitForTimeout(100);
-
 		await page.locator('.ql-underline').click();
-		await page.waitForTimeout(100);
-
 		await page.locator('.ql-strike').click();
-		await page.waitForTimeout(100);
 
 		// All clicks completed without error - test passes
 	});
 
 	test('should handle copy functionality', async ({ page }) => {
-		const copyButton = page.getByText('Copy', { exact: false });
+		// Use aria-label for language-independent selector
+		const copyButton = page.getByRole('button', { name: 'Copy to clipboard' });
 
 		// Grant clipboard permissions (handle browser differences)
 		try {
@@ -95,12 +93,9 @@ test.describe('Core Functionality Tests', () => {
 		const undoButton = page.locator('.ql-undo');
 		const redoButton = page.locator('.ql-redo');
 
-		// Buttons should be clickable
+		// Buttons should be clickable without errors
 		await undoButton.click();
-		await page.waitForTimeout(100);
-
 		await redoButton.click();
-		await page.waitForTimeout(100);
 
 		// No errors - test passes
 	});
@@ -115,13 +110,9 @@ test.describe('Core Functionality Tests', () => {
 		await page.keyboard.press('End');
 		await page.keyboard.type('List item');
 
-		// Test ordered list button
+		// Test buttons can be clicked without errors
 		await orderedListButton.click();
-		await page.waitForTimeout(200);
-
-		// Test bullet list button
 		await bulletListButton.click();
-		await page.waitForTimeout(200);
 
 		// No errors - test passes
 	});
