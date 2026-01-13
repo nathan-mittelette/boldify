@@ -29,7 +29,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"post:build": "node devops/scripts/generate_robots.js && node devops/scripts/generate_sitemap.js",
+		"post:build": "node devops/scripts/generate_robots.js && node devops/scripts/generate_sitemap.js && node devops/scripts/generate_indexnow.js",
 		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run build"
 	},
 	"devDependencies": {

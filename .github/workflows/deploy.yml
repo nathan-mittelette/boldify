@@ -62,3 +62,7 @@ jobs:
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
+
+      - name: Notify IndexNow content upgrade
+        run: |
+          node devops/scripts/notify_indexnow.js
