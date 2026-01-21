@@ -114,6 +114,7 @@
 		</p>
 		<article
 			class="max-w-3xl mx-auto md:p-6 p-4 overflow-visible w-full max-h-[70vh] h-fit animate-fade-in"
+			data-clarity-mask="true"
 		>
 			<div id="toolbar" class="rounded-t-lg">
 				<span class="ql-formats">
@@ -159,7 +160,11 @@
 			<div
 				class="w-full text-editor-actions rounded-b bg-white p-3 flex flex-wrap justify-between items-center gap-2"
 			>
-				<button onclick={copyToClipboard} class="btn btn-primary py-2 px-4 text-sm cursor-pointer">
+				<button
+					onclick={copyToClipboard}
+					class="btn btn-primary py-2 px-4 text-sm cursor-pointer"
+					aria-label="Copy to clipboard"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"

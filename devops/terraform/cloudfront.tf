@@ -34,13 +34,10 @@ resource "aws_cloudfront_distribution" "cd" {
     cached_methods             = ["GET", "HEAD", "OPTIONS"]
     target_origin_id           = "${local.resources_name}-sb"
     compress                   = true
-    default_ttl                = 0
-    max_ttl                    = 0
     origin_request_policy_id   = data.aws_cloudfront_origin_request_policy.cors_s3_policy.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.security_seo_policy.id
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
 
     function_association {
       event_type   = "viewer-request"

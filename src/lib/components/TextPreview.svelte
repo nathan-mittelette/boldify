@@ -94,7 +94,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="mx-3 text-container">
+	<div class="mx-3 text-container" data-clarity-mask="true">
 		<pre
 			class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word (word)}{#if word.highlight}<span
 						class="highlight">{word.text}</span
