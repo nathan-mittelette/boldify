@@ -114,6 +114,7 @@
 		</p>
 		<article
 			class="max-w-3xl mx-auto md:p-6 p-4 overflow-visible w-full max-h-[70vh] h-fit animate-fade-in"
+			data-clarity-mask="true"
 		>
 			<div id="toolbar" class="rounded-t-lg">
 				<span class="ql-formats">
