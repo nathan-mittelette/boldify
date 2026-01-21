@@ -4,12 +4,29 @@
 	import TextEditor from '$lib/components/TextEditor.svelte';
 	import TextPreviewContainer from '$lib/components/TextPreviewContainer.svelte';
 	import SEOHead from '$lib/components/SEOHead.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { t } from 'svelte-i18n';
 
 	const languages = [
 		{ lang: 'en', url: 'https://boldify.net/en' },
 		{ lang: 'fr', url: 'https://boldify.net/fr' }
 	];
+
+	const productSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'Product',
+		name: 'Boldify - Formatage Gras LinkedIn',
+		description: $t('introduction.description'),
+		url: 'https://boldify.net/',
+		image: 'https://boldify.net/favicon-96x96.png',
+		offers: {
+			'@type': 'Offer',
+			price: '0',
+			priceCurrency: 'EUR',
+			availability: 'https://schema.org/InStock',
+			url: 'https://boldify.net/'
+		}
+	});
 </script>
 
 <SEOHead
@@ -19,6 +36,8 @@
 	canonicalUrl="https://boldify.net/"
 	{languages}
 />
+
+<JsonLd schema={productSchema} />
 
 <div class="flex flex-col min-h-screen">
 	<!-- Hero Section -->
