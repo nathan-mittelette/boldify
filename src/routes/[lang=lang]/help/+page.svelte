@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { locale } from '$lib/services/i18n.service';
+	import { page } from '$app/state';
 
-	let openFAQ: number | null = null;
+	let openFAQ = $state<number | null>(null);
 
 	function toggleFAQ(index: number) {
 		openFAQ = openFAQ === index ? null : index;
@@ -13,7 +15,111 @@
 		{ lang: 'en', url: 'https://boldify.net/en/help' },
 		{ lang: 'fr', url: 'https://boldify.net/fr/help' }
 	];
+
+	const faqSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		name: 'FAQ - Boldify',
+		url: page.url.href,
+		mainEntity: [
+			{
+				'@type': 'Question',
+				name: $t('help.faq1_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: $t('help.faq1_a1') + ' ' + $t('help.faq1_a2')
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq2_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: $t('help.faq2_a')
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq3_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: $t('help.faq3_a')
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq4_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: `
+						<p>${$t('help.faq4_a1')}</p>
+						<ul>
+							<li><strong>${$t('help.faq4_bold')}</strong> - ${$t('help.faq4_bold_desc')}</li>
+							<li><strong>${$t('help.faq4_italic')}</strong> - ${$t('help.faq4_italic_desc')}</li>
+							<li><strong>${$t('help.faq4_underline')}</strong> - ${$t('help.faq4_underline_desc')}</li>
+							<li><strong>${$t('help.faq4_strike')}</strong> - ${$t('help.faq4_strike_desc')}</li>
+							<li><strong>${$t('help.faq4_lists')}</strong> - ${$t('help.faq4_lists_desc')}</li>
+						</ul>
+					`
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq5_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: `
+						<p>${$t('help.faq5_a1')}</p>
+						<ol>
+							<li>${$t('help.faq5_step1')}</li>
+							<li>${$t('help.faq5_step2')}</li>
+							<li>${$t('help.faq5_step3')}</li>
+							<li>${$t('help.faq5_step4')}</li>
+							<li>${$t('help.faq5_step5')}</li>
+						</ol>
+					`
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq6_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: `
+						<p>${$t('help.faq6_a1')}</p>
+						<ul>
+							<li>${$t('help.faq6_sol1')}</li>
+							<li>${$t('help.faq6_sol2')}</li>
+							<li>${$t('help.faq6_sol3')}</li>
+							<li>${$t('help.faq6_sol4')}</li>
+						</ul>
+					`
+				}
+			},
+			{
+				'@type': 'Question',
+				name: $t('help.faq7_q'),
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: `
+						<p>${$t('help.faq7_a1')}</p>
+						<ul>
+							<li>Facebook</li>
+							<li>Twitter/X</li>
+							<li>Instagram ${$t('help.faq7_captions')}</li>
+							<li>WhatsApp</li>
+							<li>Telegram</li>
+							<li>${$t('help.faq7_email')}</li>
+						</ul>
+						<p>${$t('help.faq7_a2')}</p>
+					`
+				}
+			}
+		]
+	});
 </script>
+
+<JsonLd schema={faqSchema} />
 
 <SEOHead
 	title={$t('help.title')}
@@ -94,7 +200,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(0)}
+					onclick={() => toggleFAQ(0)}
 				>
 					{$t('help.faq1_q')}
 					<svg
@@ -127,7 +233,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(1)}
+					onclick={() => toggleFAQ(1)}
 				>
 					{$t('help.faq2_q')}
 					<svg
@@ -159,7 +265,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(2)}
+					onclick={() => toggleFAQ(2)}
 				>
 					{$t('help.faq3_q')}
 					<svg
@@ -191,7 +297,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(3)}
+					onclick={() => toggleFAQ(3)}
 				>
 					{$t('help.faq4_q')}
 					<svg
@@ -232,7 +338,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(4)}
+					onclick={() => toggleFAQ(4)}
 				>
 					{$t('help.faq5_q')}
 					<svg
@@ -271,7 +377,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(5)}
+					onclick={() => toggleFAQ(5)}
 				>
 					{$t('help.faq6_q')}
 					<svg
@@ -309,7 +415,7 @@
 			<div class="bg-white border rounded-lg overflow-hidden">
 				<button
 					class="w-full text-left p-6 font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center cursor-pointer"
-					on:click={() => toggleFAQ(6)}
+					onclick={() => toggleFAQ(6)}
 				>
 					{$t('help.faq7_q')}
 					<svg
