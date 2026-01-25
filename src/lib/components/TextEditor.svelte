@@ -97,9 +97,7 @@
 	});
 
 	onDestroy(() => {
-		if (observer) {
-			return () => observer.disconnect();
-		}
+		observer?.disconnect();
 	});
 </script>
 
