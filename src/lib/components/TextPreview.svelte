@@ -43,8 +43,8 @@
 		<enhanced:img
 			src="/static/profile.png"
 			title="User Avatar"
-			width="72"
-			height="72"
+			width="96"
+			height="96"
 			alt="User Avatar"
 			class="size-12 rounded-full"
 		/>
