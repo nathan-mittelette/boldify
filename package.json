@@ -59,7 +59,7 @@
 		"prettier-plugin-svelte": "^3.4.1",
 		"sass-embedded": "^1.97.3",
 		"svelte": "^5.48.2",
-		"svelte-check": "^4.3.5",
+		"svelte-check": "^4.3.6",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.53.1",
