@@ -40,7 +40,7 @@
 		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run test:all && pnpm run build"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^2.0.1",
+		"@eslint/compat": "^2.0.2",
 		"@eslint/js": "^9.39.2",
 		"@playwright/test": "^1.58.0",
 		"@sveltejs/adapter-static": "^3.0.10",
