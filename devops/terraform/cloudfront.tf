@@ -5,6 +5,10 @@ resource "aws_cloudfront_distribution" "cd" {
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
     connection_attempts      = 3
     connection_timeout       = 10
+    origin_shield {
+      enabled              = true
+      origin_shield_region = aws_s3_bucket.sb.region
+    }
   }
 
   aliases = [var.domain_name]
