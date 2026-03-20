@@ -1,3 +1,4 @@
+import devtoolsJson from 'vite-plugin-devtools-json';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, type Plugin } from 'vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';
@@ -54,5 +55,5 @@ const langPlugin = () =>
 	}) as Plugin;
 
 export default defineConfig({
-	plugins: [enhancedImages(), sveltekit(), tailwindcss(), langPlugin()]
+	plugins: [enhancedImages(), sveltekit(), tailwindcss(), langPlugin(), devtoolsJson()]
 });

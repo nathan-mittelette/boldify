@@ -17,6 +17,11 @@ export let isInitialized = false;
 
 // Initialize i18n with default language from browser or user's saved language
 export async function initI18n(lang: SupportedLanguages): Promise<void> {
+	if (isInitialized) {
+		locale.set(lang);
+		return;
+	}
+
 	isInitialized = true;
 
 	await init({
