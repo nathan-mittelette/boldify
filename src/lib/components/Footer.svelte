@@ -7,7 +7,12 @@
 
 	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
-		en: '🇬🇧'
+		en: '🇬🇧',
+		es: '🇪🇸',
+		pt: '🇧🇷',
+		de: '🇩🇪',
+		tr: '🇹🇷',
+		pl: '🇵🇱'
 	};
 
 	const currentYear = new Date().getFullYear();
