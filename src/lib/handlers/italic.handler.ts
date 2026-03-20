@@ -30,9 +30,9 @@ const accentMap: Record<string, string> = {
 	ï: 'i\u0308',
 	ç: 'c\u0327',
 	// Spanish accents
-	ã: 'a\u0303',
 	ñ: 'n\u0303',
 	// Portuguese accents
+	ã: 'a\u0303',
 	õ: 'o\u0303',
 	// German accents (ä, ö, ü already covered above)
 	// Turkish accents

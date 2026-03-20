@@ -55,5 +55,5 @@ const langPlugin = () =>
 	}) as Plugin;
 
 export default defineConfig({
-	plugins: [enhancedImages(), sveltekit(), tailwindcss(), langPlugin(), devtoolsJson()]
+	plugins: [enhancedImages(), sveltekit(), tailwindcss(), langPlugin(), devtoolsJson({ apply: 'serve' })]
 });
