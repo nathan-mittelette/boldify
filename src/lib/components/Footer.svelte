@@ -7,7 +7,12 @@
 
 	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
-		en: '🇬🇧'
+		en: '🇬🇧',
+		es: '🇪🇸',
+		pt: '🇧🇷',
+		de: '🇩🇪',
+		tr: '🇹🇷',
+		pl: '🇵🇱'
 	};
 
 	const currentYear = new Date().getFullYear();
@@ -58,6 +63,7 @@
 							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 							hreflang={lang}
+							data-sveltekit-preload-data="off"
 						>
 							<span class="text-lg">{FLAGS[lang] ?? lang}</span>
 						</a>

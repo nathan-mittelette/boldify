@@ -71,6 +71,40 @@ describe('boldHandler', () => {
 			const backToNormal = boldHandler(bold);
 			expect(backToNormal).toBe(text);
 		});
+
+		it('should handle Spanish accents round-trip', () => {
+			const text = 'ãñÃÑ';
+			const bold = boldHandler(text);
+			const backToNormal = boldHandler(bold);
+			expect(backToNormal).toBe(text);
+		});
+
+		it('should handle Portuguese accents round-trip', () => {
+			const text = 'õÕ';
+			const bold = boldHandler(text);
+			const backToNormal = boldHandler(bold);
+			expect(backToNormal).toBe(text);
+		});
+
+		it('should handle Turkish accents round-trip', () => {
+			const text = 'ğşĞİŞ';
+			const bold = boldHandler(text);
+			const backToNormal = boldHandler(bold);
+			expect(backToNormal).toBe(text);
+		});
+
+		it('should handle Polish accents round-trip', () => {
+			const text = 'ąćęłńśźżĄĆĘŁŃŚŹŻ';
+			const bold = boldHandler(text);
+			const backToNormal = boldHandler(bold);
+			expect(backToNormal).toBe(text);
+		});
+
+		it('should pass through unsupported characters unchanged (ß, ı)', () => {
+			const result = boldHandler('ßı');
+			expect(result).toContain('ß');
+			expect(result).toContain('ı');
+		});
 	});
 
 	describe('special characters and punctuation', () => {

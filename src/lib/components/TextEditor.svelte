@@ -27,6 +27,7 @@
 
 	let editorRef: HTMLDivElement;
 	let observer: MutationObserver;
+	let isDefaultText = true;
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText($text);
@@ -85,7 +86,11 @@
 		editor.setText($t('editor.default_text'));
 		text.set($t('editor.default_text'));
 
-		editor.on('text-change', () => {
+		editor.on('text-change', (_, __, source) => {
+			if (source === 'user') {
+				isDefaultText = false;
+			}
+
 			const content = editor.getText();
 
 			if (content.trim()) {
@@ -94,6 +99,14 @@
 				text.set($t('editor.placeholder') + ' ');
 			}
 		});
+	});
+
+	$effect(() => {
+		const defaultText = $t('editor.default_text');
+		if (editor && isDefaultText) {
+			editor.setText(defaultText);
+			text.set(defaultText);
+		}
 	});
 
 	onDestroy(() => {
