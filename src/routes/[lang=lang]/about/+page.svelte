@@ -3,11 +3,9 @@
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import { locale } from '$lib/services/i18n.service';
 	import { resolve } from '$app/paths';
+	import { buildHreflang } from '$lib/utils/hreflang';
 
-	const languages = [
-		{ lang: 'en', url: 'https://boldify.net/en/about' },
-		{ lang: 'fr', url: 'https://boldify.net/fr/about' }
-	];
+	const languages = buildHreflang('/about');
 </script>
 
 <SEOHead

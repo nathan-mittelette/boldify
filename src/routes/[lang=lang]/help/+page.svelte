@@ -4,6 +4,7 @@
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { locale } from '$lib/services/i18n.service';
 	import { page } from '$app/state';
+	import { buildHreflang } from '$lib/utils/hreflang';
 
 	let openFAQ = $state<number | null>(null);
 
@@ -11,10 +12,7 @@
 		openFAQ = openFAQ === index ? null : index;
 	}
 
-	const languages = [
-		{ lang: 'en', url: 'https://boldify.net/en/help' },
-		{ lang: 'fr', url: 'https://boldify.net/fr/help' }
-	];
+	const languages = buildHreflang('/help');
 
 	const faqSchema = $derived({
 		'@context': 'https://schema.org',

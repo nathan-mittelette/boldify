@@ -10,7 +10,6 @@ if (!fs.existsSync(outputDir)) {
 
 const routes = [
 	{ loc: 'https://boldify.net', priority: '1.0' },
-	{ loc: 'https://boldify.net/fr', priority: '1.0' },
 	{ loc: 'https://boldify.net/en', priority: '1.0' },
 	{ loc: 'https://boldify.net/es', priority: '1.0' },
 	{ loc: 'https://boldify.net/pt', priority: '1.0' },
