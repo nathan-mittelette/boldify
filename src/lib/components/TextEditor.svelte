@@ -26,6 +26,7 @@
 	let characters = $derived<number>($text.length - 1); // -1 because Quill adds a newline character
 
 	let editorRef: HTMLDivElement;
+	let toolbarRef: HTMLDivElement;
 	let observer: MutationObserver;
 	let isDefaultText = true;
 
@@ -38,6 +39,8 @@
 	};
 
 	let editor: Quill;
+	// Separate reactive flag — avoids wrapping the Quill instance in a Svelte proxy
+	let editorReady = $state(false);
 
 	onMount(async () => {
 		if (!browser) return;
@@ -65,7 +68,7 @@
 			},
 			modules: {
 				toolbar: {
-					container: '#toolbar',
+					container: toolbarRef,
 					handlers: {
 						bold: () => handleUpdateToText(editor, boldHandler),
 						italic: () => handleUpdateToText(editor, italicHandler),
@@ -81,10 +84,9 @@
 			placeholder: $t('editor.placeholder')
 		};
 
-		editor = new Quill('#editor', options);
-
-		editor.setText($t('editor.default_text'));
-		text.set($t('editor.default_text'));
+		editor = new Quill(editorRef, options);
+		// Signal readiness — triggers $effect to set the initial text
+		editorReady = true;
 
 		editor.on('text-change', (_, __, source) => {
 			if (source === 'user') {
@@ -103,7 +105,7 @@
 
 	$effect(() => {
 		const defaultText = $t('editor.default_text');
-		if (editor && isDefaultText) {
+		if (editorReady && isDefaultText) {
 			editor.setText(defaultText);
 			text.set(defaultText);
 		}
@@ -127,7 +129,7 @@
 			class="max-w-3xl mx-auto md:p-6 p-4 overflow-visible w-full max-h-[70vh] h-fit animate-fade-in"
 			data-clarity-mask="true"
 		>
-			<div id="toolbar" class="rounded-t-lg">
+			<div id="toolbar" class="rounded-t-lg" bind:this={toolbarRef}>
 				<span class="ql-formats">
 					<button type="button" class="ql-undo" aria-pressed="false" aria-label="undo">
 						<svg viewBox="0 0 24 24"><path class="ql-stroke" d="M15 19l-7-7 7-7v14z" /></svg>

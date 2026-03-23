@@ -56,16 +56,16 @@
 						class="text-blue-400 hover:text-blue-300 transition-colors">Nathan Mittelette</a
 					>.
 				</p>
-				<div class="flex items-center space-x-4">
+				<div class="flex items-center gap-2 flex-wrap">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
 						<a
 							href={resolve(languageUrls[lang])}
-							class="flex items-center justify-center w-10 h-10 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer"
+							class="flex items-center justify-center size-8 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer shrink-0 overflow-hidden"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 							hreflang={lang}
 							data-sveltekit-preload-data="off"
 						>
-							<span class="text-lg">{FLAGS[lang] ?? lang}</span>
+							<span class="text-base leading-none">{FLAGS[lang] ?? lang}</span>
 						</a>
 					{/each}
 				</div>

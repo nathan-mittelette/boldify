@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
-	import { locale } from '$lib/services/i18n.service';
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import { buildHreflang } from '$lib/utils/hreflang';
 
 	const languages = buildHreflang('/about');
+	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/about`);
 </script>
 
 <SEOHead
 	title={$t('about.title')}
 	description={$t('about.description')}
 	keywords={$t('about.keywords')}
-	canonicalUrl="https://boldify.net/{$locale}/about"
+	{canonicalUrl}
 	{languages}
 />
 
@@ -97,7 +98,7 @@
 			{$t('about.cta_description')}
 		</p>
 		<a
-			href={resolve(`/${$locale}#text-editor`)}
+			href={resolve(`/${page.params.lang}#text-editor`)}
 			class="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
 		>
 			{$t('about.cta_button')}

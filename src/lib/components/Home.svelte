@@ -6,12 +6,14 @@
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { t } from 'svelte-i18n';
-	import { locale } from '$lib/services/i18n.service';
+	import { page } from '$app/state';
 	import { buildHomeHreflang } from '$lib/utils/hreflang';
 
 	const languages = buildHomeHreflang();
 	const canonicalUrl = $derived(
-		$locale === 'fr' ? 'https://boldify.net/' : `https://boldify.net/${$locale ?? 'fr'}`
+		!page.params.lang || page.params.lang === 'fr'
+			? 'https://boldify.net/'
+			: `https://boldify.net/${page.params.lang}`
 	);
 
 	const productSchema = $derived({

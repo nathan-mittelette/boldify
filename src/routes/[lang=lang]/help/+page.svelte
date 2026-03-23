@@ -2,7 +2,6 @@
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
-	import { locale } from '$lib/services/i18n.service';
 	import { page } from '$app/state';
 	import { buildHreflang } from '$lib/utils/hreflang';
 
@@ -13,6 +12,7 @@
 	}
 
 	const languages = buildHreflang('/help');
+	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/help`);
 
 	const faqSchema = $derived({
 		'@context': 'https://schema.org',
@@ -123,7 +123,7 @@
 	title={$t('help.title')}
 	description={$t('help.description')}
 	keywords={$t('help.keywords')}
-	canonicalUrl="https://boldify.net/{$locale}/help"
+	{canonicalUrl}
 	{languages}
 />
 

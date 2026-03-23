@@ -1,4 +1,4 @@
-import { init, locale, register } from 'svelte-i18n';
+import { init, locale, register, waitLocale } from 'svelte-i18n';
 import type { SupportedLanguages } from '../../params/lang';
 
 // Save available languages
@@ -19,6 +19,7 @@ export let isInitialized = false;
 export async function initI18n(lang: SupportedLanguages): Promise<void> {
 	if (isInitialized) {
 		locale.set(lang);
+		await waitLocale(lang);
 		return;
 	}
 
@@ -28,6 +29,7 @@ export async function initI18n(lang: SupportedLanguages): Promise<void> {
 		fallbackLocale: DEFAULT_LANGUAGE,
 		initialLocale: lang
 	});
+	await waitLocale(lang);
 }
 
 export { locale };
