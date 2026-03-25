@@ -41,7 +41,7 @@ jobs:
           aws-region: 'eu-west-1'
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
         with:
           terraform_version: 1.10.2
           terraform_wrapper: false
