@@ -138,7 +138,7 @@
 			<div>
 				<h4 class="text-lg font-semibold mb-6">{$t('footer.support')}</h4>
 				<a
-					href="https://www.buymeacoffee.com/boldify"
+					href="https://buymeacoffee.com/boldify"
 					target="_blank"
 					rel="noopener"
 					class="btn btn-accent inline-flex items-center"

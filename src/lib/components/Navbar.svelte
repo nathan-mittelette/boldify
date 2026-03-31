@@ -69,7 +69,7 @@
 			{/each}
 			<li>
 				<a
-					href="https://www.buymeacoffee.com/boldify"
+					href="https://buymeacoffee.com/boldify"
 					target="_blank"
 					rel="noopener"
 					class="btn btn-accent ml-4"
