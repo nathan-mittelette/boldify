@@ -28,7 +28,13 @@
 			price: '0',
 			priceCurrency: 'EUR',
 			availability: 'https://schema.org/InStock',
-			url: 'https://boldify.net/'
+			url: 'https://boldify.net/',
+			hoursAvailable: {
+				'@type': 'OpeningHoursSpecification',
+				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+				opens: '00:00',
+				closes: '23:59'
+			}
 		}
 	});
 </script>

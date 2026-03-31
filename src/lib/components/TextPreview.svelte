@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import profile from '$lib/assets/profile.png?enhanced';
 
 	interface Props {
 		name: string;
@@ -41,14 +42,14 @@
 <div class="flex flex-col bg-white post-container shadow-sm rounded-md m-auto my-4 z-10">
 	<div class="px-4 pt-3 mb-2 flex items-center">
 		<enhanced:img
-			src="/static/profile.png"
+			src={profile}
 			title="User Avatar"
 			width="96"
 			height="96"
 			alt="User Avatar"
 			class="size-12 rounded-full"
 		/>
-		<div class="flex-1 p-[2px] ml-3 cursor-pointer flex justify-between">
+		<div class="flex-1 p-0.5 ml-3 cursor-pointer flex justify-between">
 			<div>
 				<p>
 					<span
@@ -96,7 +97,7 @@
 	</div>
 	<div class="mx-3 text-container" data-clarity-mask="true">
 		<pre
-			class="text-[#000000E5] text-sm whitespace-pre-wrap break-words">{#each customizedText as word (word)}{#if word.highlight}<span
+			class="text-[#000000E5] text-sm whitespace-pre-wrap wrap-break-word">{#each customizedText as word (word)}{#if word.highlight}<span
 						class="highlight">{word.text}</span
 					>{:else}{word.text}{/if}{/each}</pre>
 	</div>
@@ -114,7 +115,7 @@
 					title="Love Icon"
 				/>
 				<img
-					class="size-4 ml-[-4px]"
+					class="size-4 -ml-1"
 					width="16"
 					height="16"
 					src="/like.svg"
@@ -122,7 +123,7 @@
 					title="Like Icon"
 				/>
 				<img
-					class="size-4 ml-[-4px]"
+					class="size-4 -ml-1"
 					width="16"
 					height="16"
 					title="Interesting Icon"

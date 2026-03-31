@@ -28,6 +28,14 @@
 	function closeMobileMenu() {
 		mobileMenuOpen = false;
 	}
+
+	function getHomeUrl(currentLang: string | null | undefined): `/${string}` | '/' {
+		if (currentLang === 'fr' || currentLang === null || currentLang === undefined) {
+			return '/';
+		} else {
+			return `/${currentLang}`;
+		}
+	}
 </script>
 
 <svelte:window bind:scrollY bind:innerWidth />
@@ -40,7 +48,7 @@
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<p class="text-2xl font-bold">
-				<a class="gradient-text" href={resolve(`/${$locale}`)}>Boldify</a>
+				<a class="gradient-text" href={resolve(getHomeUrl($locale))}>Boldify</a>
 			</p>
 		</div>
 
@@ -50,7 +58,7 @@
 				<li>
 					<a
 						href={resolve(href)}
-						class="font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full {isScrolled
+						class="font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full {isScrolled
 							? 'text-neutral-700 hover:text-primary'
 							: 'text-gray-400 hover:text-primary'}"
 						onclick={closeMobileMenu}
@@ -144,7 +152,7 @@
 				{/each}
 				<li>
 					<a
-						href="https://www.buymeacoffee.com/boldify"
+						href="https://buymeacoffee.com/boldify"
 						target="_blank"
 						rel="noopener"
 						class="btn btn-accent w-full justify-center"
