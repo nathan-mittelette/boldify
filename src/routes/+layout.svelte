@@ -44,7 +44,12 @@
 				contactType: 'technical support',
 				contactOption: 'TollFree',
 				email: 'mittelette.nathan@gmail.com',
-				hoursAvailable: 'Mo,Tu,We,Th,Fr 08:00-12:00 14:00-18:00',
+				hoursAvailable: {
+					'@type': 'OpeningHoursSpecification',
+					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+					opens: '00:00',
+					closes: '23:59'
+				},
 				availableLanguage: ['French', 'English']
 			},
 			{
@@ -53,7 +58,12 @@
 				contactType: 'customer service',
 				contactOption: 'TollFree',
 				email: 'mittelette.nathan@gmail.com',
-				hoursAvailable: 'Mo,Tu,We,Th,Fr 08:00-12:00 14:00-18:00',
+				hoursAvailable: {
+					'@type': 'OpeningHoursSpecification',
+					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+					opens: '00:00',
+					closes: '23:59'
+				},
 				availableLanguage: ['French', 'English']
 			}
 		]
