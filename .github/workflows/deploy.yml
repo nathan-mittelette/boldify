@@ -40,19 +40,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'eu-west-1'
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v4
-        with:
-          terraform_version: 1.10.2
-          terraform_wrapper: false
+      - name: Install OpenTofu
+        uses: opentofu/setup-opentofu@v1
 
-      - name: Terraform apply
+      - name: Tofu apply
         run: |
           cd devops/terraform
-          terraform init
-          terraform apply --var-file .tfvars -auto-approve
-          echo "BUCKET_NAME=$(terraform output -raw bucket_name)" >> $GITHUB_ENV
-          echo "CLOUDFRONT_ID=$(terraform output -raw cloudfront_id)" >> $GITHUB_ENV
+          tofu init
+          tofu apply --var-file .tfvars -auto-approve
+          echo "BUCKET_NAME=$(tofu output -raw bucket_name)" >> $GITHUB_ENV
+          echo "CLOUDFRONT_ID=$(tofu output -raw cloudfront_id)" >> $GITHUB_ENV
 
       - name: Deploy sources
         run: |
