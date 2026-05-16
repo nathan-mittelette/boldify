@@ -36,7 +36,10 @@
 		email: 'mittelette.nathan@gmail.com',
 		logo: 'https://boldify.net/favicon-96x96.png',
 		description: $t('introduction.description'),
-		sameAs: ['https://github.com/nathan-mittelette/boldify'],
+		sameAs: [
+			'https://github.com/nathan-mittelette/boldify',
+			'https://github.com/nathan-mittelette/boldify-mcp'
+		],
 		contactPoint: [
 			{
 				'@type': 'ContactPoint',

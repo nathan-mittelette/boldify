@@ -13,6 +13,8 @@
 	--color-success: #10b981;
 	--color-warning: #f59e0b;
 	--color-error: #ef4444;
+	--color-mcp: #dc2626;
+	--color-mcp-dark: #b91c1c;
 	--color-white: #ffffff;
 	--color-neutral-50: #f9fafb;
 	--color-neutral-100: #f3f4f6;
@@ -123,6 +125,24 @@ html {
 		transform: translateY(0);
 		opacity: 1;
 	}
+}
+
+/* MCP page navbar accent */
+.navbar-mcp a {
+	transition:
+		color 0.3s ease,
+		border-color 0.3s ease;
+}
+
+/* Dot patterns */
+.dot-pattern {
+	background-image: radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0);
+	background-size: 24px 24px;
+}
+
+.dot-pattern-white {
+	background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+	background-size: 20px 20px;
 }
 
 /* Quill editor styling */
