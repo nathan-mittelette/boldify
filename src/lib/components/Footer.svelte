@@ -84,6 +84,14 @@
 					</li>
 					<li>
 						<a
+							href={resolve(`/${$locale}/mcp`)}
+							class="text-neutral-400 hover:text-white transition-colors duration-300"
+						>
+							{$t('nav.mcp')}
+						</a>
+					</li>
+					<li>
+						<a
 							href={resolve(`/${$locale}/about`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
