@@ -83,7 +83,14 @@ const routes = [
 	{ loc: 'https://boldify.net/pt/help', priority: '0.7', alternates: buildAlternates('/help') },
 	{ loc: 'https://boldify.net/de/help', priority: '0.7', alternates: buildAlternates('/help') },
 	{ loc: 'https://boldify.net/tr/help', priority: '0.7', alternates: buildAlternates('/help') },
-	{ loc: 'https://boldify.net/pl/help', priority: '0.7', alternates: buildAlternates('/help') }
+	{ loc: 'https://boldify.net/pl/help', priority: '0.7', alternates: buildAlternates('/help') },
+	{ loc: 'https://boldify.net/fr/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/en/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/es/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/pt/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/de/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/tr/mcp', priority: '1.0', alternates: buildAlternates('/mcp') },
+	{ loc: 'https://boldify.net/pl/mcp', priority: '1.0', alternates: buildAlternates('/mcp') }
 ];
 
 const today = new Date().toISOString().split('T')[0];
