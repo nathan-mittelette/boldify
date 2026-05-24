@@ -6,7 +6,7 @@ function handler(event) {
 	const olduri = request.uri;
 
 	// Redirige les URLs se terminant par / vers leur version sans /
-	if (olduri.endsWith('/') && olduri.length > 1) {
+	if (!olduri.startsWith('/.well-known/') && olduri.endsWith('/') && olduri.length > 1) {
 		const newuri = olduri.slice(0, -1);
 		return {
 			statusCode: 301,
@@ -15,7 +15,7 @@ function handler(event) {
 		};
 	}
 
-	if (isRoute(olduri)) {
+	if (!olduri.startsWith('/.well-known/') && isRoute(olduri)) {
 		let newuri = olduri;
 		if (olduri === '/') {
 			newuri = '/index.html';
