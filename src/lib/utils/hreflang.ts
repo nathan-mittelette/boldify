@@ -6,7 +6,7 @@ export function buildHreflang(path: string): { lang: string; url: string }[] {
 			lang,
 			url: `https://boldify.net/${lang}${path}`
 		})),
-		{ lang: 'x-default', url: `https://boldify.net/fr${path}` }
+		{ lang: 'x-default', url: `https://boldify.net/en${path}` }
 	];
 }
 

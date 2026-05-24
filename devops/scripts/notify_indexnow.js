@@ -1,76 +1,51 @@
 import fs from 'fs';
+import path from 'path';
 
 const API_URL = 'https://api.indexnow.org/indexnow';
-
 const host = 'boldify.net';
-const urls = [
-	'https://boldify.net/',
-	'https://boldify.net/en',
-	'https://boldify.net/fr/about',
-	'https://boldify.net/en/about',
-	'https://boldify.net/fr/how-it-works',
-	'https://boldify.net/en/how-it-works',
-	'https://boldify.net/fr/help',
-	'https://boldify.net/en/help',
-	'https://boldify.net/de',
-	'https://boldify.net/de/about',
-	'https://boldify.net/de/how-it-works',
-	'https://boldify.net/de/help',
-	'https://boldify.net/es',
-	'https://boldify.net/es/about',
-	'https://boldify.net/es/how-it-works',
-	'https://boldify.net/es/help',
-	'https://boldify.net/tr',
-	'https://boldify.net/tr/about',
-	'https://boldify.net/tr/how-it-works',
-	'https://boldify.net/tr/help',
-	'https://boldify.net/pl',
-	'https://boldify.net/pl/about',
-	'https://boldify.net/pl/how-it-works',
-	'https://boldify.net/pl/help',
-	'https://boldify.net/pt',
-	'https://boldify.net/pt/about',
-	'https://boldify.net/pt/how-it-works',
-	'https://boldify.net/pt/help'
-];
+const outputDir = 'build';
 
-const output = 'build';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || findKeyFile(outputDir);
 
-const apiKey = findKeyFile(output);
-
-if (!apiKey) {
-	console.error('❌ IndexNow key file not found in build directory.');
+if (!INDEXNOW_KEY) {
+	console.error('❌ INDEXNOW_KEY env var not set and no key file found in build/');
 	process.exit(1);
 }
 
+const sitemapPath = path.join(outputDir, 'sitemap.xml');
+if (!fs.existsSync(sitemapPath)) {
+	console.error('❌ sitemap.xml not found in build/');
+	process.exit(1);
+}
+
+const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+const urls = [...sitemapContent.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
+
 fetch(API_URL, {
 	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json'
-	},
+	headers: { 'Content-Type': 'application/json' },
 	body: JSON.stringify({
-		host: host,
-		key: apiKey.replace('.txt', ''),
+		host,
+		key: INDEXNOW_KEY,
+		keyLocation: `https://${host}/${INDEXNOW_KEY}.txt`,
 		urlList: urls
 	})
 })
 	.then((response) => {
 		if (response.ok) {
-			console.log('✅ IndexNow notification sent successfully.');
+			console.log(`✅ IndexNow notification sent (${urls.length} URLs).`);
 		} else {
-			console.error('❌ Failed to send IndexNow notification.', response.statusText);
+			console.error('❌ IndexNow notification failed:', response.statusText);
+			process.exit(1);
 		}
 	})
 	.catch((error) => {
-		console.error('❌ Error sending IndexNow notification.', error);
+		console.error('❌ IndexNow notification error:', error);
+		process.exit(1);
 	});
 
 function findKeyFile(dir) {
-	const files = fs.readdirSync(dir);
-	for (const file of files) {
-		if (file.endsWith('.txt')) {
-			return file;
-		}
-	}
-	return null;
+	if (!fs.existsSync(dir)) return null;
+	const file = fs.readdirSync(dir).find((f) => f.endsWith('.txt'));
+	return file ? file.replace('.txt', '') : null;
 }

@@ -31,6 +31,8 @@ jobs:
         run: pnpm install
 
       - name: Build project
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: pnpm build
 
       - name: Configure AWS

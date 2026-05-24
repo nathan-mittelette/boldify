@@ -3,9 +3,40 @@
 	import { page } from '$app/state';
 	import { buildHreflang } from '$lib/utils/hreflang';
 	import SEOHead from '$lib/components/SEOHead.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 
 	const languages = buildHreflang('/mcp');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/mcp`);
+
+	const softwareAppSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'SoftwareApplication',
+		name: 'Boldify MCP Server',
+		url: canonicalUrl,
+		description: $t('mcp.description'),
+		applicationCategory: 'DeveloperApplication',
+		operatingSystem: 'Any',
+		isAccessibleForFree: true,
+		offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+		installUrl: 'https://api.boldify.net/mcp'
+	});
+
+	const breadcrumbSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Boldify',
+				item:
+					page.params.lang === 'fr'
+						? 'https://boldify.net/'
+						: `https://boldify.net/${page.params.lang}`
+			},
+			{ '@type': 'ListItem', position: 2, name: $t('nav.mcp'), item: canonicalUrl }
+		]
+	});
 
 	const installCommand =
 		'curl -fsSL https://raw.githubusercontent.com/nathan-mittelette/boldify-mcp/main/scripts/install.sh | bash';
@@ -18,6 +49,9 @@
 		setTimeout(() => (copied = false), 2000);
 	}
 </script>
+
+<JsonLd schema={softwareAppSchema} />
+<JsonLd schema={breadcrumbSchema} />
 
 <SEOHead
 	title={$t('mcp.title')}
@@ -54,9 +88,10 @@
 			{$t('mcp.hero_title')}
 		</h1>
 
-		<p class="text-lg text-neutral-500 max-w-2xl mx-auto mb-10">
+		<p class="text-lg text-neutral-500 max-w-2xl mx-auto mb-4">
 			{$t('mcp.hero_description')}
 		</p>
+		<p class="text-sm text-neutral-400 mb-10">{$t('common.last_updated')}: 2026-05-24</p>
 
 		<div class="flex flex-col md:flex-row justify-center gap-4">
 			<a
@@ -87,6 +122,33 @@
 			>
 				{$t('mcp.discover_cta')}
 			</a>
+		</div>
+	</section>
+
+	<!-- Plain-language MCP explainer -->
+	<section class="py-10 px-4 md:px-6 max-w-[1200px] mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div class="bg-neutral-50 p-8 rounded-2xl border border-neutral-200/30">
+				<h2 class="text-xl font-bold text-neutral-900 mb-4">{$t('mcp.what_is_mcp_title')}</h2>
+				<p class="text-neutral-600 text-base">{$t('mcp.what_is_mcp_desc')}</p>
+			</div>
+			<div class="bg-neutral-50 p-8 rounded-2xl border border-neutral-200/30">
+				<h2 class="text-xl font-bold text-neutral-900 mb-6">{$t('mcp.workflow_title')}</h2>
+				<div class="space-y-4">
+					<div>
+						<p class="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-1">
+							{$t('mcp.without_mcp_title')}
+						</p>
+						<p class="text-neutral-600 text-sm">{$t('mcp.without_mcp_desc')}</p>
+					</div>
+					<div class="border-t border-neutral-200 pt-4">
+						<p class="text-sm font-semibold text-mcp uppercase tracking-wide mb-1">
+							{$t('mcp.with_mcp_title')}
+						</p>
+						<p class="text-neutral-700 text-sm font-medium">{$t('mcp.with_mcp_desc')}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 

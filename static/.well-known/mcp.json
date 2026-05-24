@@ -1,0 +1,15 @@
+{
+	"name": "Boldify",
+	"description": "Unicode text formatting for LinkedIn",
+	"server": {
+		"url": "https://api.boldify.net/mcp",
+		"transport": "http"
+	},
+	"tools": [
+		{ "name": "convert", "description": "Convert HTML or Markdown to Unicode-formatted text" }
+	],
+	"resources": [
+		{ "uri": "boldify://syntaxes/markdown", "description": "Markdown syntax reference" },
+		{ "uri": "boldify://syntaxes/html", "description": "HTML syntax reference" }
+	]
+}

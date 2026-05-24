@@ -1,0 +1,21 @@
+# Boldify
+
+> Free utility tool that converts text to Unicode-styled characters (bold, italic, strikethrough, underline) for LinkedIn posts. Multi-language (EN/FR/ES/PT/DE/TR/PL). Open source.
+
+## Available Tools
+
+- MCP server: https://api.boldify.net/mcp
+  - convert: transform HTML or Markdown to Unicode-formatted text
+  - syntaxes: read formatting reference at boldify://syntaxes/markdown and boldify://syntaxes/html
+
+## Citable Pages
+
+- [Home](https://boldify.net/en): tool overview and live editor
+- [How It Works](https://boldify.net/en/how-it-works): 4-step process explaining the Unicode mechanism
+- [Help / FAQ](https://boldify.net/en/help): common issues, mobile rendering, screen reader notes
+- [About](https://boldify.net/en/about): creator and project background
+- [MCP](https://boldify.net/en/mcp): integration guide for Claude Desktop and other MCP clients
+
+## License
+
+Site content: All rights reserved. Code: see https://github.com/nathan-mittelette/boldify

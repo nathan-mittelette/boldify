@@ -2,49 +2,19 @@
 	import { t } from 'svelte-i18n';
 	import TextPreview from '$lib/components/TextPreview.svelte';
 
-	let scrollY = 0;
-
 	const name = 'John Doe';
 	const degree = '3e et +';
 	const position = 'Developer at @Boldify';
 	const timePosted = '4 h';
 </script>
 
-<svelte:window bind:scrollY />
-
-<section id="introduction">
-	<div class="container mx-auto px-4 lg:px-8 min-h-[80vh] flex flex-col justify-center">
+<section id="features" class="py-10 lg:py-16 bg-neutral-50/70">
+	<div class="container mx-auto px-4 lg:px-8">
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 			<div class="lg:col-span-7 text-center lg:text-left animate-slide-up">
-				<div class="relative mb-6">
-					<span
-						class="absolute -left-2 -top-2 bg-accent/20 rounded-full w-16 h-16 blur-xl animate-pulse hidden lg:block"
-					></span>
-					<p
-						class="inline-block text-sm font-semibold py-1 px-4 rounded-full bg-primary/10 text-primary border border-primary/30 mb-4"
-					>
-						<span class="flex items-center">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="w-4 h-4 mr-2"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-								/>
-							</svg>
-							{$t('introduction.mcp_badge')}
-						</span>
-					</p>
-				</div>
-				<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+				<h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 leading-tight">
 					<span class="gradient-text">{$t('introduction.title')}</span>
-				</h1>
+				</h2>
 				<p class="text-lg md:text-xl text-neutral-600 mb-10 max-w-2xl mx-auto lg:mx-0">
 					{$t('introduction.description')}
 				</p>
@@ -91,20 +61,6 @@
 					/>
 				</div>
 			</div>
-		</div>
-		<div class="absolute left-0 right-0 bottom-8 flex justify-center animate-bounce z-10">
-			<a href="#text-editor" class="text-neutral-400 hover:text-primary" aria-label="Scroll down">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-8 w-8"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
-					></path>
-				</svg>
-			</a>
 		</div>
 	</div>
 </section>

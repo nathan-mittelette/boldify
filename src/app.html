@@ -2,22 +2,21 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<!-- Preconnect to Google Fonts for faster font loading -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Load Google Fonts with display=swap for better LCP -->
+		<!-- Preload critical Inter subsets (self-hosted) -->
 		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-			media="print"
-			onload="this.media = 'all'"
+			rel="preload"
+			href="/fonts/inter/inter-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
 		/>
-		<noscript>
-			<link
-				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-			/>
-		</noscript>
+		<link
+			rel="preload"
+			href="/fonts/inter/inter-latin-ext.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 		<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
 		<link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
@@ -27,6 +26,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		%sveltekit.head%
+	</head>
+
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
 		<script type="text/javascript">
 			(function (c, l, a, r, i, t, y) {
 				c[a] =
@@ -41,10 +45,5 @@
 				y.parentNode.insertBefore(t, y);
 			})(window, document, 'clarity', 'script', 'phypajzhfh');
 		</script>
-		%sveltekit.head%
-	</head>
-
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

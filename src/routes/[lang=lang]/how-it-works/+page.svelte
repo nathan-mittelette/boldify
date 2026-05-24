@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { buildHreflang } from '$lib/utils/hreflang';
@@ -8,7 +9,48 @@
 
 	const languages = buildHreflang('/how-it-works');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/how-it-works`);
+
+	const techArticleSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'TechArticle',
+		headline: $t('how_it_works.hero_title'),
+		description: $t('how_it_works.hero_desc'),
+		url: canonicalUrl,
+		inLanguage: page.params.lang,
+		author: {
+			'@type': 'Person',
+			name: 'Nathan Mittelette',
+			url: 'https://www.linkedin.com/in/nathan-mittelette/'
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Boldify',
+			logo: { '@type': 'ImageObject', url: 'https://boldify.net/favicon-96x96.png' }
+		},
+		datePublished: '2024-01-01',
+		dateModified: '2026-05-24'
+	});
+
+	const breadcrumbSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Boldify',
+				item:
+					page.params.lang === 'fr'
+						? 'https://boldify.net/'
+						: `https://boldify.net/${page.params.lang}`
+			},
+			{ '@type': 'ListItem', position: 2, name: $t('nav.how_it_works'), item: canonicalUrl }
+		]
+	});
 </script>
+
+<JsonLd schema={techArticleSchema} />
+<JsonLd schema={breadcrumbSchema} />
 
 <SEOHead
 	title={$t('how_it_works.title')}
@@ -45,11 +87,12 @@
 		<h1
 			class="text-[36px] md:text-[60px] leading-[44px] md:leading-[72px] tracking-tight font-extrabold text-neutral-900 max-w-4xl mx-auto mb-6"
 		>
-			{$t('how_it_works.hero_title_new')}
+			{$t('how_it_works.hero_title')}
 		</h1>
-		<p class="text-lg text-neutral-500 max-w-2xl mx-auto">
-			{$t('how_it_works.hero_desc_new')}
+		<p class="text-lg text-neutral-500 max-w-2xl mx-auto mb-4">
+			{$t('how_it_works.hero_desc')}
 		</p>
+		<p class="text-sm text-neutral-400">{$t('common.last_updated')}: 2026-05-24</p>
 	</section>
 
 	<!-- 3-Step Guide -->
@@ -78,9 +121,9 @@
 					</svg>
 				</div>
 				<h3 class="text-xl font-bold text-neutral-900 mb-4">
-					{$t('how_it_works.step1_title_new')}
+					{$t('how_it_works.step1_title')}
 				</h3>
-				<p class="text-neutral-500 text-base">{$t('how_it_works.step1_desc_new')}</p>
+				<p class="text-neutral-500 text-base">{$t('how_it_works.step1_desc')}</p>
 			</div>
 
 			<!-- Step 2 -->
@@ -111,9 +154,9 @@
 					</svg>
 				</div>
 				<h3 class="text-xl font-bold text-neutral-900 mb-4">
-					{$t('how_it_works.step2_title_new')}
+					{$t('how_it_works.step2_title')}
 				</h3>
-				<p class="text-neutral-500 text-base">{$t('how_it_works.step2_desc_new')}</p>
+				<p class="text-neutral-500 text-base">{$t('how_it_works.step2_desc')}</p>
 			</div>
 
 			<!-- Step 3 -->
@@ -139,9 +182,9 @@
 					</svg>
 				</div>
 				<h3 class="text-xl font-bold text-neutral-900 mb-4">
-					{$t('how_it_works.step3_title_new')}
+					{$t('how_it_works.step3_title')}
 				</h3>
-				<p class="text-neutral-500 text-base">{$t('how_it_works.step3_desc_new')}</p>
+				<p class="text-neutral-500 text-base">{$t('how_it_works.step3_desc')}</p>
 			</div>
 		</div>
 	</section>
