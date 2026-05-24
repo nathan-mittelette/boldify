@@ -1,12 +1,15 @@
 {
-	"$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
 	"name": "net.boldify/mcp-server",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"title": "Boldify MCP",
 	"description": "Convert text to Unicode-formatted styles (bold, italic, strikethrough, underline) for LinkedIn and other platforms",
 	"websiteUrl": "https://boldify.net/en/mcp",
 	"repository": {
 		"url": "https://github.com/nathan-mittelette/boldify-mcp",
 		"source": "github"
+	},
+	"serverInfo": {
+		"name": "Boldify MCP",
+		"version": "0.1.0"
 	}
 }
