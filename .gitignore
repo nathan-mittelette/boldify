@@ -33,3 +33,9 @@ playwright-report/
 .terraform
 _override.tf
 _override.tf.json
+
+# AI
+.agents
+.codex
+.rtk
+.claude

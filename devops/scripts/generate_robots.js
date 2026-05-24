@@ -14,6 +14,8 @@ User-agent: *
 Allow: /
 Disallow: /_app/
 
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
 Sitemap: https://boldify.net/sitemap.xml
     `;
 

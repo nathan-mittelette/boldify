@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://boldify.net",
+      "service-doc": [
+        {
+          "href": "https://github.com/nathan-mittelette/boldify-mcp/wiki",
+          "type": "text/html"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://boldify.net/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

@@ -45,10 +45,10 @@
 		"@playwright/test": "^1.60.0",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/enhanced-img": "^0.10.4",
-		"@sveltejs/kit": "^2.60.1",
+		"@sveltejs/kit": "^2.61.1",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
-		"@types/node": "^25.8.0",
-		"@vitest/ui": "^4.1.6",
+		"@types/node": "^25.9.1",
+		"@vitest/ui": "^4.1.7",
 		"eslint": "^10.4.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.17.1",
@@ -56,30 +56,21 @@
 		"jsdom": "^29.1.1",
 		"path": "^0.12.7",
 		"prettier": "^3.8.3",
-		"prettier-plugin-svelte": "^3.5.2",
-		"sass-embedded": "^1.99.0",
-		"svelte": "^5.55.7",
+		"prettier-plugin-svelte": "^4.0.1",
+		"sass-embedded": "^1.100.0",
+		"svelte": "^5.55.9",
 		"svelte-check": "^4.4.8",
 		"tailwindcss": "^4.3.0",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.59.3",
-		"vite": "^8.0.13",
+		"typescript-eslint": "^8.59.4",
+		"vite": "^8.0.14",
 		"vite-plugin-devtools-json": "^1.0.0",
-		"vitest": "^4.1.6"
+		"vitest": "^4.1.7"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.0",
 		"quill": "^2.0.3",
 		"svelte-i18n": "^4.0.1"
 	},
-	"packageManager": "pnpm@10.33.0",
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@parcel/watcher",
-			"@tailwindcss/oxide",
-			"es5-ext",
-			"esbuild",
-			"sharp"
-		]
-	}
+	"packageManager": "pnpm@10.33.0"
 }

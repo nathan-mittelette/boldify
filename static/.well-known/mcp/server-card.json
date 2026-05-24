@@ -1,0 +1,28 @@
+{
+	"schema_version": "0.1",
+	"server_info": {
+		"name": "Boldify MCP",
+		"version": "1.0.0",
+		"description": "Convert text to Unicode-formatted styles (bold, italic, strikethrough, underline) for LinkedIn and other platforms",
+		"homepage": "https://boldify.net",
+		"repository": "https://github.com/nathan-mittelette/boldify-mcp",
+		"documentation": "https://github.com/nathan-mittelette/boldify-mcp/wiki"
+	},
+	"transport": [
+		{
+			"type": "stdio",
+			"command": "boldify-mcp"
+		}
+	],
+	"capabilities": {
+		"tools": {
+			"listChanged": false
+		}
+	},
+	"tools": [
+		{
+			"name": "convert",
+			"description": "Convert text to Unicode-formatted styles for use on LinkedIn and other platforms"
+		}
+	]
+}

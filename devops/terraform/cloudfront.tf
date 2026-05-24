@@ -124,6 +124,11 @@ resource "aws_cloudfront_response_headers_policy" "security_seo_policy" {
       value    = "none"
       override = true
     }
+    items {
+      header   = "Link"
+      value    = "</.well-known/api-catalog>; rel=\"api-catalog\""
+      override = true
+    }
   }
 }
 

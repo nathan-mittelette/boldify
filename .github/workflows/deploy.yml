@@ -56,6 +56,12 @@ jobs:
           aws s3 rm s3://$BUCKET_NAME --recursive
           aws s3 cp build s3://$BUCKET_NAME --recursive
 
+      - name: Fix content-type for .well-known files
+        run: |
+          aws s3 cp s3://$BUCKET_NAME/.well-known/api-catalog s3://$BUCKET_NAME/.well-known/api-catalog \
+            --content-type "application/linkset+json" \
+            --metadata-directive REPLACE
+
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
