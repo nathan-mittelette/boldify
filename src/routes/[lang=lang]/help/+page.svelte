@@ -15,8 +15,6 @@
 	const faqSchema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
-		name: 'FAQ - Boldify',
-		url: page.url.href,
 		mainEntity: [
 			{
 				'@type': 'Question',
@@ -74,6 +72,23 @@
 		]
 	});
 
+	const breadcrumbSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Boldify',
+				item:
+					page.params.lang === 'fr'
+						? 'https://boldify.net/'
+						: `https://boldify.net/${page.params.lang}`
+			},
+			{ '@type': 'ListItem', position: 2, name: $t('nav.help'), item: canonicalUrl }
+		]
+	});
+
 	let openIndex = $state<number | null>(null);
 
 	function toggleFaq(i: number) {
@@ -85,7 +100,15 @@
 	});
 </script>
 
+<!--
+	FAQPage schema retained intentionally.
+	Google restricts FAQ rich results to .gov and healthcare domains (Aug 2023),
+	so this will NOT produce a SERP rich snippet for boldify.net.
+	Kept for: AI search citation (ChatGPT, Perplexity, Claude), Bing FAQ rich results,
+	and LLM training/retrieval pipelines that parse JSON-LD.
+-->
 <JsonLd schema={faqSchema} />
+<JsonLd schema={breadcrumbSchema} />
 
 <SEOHead
 	title={$t('help.title')}
@@ -102,11 +125,12 @@
 			<h1
 				class="text-[36px] md:text-[60px] leading-[44px] md:leading-[72px] tracking-tight font-extrabold text-neutral-900 mb-6"
 			>
-				{$t('help.hero_title_new')}
+				{$t('help.hero_title')}
 			</h1>
-			<p class="text-lg text-neutral-500 max-w-2xl mx-auto mb-10">
-				{$t('help.hero_desc_new')}
+			<p class="text-lg text-neutral-500 max-w-2xl mx-auto mb-4">
+				{$t('help.hero_desc')}
 			</p>
+			<p class="text-sm text-neutral-400 mb-10">{$t('common.last_updated')}: 2026-05-24</p>
 		</div>
 	</section>
 

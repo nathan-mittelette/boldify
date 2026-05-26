@@ -1,26 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 
-function generateKey() {
-	const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-';
-	let key = '';
-	for (let i = 0; i < 128; i++) {
-		key += chars.charAt(Math.floor(Math.random() * chars.length));
-	}
-	return key;
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
+if (!INDEXNOW_KEY) {
+	console.warn('⚠️  INDEXNOW_KEY env var not set — skipping key file generation');
+	process.exit(0);
 }
-
-const key = generateKey();
-
-console.log(`🔑 Generated IndexNow key`);
 
 const outputDir = 'build';
 
 if (!fs.existsSync(outputDir)) {
 	fs.mkdirSync(outputDir, { recursive: true });
-	console.log(`📁 Created directory: ${outputDir}`);
 }
 
-const filePath = path.join(outputDir, `${key}.txt`);
-fs.writeFileSync(filePath, key);
-console.log(`✅ IndexNow key file generated`);
+const keyFilePath = path.join(outputDir, `${INDEXNOW_KEY}.txt`);
+fs.writeFileSync(keyFilePath, INDEXNOW_KEY);
+console.log(`✅ IndexNow key file written: ${INDEXNOW_KEY}.txt`);

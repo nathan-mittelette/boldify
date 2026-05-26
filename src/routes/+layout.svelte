@@ -33,7 +33,7 @@
 		'@type': 'Organization',
 		name: 'Boldify',
 		url: 'https://boldify.net/',
-		email: 'mittelette.nathan@gmail.com',
+		email: 'contact@boldify.net',
 		logo: 'https://boldify.net/favicon-96x96.png',
 		description: $t('introduction.description'),
 		sameAs: [
@@ -43,30 +43,8 @@
 		contactPoint: [
 			{
 				'@type': 'ContactPoint',
-				telephone: '+33-634184685',
-				contactType: 'technical support',
-				contactOption: 'TollFree',
-				email: 'mittelette.nathan@gmail.com',
-				hoursAvailable: {
-					'@type': 'OpeningHoursSpecification',
-					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-					opens: '00:00',
-					closes: '23:59'
-				},
-				availableLanguage: ['French', 'English']
-			},
-			{
-				'@type': 'ContactPoint',
-				telephone: '+33-634184685',
-				contactType: 'customer service',
-				contactOption: 'TollFree',
-				email: 'mittelette.nathan@gmail.com',
-				hoursAvailable: {
-					'@type': 'OpeningHoursSpecification',
-					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-					opens: '00:00',
-					closes: '23:59'
-				},
+				contactType: 'customer support',
+				email: 'contact@boldify.net',
 				availableLanguage: ['French', 'English']
 			}
 		]
@@ -76,7 +54,6 @@
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
 		name: 'Boldify',
-		alternateName: 'Boldify Rajoutez du style à vos post LinkedIn',
 		url: 'https://boldify.net/',
 		description: $t('home.description')
 	});

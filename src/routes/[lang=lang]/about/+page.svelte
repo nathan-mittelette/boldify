@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import SEOHead from '$lib/components/SEOHead.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { buildHreflang } from '$lib/utils/hreflang';
@@ -9,7 +10,45 @@
 
 	const languages = buildHreflang('/about');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/about`);
+
+	const aboutPageSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'AboutPage',
+		url: canonicalUrl,
+		name: $t('about.hero_tagline'),
+		description: $t('about.hero_desc_new'),
+		author: {
+			'@type': 'Person',
+			name: 'Nathan Mittelette',
+			url: 'https://www.linkedin.com/in/nathan-mittelette/'
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Boldify',
+			logo: { '@type': 'ImageObject', url: 'https://boldify.net/favicon-96x96.png' }
+		}
+	});
+
+	const breadcrumbSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Boldify',
+				item:
+					page.params.lang === 'fr'
+						? 'https://boldify.net/'
+						: `https://boldify.net/${page.params.lang}`
+			},
+			{ '@type': 'ListItem', position: 2, name: $t('nav.about'), item: canonicalUrl }
+		]
+	});
 </script>
+
+<JsonLd schema={aboutPageSchema} />
+<JsonLd schema={breadcrumbSchema} />
 
 <SEOHead
 	title={$t('about.title')}
@@ -34,6 +73,15 @@
 				>
 					{$t('about.hero_tagline')}
 				</h1>
+				<p class="text-sm text-neutral-500">
+					{$t('about.creator_byline')} —
+					<a
+						href="https://www.linkedin.com/in/nathan-mittelette/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-primary hover:underline font-medium">LinkedIn</a
+					>
+				</p>
 				<p class="text-lg text-neutral-500 max-w-xl">
 					{$t('about.hero_desc_new')}
 				</p>
@@ -67,6 +115,12 @@
 				<p class="text-base text-neutral-500 max-w-2xl mx-auto">
 					{$t('about.story_subtitle')}
 				</p>
+			</div>
+
+			<!-- Creator origin story -->
+			<div class="mb-10 bg-white p-8 rounded-2xl border border-primary/20 shadow-sm">
+				<h3 class="text-xl font-bold text-neutral-900 mb-3">{$t('about.creator_story_title')}</h3>
+				<p class="text-neutral-600 text-base">{$t('about.creator_story_desc')}</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">

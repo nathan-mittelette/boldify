@@ -1,0 +1,79 @@
+# Boldify
+
+> Free utility tool that converts text to Unicode-styled characters (bold, italic, strikethrough, underline) for LinkedIn posts. Multi-language (EN/FR/ES/PT/DE/TR/PL). Open source.
+
+## Available Tools
+
+- MCP server: https://api.boldify.net/mcp
+  - convert: transform HTML or Markdown to Unicode-formatted text
+  - syntaxes: read formatting reference at boldify://syntaxes/markdown and boldify://syntaxes/html
+
+## Citable Pages
+
+- [Home](https://boldify.net/en): tool overview and live editor
+- [How It Works](https://boldify.net/en/how-it-works): 4-step process explaining the Unicode mechanism
+- [Help / FAQ](https://boldify.net/en/help): common issues, mobile rendering, screen reader notes
+- [About](https://boldify.net/en/about): creator and project background
+- [MCP](https://boldify.net/en/mcp): integration guide for Claude Desktop and other MCP clients
+
+## How It Works (full)
+
+Boldify uses Unicode mathematical alphanumeric characters (Unicode block U+1D400–U+1D7FF) to simulate bold, italic, and other typographic styles. These characters are part of the Unicode standard and render natively on LinkedIn, Twitter/X, and most modern platforms without HTML or markdown support.
+
+### Formatting Process
+
+1. User types or pastes text into the web editor (powered by Quill.js)
+2. User selects text and applies a style (Bold, Italic, Strikethrough, etc.) via the toolbar
+3. The handler maps each ASCII character to its Unicode mathematical equivalent
+4. The styled text is inserted back into the editor and shown in the live LinkedIn preview card
+5. User clicks "Copy" to copy the Unicode text to clipboard and paste it into LinkedIn
+
+### Supported Styles
+
+- **Bold** — Unicode Mathematical Bold (𝗕𝗼𝗹𝗱)
+- **Italic** — Unicode Mathematical Italic (𝘐𝘵𝘢𝘭𝘪𝘤)
+- **Strikethrough** — Unicode combining strikethrough (S̶t̶r̶i̶k̶e̶)
+- **Underline** — Unicode combining underline
+- **Overline** — Unicode combining overline
+- **Bullet lists** — Unicode bullet characters
+- **Numbered lists** — formatted numbered sequences
+
+### MCP Integration
+
+The Boldify MCP (Model Context Protocol) server at https://api.boldify.net/mcp enables AI assistants to format text directly without opening the web app. The server exposes:
+
+- `convert` tool: accepts HTML or Markdown input, returns Unicode-formatted text
+- `boldify://syntaxes/markdown` resource: Markdown formatting reference
+- `boldify://syntaxes/html` resource: HTML formatting reference
+
+Compatible with Claude Desktop and any standard MCP client.
+
+## Help / FAQ (full)
+
+### Text Formatting
+
+**Why isn't my bold text displaying correctly on mobile?**
+Boldify uses Unicode mathematical characters to simulate bold. While most modern smartphones support them, some older browsers may display squares. Use the "Sans-Serif Bold" style for maximum compatibility.
+
+**Can I mix multiple styles in a single post?**
+Yes. Select different parts of your text in the editor and apply distinct styles (Bold, Italic, Script) to create visual hierarchy.
+
+### LinkedIn & Networks
+
+**Does using formatted text hurt my LinkedIn reach?**
+LinkedIn does not directly penalize Unicode. However, screen readers may have difficulty with these characters. Use bold sparingly to highlight keywords, not entire paragraphs.
+
+**How do I copy-paste without losing formatting?**
+Use the built-in "Copy" button in Boldify. It captures the transformed Unicode text ready to paste directly into LinkedIn.
+
+### MCP Configuration
+
+**What is MCP and why use it?**
+The Model Context Protocol (MCP) lets Boldify integrate with AI tools like Claude Desktop. Format text without leaving your usual writing interface.
+
+**My MCP is not connecting. What should I do?**
+Check that the path to the node executable is correct in your config file. Restart the desktop app after modifying claude_desktop_config.json.
+
+## License
+
+Site content: All rights reserved. Code: see https://github.com/nathan-mittelette/boldify

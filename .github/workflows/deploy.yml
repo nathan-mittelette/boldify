@@ -31,6 +31,8 @@ jobs:
         run: pnpm install
 
       - name: Build project
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: pnpm build
 
       - name: Configure AWS
@@ -67,5 +69,7 @@ jobs:
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
 
       - name: Notify IndexNow content upgrade
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
           node devops/scripts/notify_indexnow.js

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import 'quill/dist/quill.snow.css';
 	import type Quill from 'quill';
 	import { text } from '$lib/stores/text.store';
 	import { handleUpdateToText } from '$lib/handlers/handler';
@@ -9,7 +8,7 @@
 	import { underlineHandler } from '$lib/handlers/underline.handler';
 	import { strikeHandler } from '$lib/handlers/strike.handler';
 	import { overlineHandler } from '$lib/handlers/overline.handler';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { listHandler, type ListType } from '$lib/handlers/list.handler';
 	import { browser } from '$app/environment';
 	import { addSnackbar } from '$lib/stores/snackbar.store';
@@ -39,6 +38,7 @@
 	};
 
 	let editor: Quill;
+	let debounceTimer: ReturnType<typeof setTimeout> | undefined;
 	// Separate reactive flag — avoids wrapping the Quill instance in a Svelte proxy
 	let editorReady = $state(false);
 
@@ -57,7 +57,10 @@
 			});
 		}
 
-		const Quill = (await import('quill')).default;
+		const [{ default: Quill }] = await Promise.all([
+			import('quill'),
+			import('quill/dist/quill.snow.css') as unknown as Promise<{ default: unknown }>
+		]);
 
 		const options = {
 			theme: 'snow',
@@ -93,13 +96,15 @@
 				isDefaultText = false;
 			}
 
-			const content = editor.getText();
-
-			if (content.trim()) {
-				text.set(content);
-			} else {
-				text.set($t('editor.placeholder') + ' ');
-			}
+			clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(() => {
+				const content = editor.getText();
+				if (content.trim()) {
+					text.set(content);
+				} else {
+					text.set($t('editor.placeholder') + ' ');
+				}
+			}, 50);
 		});
 	});
 
@@ -113,6 +118,7 @@
 
 	onDestroy(() => {
 		observer?.disconnect();
+		clearTimeout(debounceTimer);
 	});
 </script>
 
@@ -222,6 +228,13 @@
 			</div>
 		</article>
 	</div>
+	{#if $locale === 'tr'}
+		<div
+			class="mt-2 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-700"
+		>
+			{$t('editor.unicode_limitation_notice')}
+		</div>
+	{/if}
 </section>
 
 <style lang="scss">
@@ -245,6 +258,7 @@
 		border-top: none;
 		border-bottom: none;
 		background-color: var(--color-white);
+		min-height: 200px;
 
 		:global(.ql-editor) {
 			min-height: 200px;

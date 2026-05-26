@@ -1,0 +1,15 @@
+{
+	"schema_version": "v1",
+	"name_for_human": "Boldify",
+	"name_for_model": "boldify",
+	"description_for_human": "Format text with Unicode bold, italic, strikethrough and styled characters for LinkedIn posts.",
+	"description_for_model": "Plugin for converting HTML or Markdown to Unicode-styled text suitable for LinkedIn posts. Supports bold, italic, strikethrough, underline, overline, bullet lists, and numbered lists. Use to format text without HTML or markdown rendering support.",
+	"auth": { "type": "none" },
+	"api": {
+		"type": "openapi",
+		"url": "https://api.boldify.net/openapi.json"
+	},
+	"logo_url": "https://boldify.net/favicon-96x96.png",
+	"contact_email": "contact@boldify.net",
+	"legal_info_url": "https://boldify.net/en/about"
+}
