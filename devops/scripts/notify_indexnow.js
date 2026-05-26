@@ -5,10 +5,9 @@ const API_URL = 'https://api.indexnow.org/indexnow';
 const host = 'boldify.net';
 const outputDir = 'build';
 
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY || findKeyFile(outputDir);
-
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
 if (!INDEXNOW_KEY) {
-	console.error('❌ INDEXNOW_KEY env var not set and no key file found in build/');
+	console.error('❌ INDEXNOW_KEY env var not set');
 	process.exit(1);
 }
 
@@ -43,9 +42,3 @@ fetch(API_URL, {
 		console.error('❌ IndexNow notification error:', error);
 		process.exit(1);
 	});
-
-function findKeyFile(dir) {
-	if (!fs.existsSync(dir)) return null;
-	const file = fs.readdirSync(dir).find((f) => f.endsWith('.txt'));
-	return file ? file.replace('.txt', '') : null;
-}

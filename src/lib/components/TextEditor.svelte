@@ -38,7 +38,7 @@
 	};
 
 	let editor: Quill;
-	let debounceTimer: ReturnType<typeof setTimeout>;
+	let debounceTimer: ReturnType<typeof setTimeout> | undefined;
 	// Separate reactive flag — avoids wrapping the Quill instance in a Svelte proxy
 	let editorReady = $state(false);
 
