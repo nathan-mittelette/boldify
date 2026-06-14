@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
 	import { resolve } from '$app/paths';
+	import { trackBuyMeACoffeeClicked, trackLanguageChanged } from '$lib/services/clarity.service';
 
 	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
@@ -16,6 +17,12 @@
 	};
 
 	const currentYear = new Date().getFullYear();
+
+	function trackFooterLanguageClick(nextLanguage: SupportedLanguages) {
+		if ($locale === nextLanguage) return;
+
+		trackLanguageChanged($locale, nextLanguage);
+	}
 
 	const languageUrls = $derived(
 		SUPPORTED_LANGUAGES.reduce(
@@ -64,6 +71,7 @@
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 							hreflang={lang}
 							data-sveltekit-preload-data="off"
+							onclick={() => trackFooterLanguageClick(lang)}
 						>
 							<span class="text-base leading-none">{FLAGS[lang] ?? lang}</span>
 						</a>
@@ -150,6 +158,7 @@
 					target="_blank"
 					rel="noopener"
 					class="btn btn-accent inline-flex items-center"
+					onclick={() => trackBuyMeACoffeeClicked('footer')}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

@@ -13,6 +13,7 @@
 	import { browser } from '$app/environment';
 	import { addSnackbar } from '$lib/stores/snackbar.store';
 	import type { Snackbar } from '$lib/models/snackbar.model';
+	import { trackFormatUsed, trackTextCopied, trackTextPasted } from '$lib/services/clarity.service';
 
 	const MAX_CHARACTERS = 3000;
 
@@ -29,13 +30,33 @@
 	let observer: MutationObserver;
 	let isDefaultText = true;
 
-	const copyToClipboard = () => {
-		navigator.clipboard.writeText($text);
+	const copyToClipboard = async () => {
+		await navigator.clipboard.writeText($text);
+		trackTextCopied($text);
 		addSnackbar({
 			title: $t('editor.copied'),
 			description: $t('editor.copied_description')
 		} as Snackbar);
 	};
+
+	function applyFormat(format: 'bold' | 'italic' | 'underline' | 'strike' | 'overline') {
+		trackFormatUsed(format);
+
+		const handlers = {
+			bold: boldHandler,
+			italic: italicHandler,
+			underline: underlineHandler,
+			strike: strikeHandler,
+			overline: overlineHandler
+		};
+
+		handleUpdateToText(editor, handlers[format]);
+	}
+
+	function applyListFormat(data: ListType) {
+		trackFormatUsed(data === 'ordered' ? 'ordered_list' : 'bullet_list');
+		handleUpdateToText(editor, listHandler, data);
+	}
 
 	let editor: Quill;
 	let debounceTimer: ReturnType<typeof setTimeout> | undefined;
@@ -73,14 +94,14 @@
 				toolbar: {
 					container: toolbarRef,
 					handlers: {
-						bold: () => handleUpdateToText(editor, boldHandler),
-						italic: () => handleUpdateToText(editor, italicHandler),
-						underline: () => handleUpdateToText(editor, underlineHandler),
-						strike: () => handleUpdateToText(editor, strikeHandler),
-						overline: () => handleUpdateToText(editor, overlineHandler),
+						bold: () => applyFormat('bold'),
+						italic: () => applyFormat('italic'),
+						underline: () => applyFormat('underline'),
+						strike: () => applyFormat('strike'),
+						overline: () => applyFormat('overline'),
 						undo: () => editor.history.undo(),
 						redo: () => editor.history.redo(),
-						list: (data: ListType) => handleUpdateToText(editor, listHandler, data)
+						list: applyListFormat
 					}
 				}
 			},
@@ -90,6 +111,7 @@
 		editor = new Quill(editorRef, options);
 		// Signal readiness — triggers $effect to set the initial text
 		editorReady = true;
+		editor.root.addEventListener('paste', trackTextPasted);
 
 		editor.on('text-change', (_, __, source) => {
 			if (source === 'user') {
@@ -118,6 +140,7 @@
 
 	onDestroy(() => {
 		observer?.disconnect();
+		editor?.root.removeEventListener('paste', trackTextPasted);
 		clearTimeout(debounceTimer);
 	});
 </script>

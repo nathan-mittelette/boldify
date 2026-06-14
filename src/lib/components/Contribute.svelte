@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { trackBuyMeACoffeeClicked } from '$lib/services/clarity.service';
 </script>
 
 <section id="contribute" class="section bg-neutral-50">
@@ -98,6 +99,7 @@
 							target="_blank"
 							rel="noopener"
 							class="btn btn-accent"
+							onclick={() => trackBuyMeACoffeeClicked('contribute_section')}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

@@ -10,6 +10,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
+	import { trackBuyMeACoffeeClicked } from '$lib/services/clarity.service';
 
 	let scrollY = $state(0);
 	let innerWidth = $state(0);
@@ -40,6 +41,11 @@
 
 	function closeMobileMenu() {
 		mobileMenuOpen = false;
+	}
+
+	function trackMobileBuyMeACoffeeClick() {
+		trackBuyMeACoffeeClicked('navbar_mobile');
+		closeMobileMenu();
 	}
 
 	function getHomeUrl(currentLang: string | null | undefined): `/${string}` | '/' {
@@ -109,6 +115,7 @@
 					target="_blank"
 					rel="noopener"
 					class="btn btn-accent ml-4"
+					onclick={() => trackBuyMeACoffeeClicked('navbar_desktop')}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -210,6 +217,7 @@
 						target="_blank"
 						rel="noopener"
 						class="btn btn-accent w-full justify-center"
+						onclick={trackMobileBuyMeACoffeeClick}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
