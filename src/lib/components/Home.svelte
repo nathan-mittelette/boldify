@@ -6,7 +6,9 @@
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { t } from 'svelte-i18n';
+	import { locale } from '$lib/services/i18n.service';
 	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 	import { buildHomeHreflang } from '$lib/utils/hreflang';
 
 	const languages = buildHomeHreflang();
@@ -67,8 +69,9 @@
 		<div class="max-w-[1200px] mx-auto">
 			<!-- Compact header -->
 			<div class="text-center mb-8">
-				<p
-					class="inline-block text-sm font-semibold py-1 px-4 rounded-full bg-primary/10 text-primary border border-primary/30 mb-4"
+				<a
+					href={resolve(`/${$locale}/mcp`)}
+					class="inline-block text-sm font-semibold py-1 px-4 rounded-full bg-primary/10 text-primary border border-primary/30 mb-4 hover:bg-primary/20 transition-colors"
 				>
 					<span class="flex items-center gap-2">
 						<svg
@@ -87,7 +90,7 @@
 						</svg>
 						{$t('introduction.mcp_badge')}
 					</span>
-				</p>
+				</a>
 				<h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
 					<span class="gradient-text">{$t('introduction.title')}</span>
 				</h1>

@@ -250,6 +250,12 @@
 		"preview_sample_position": "Criador de conteúdo no LinkedIn",
 		"preview_sample_time": "1 h"
 	},
+	"donation_toast": {
+		"title": "Texto copiado!",
+		"message": "Fico feliz que tenha sido útil! Este site funciona sem anúncios, financiado do meu bolso. Um pequeno café para mantê-lo gratuito?",
+		"cta": "Oferecer um café",
+		"later": "Mais tarde"
+	},
 	"home": {
 		"title": "Boldify - Formatador de Texto em LinkedIn | Gratuito",
 		"description": "Gerador gratuito para negrito, itálico e estilizar posts do LinkedIn com Unicode. Pré-visualização ao vivo, sem cadastro. Desktop e mobile.",

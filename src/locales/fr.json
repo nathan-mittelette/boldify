@@ -294,6 +294,12 @@
 		"with_mcp_title": "Avec Boldify MCP",
 		"with_mcp_desc": "Demandez à Claude : \"Formate ce post LinkedIn avec les mots clés en gras.\" Claude appelle Boldify directement. Le résultat formaté revient en ligne. Copiez une fois, collez dans LinkedIn. Une étape."
 	},
+	"donation_toast": {
+		"title": "Texte copié !",
+		"message": "Content que ça t'ait servi ! Ce site tourne sans pub, financé de ma poche. Un petit café pour qu'il reste gratuit ?",
+		"cta": "Offrir un café",
+		"later": "Plus tard"
+	},
 	"home": {
 		"title": "Boldify - Formatage Gras LinkedIn | Générateur Texte Gratuit",
 		"description": "Générateur gratuit pour mettre en gras, italique et styliser vos posts LinkedIn via Unicode. Aperçu en direct, sans inscription. Bureau et mobile.",

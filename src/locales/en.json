@@ -294,6 +294,12 @@
 		"with_mcp_title": "With Boldify MCP",
 		"with_mcp_desc": "Ask Claude: \"Format this post for LinkedIn with bold key phrases.\" Claude calls Boldify directly. The formatted result comes back inline. Copy once and paste into LinkedIn. One step."
 	},
+	"donation_toast": {
+		"title": "Text copied!",
+		"message": "Glad it was useful! This site runs ad-free, funded out of my own pocket. A small coffee to keep it free?",
+		"cta": "Buy me a coffee",
+		"later": "Later"
+	},
 	"home": {
 		"title": "Boldify - LinkedIn Bold Text Formatter | Free Text Generator",
 		"description": "Free generator to bold, italicize, and style LinkedIn posts using Unicode. Live preview, no signup. Works on desktop and mobile.",

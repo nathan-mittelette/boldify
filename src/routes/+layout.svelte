@@ -3,16 +3,29 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Snackbar from '$lib/components/Snackbar.svelte';
+	import DonationToast from '$lib/components/DonationToast.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { locale } from '$lib/services/i18n.service';
 	import { t } from 'svelte-i18n';
 	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
 
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
 
 	let { children }: Props = $props();
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 
 	onMount(() => {
 		const unsubscriber = locale.subscribe((lang) => {
@@ -66,5 +79,10 @@
 	<Navbar />
 	{@render children?.()}
 	<Footer />
-	<Snackbar />
+	<div
+		class="fixed bottom-8 md:right-8 max-md:left-1/2 max-md:-translate-x-1/2 z-50 flex flex-col gap-4 w-[360px] max-w-[calc(100vw-2rem)]"
+	>
+		<Snackbar />
+		<DonationToast />
+	</div>
 </div>

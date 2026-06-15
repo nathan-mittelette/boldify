@@ -13,7 +13,13 @@
 	import { browser } from '$app/environment';
 	import { addSnackbar } from '$lib/stores/snackbar.store';
 	import type { Snackbar } from '$lib/models/snackbar.model';
-	import { trackFormatUsed, trackTextCopied, trackTextPasted } from '$lib/services/clarity.service';
+	import {
+		trackFormatUsed,
+		trackTextCopied,
+		trackTextPasted,
+		trackClarityEvent
+	} from '$lib/services/clarity.service';
+	import { maybeShowDonationToast } from '$lib/services/donation-toast.service';
 
 	const MAX_CHARACTERS = 3000;
 
@@ -33,10 +39,16 @@
 	const copyToClipboard = async () => {
 		await navigator.clipboard.writeText($text);
 		trackTextCopied($text);
-		addSnackbar({
-			title: $t('editor.copied'),
-			description: $t('editor.copied_description')
-		} as Snackbar);
+
+		const showed = maybeShowDonationToast();
+		if (showed) {
+			trackClarityEvent('buymeacoffee_toast_shown');
+		} else {
+			addSnackbar({
+				title: $t('editor.copied'),
+				description: $t('editor.copied_description')
+			} as Snackbar);
+		}
 	};
 
 	function applyFormat(format: 'bold' | 'italic' | 'underline' | 'strike' | 'overline') {

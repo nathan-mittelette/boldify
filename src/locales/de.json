@@ -250,6 +250,12 @@
 		"preview_sample_position": "LinkedIn Content Creator",
 		"preview_sample_time": "1 Std."
 	},
+	"donation_toast": {
+		"title": "Text kopiert!",
+		"message": "Schön, dass es geholfen hat! Diese Seite läuft werbefrei und wird aus eigener Tasche finanziert. Ein kleiner Kaffee, damit sie kostenlos bleibt?",
+		"cta": "Einen Kaffee spendieren",
+		"later": "Später"
+	},
 	"home": {
 		"title": "Boldify - LinkedIn Fetttext-Formatierer | Kostenlos",
 		"description": "Kostenloser Generator zum Fetten, Kursivieren und Stylen von LinkedIn-Beiträgen mit Unicode. Live-Vorschau, ohne Anmeldung. Desktop und Mobil.",

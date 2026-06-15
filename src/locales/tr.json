@@ -251,6 +251,12 @@
 		"preview_sample_position": "LinkedIn İçerik Üreticisi",
 		"preview_sample_time": "1 sa."
 	},
+	"donation_toast": {
+		"title": "Metin kopyalandı!",
+		"message": "İşinize yaradığına sevindim! Bu site reklamsız çalışıyor ve kendi cebimden finanse ediliyor. Ücretsiz kalması için küçük bir kahve?",
+		"cta": "Kahve ısmarla",
+		"later": "Daha sonra"
+	},
 	"home": {
 		"title": "Boldify - LinkedIn Kalın Metin Biçimlendirici | Ücretsiz",
 		"description": "LinkedIn gönderilerini Unicode ile kalın, italik ve stilize etmek için ücretsiz oluşturucu. Canlı önizleme, kayıt yok. Masaüstü ve mobil.",

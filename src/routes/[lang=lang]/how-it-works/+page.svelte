@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { locale } from '$lib/services/i18n.service';
 	import SEOHead from '$lib/components/SEOHead.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { resolve } from '$app/paths';
@@ -279,11 +280,12 @@
 			</div>
 			<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 				<div>
-					<div
-						class="inline-flex items-center gap-2 px-3 py-1.5 bg-mcp/20 text-mcp border border-mcp/30 rounded-full mb-6 text-xs font-bold uppercase tracking-wider"
+					<a
+						href={resolve(`/${$locale}/mcp`)}
+						class="inline-flex items-center gap-2 px-3 py-1.5 bg-mcp/20 text-mcp border border-mcp/30 rounded-full mb-6 text-xs font-bold uppercase tracking-wider hover:bg-mcp/30 transition-colors"
 					>
 						{$t('how_it_works.mcp_badge')}
-					</div>
+					</a>
 					<h2 class="text-[30px] leading-[38px] font-bold text-white mb-6">
 						{$t('how_it_works.mcp_title')}
 					</h2>

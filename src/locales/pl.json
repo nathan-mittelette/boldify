@@ -250,6 +250,12 @@
 		"preview_sample_position": "Twórca treści na LinkedIn",
 		"preview_sample_time": "1 godz."
 	},
+	"donation_toast": {
+		"title": "Tekst skopiowany!",
+		"message": "Cieszę się, że się przydało! Ta strona działa bez reklam, finansowana z własnej kieszeni. Mała kawa, żeby pozostała bezpłatna?",
+		"cta": "Postaw kawę",
+		"later": "Później"
+	},
 	"home": {
 		"title": "Boldify - Formater Tekstu LinkedIn | Generator Bezpłatny",
 		"description": "Darmowy generator do pogrubiania, kursywy i stylizowania postów LinkedIn za pomocą Unicode. Podgląd na żywo, bez rejestracji. Desktop i mobile.",

@@ -224,3 +224,23 @@ html {
 .ql-tooltip a {
 	display: none;
 }
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+:root::view-transition-old(root) {
+	animation: 300ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+}
+
+:root::view-transition-new(root) {
+	animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+}
