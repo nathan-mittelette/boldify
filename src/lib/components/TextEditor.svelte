@@ -58,6 +58,17 @@
 		handleUpdateToText(editor, listHandler, data);
 	}
 
+	function handlePaste(e: ClipboardEvent) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		trackTextPasted();
+		const plainText = e.clipboardData?.getData('text/plain') ?? '';
+		const range = editor.getSelection() ?? { index: editor.getLength() - 1, length: 0 };
+		editor.deleteText(range.index, range.length, 'user');
+		editor.insertText(range.index, plainText, 'user');
+		editor.setSelection(range.index + plainText.length, 0, 'silent');
+	}
+
 	let editor: Quill;
 	let debounceTimer: ReturnType<typeof setTimeout> | undefined;
 	// Separate reactive flag — avoids wrapping the Quill instance in a Svelte proxy
@@ -111,7 +122,7 @@
 		editor = new Quill(editorRef, options);
 		// Signal readiness — triggers $effect to set the initial text
 		editorReady = true;
-		editor.root.addEventListener('paste', trackTextPasted);
+		editor.root.addEventListener('paste', handlePaste, true);
 
 		editor.on('text-change', (_, __, source) => {
 			if (source === 'user') {
@@ -140,7 +151,7 @@
 
 	onDestroy(() => {
 		observer?.disconnect();
-		editor?.root.removeEventListener('paste', trackTextPasted);
+		editor?.root.removeEventListener('paste', handlePaste, true);
 		clearTimeout(debounceTimer);
 	});
 </script>
