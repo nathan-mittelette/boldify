@@ -11,6 +11,7 @@
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
 	import { trackBuyMeACoffeeClicked } from '$lib/services/clarity.service';
+	import { coffeeCue } from '$lib/stores/coffee-cue.store';
 
 	let scrollY = $state(0);
 	let innerWidth = $state(0);
@@ -114,23 +115,34 @@
 					href="https://buymeacoffee.com/boldify"
 					target="_blank"
 					rel="noopener"
-					class="btn btn-accent ml-4"
+					class="btn ml-4 bg-[#ffdd00] text-neutral-900 hover:bg-[#ffe666] focus:ring-[#ffdd00] shadow-sm ring-1 ring-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-300/50"
 					onclick={() => trackBuyMeACoffeeClicked('navbar_desktop')}
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="2"
-						stroke="currentColor"
-						class="size-5 mr-2"
-					>
-						<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-						<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-						<line x1="6" y1="1" x2="6" y2="4" />
-						<line x1="10" y1="1" x2="10" y2="4" />
-						<line x1="14" y1="1" x2="14" y2="4" />
-					</svg>
+					<span class="coffee-cup-wrap mr-2">
+						{#key $coffeeCue}
+							{#if $coffeeCue > 0}
+								<span class="coffee-steam" aria-hidden="true">
+									<span></span>
+									<span></span>
+									<span></span>
+								</span>
+							{/if}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								class="size-5 {$coffeeCue > 0 ? 'coffee-bob' : ''}"
+							>
+								<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+								<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+								<line x1="6" y1="1" x2="6" y2="4" />
+								<line x1="10" y1="1" x2="10" y2="4" />
+								<line x1="14" y1="1" x2="14" y2="4" />
+							</svg>
+						{/key}
+					</span>
 					{$t('contribute.support_cta')}
 				</a>
 			</li>
@@ -216,7 +228,7 @@
 						href="https://buymeacoffee.com/boldify"
 						target="_blank"
 						rel="noopener"
-						class="btn btn-accent w-full justify-center"
+						class="btn w-full justify-center bg-[#ffdd00] text-neutral-900 hover:bg-[#ffe666] focus:ring-[#ffdd00] shadow-sm ring-1 ring-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-300/50"
 						onclick={trackMobileBuyMeACoffeeClick}
 					>
 						<svg
@@ -243,3 +255,73 @@
 
 <!-- This div provides spacing to account for the fixed navbar -->
 <div class="h-24"></div>
+
+<style>
+	.coffee-cup-wrap {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.coffee-steam {
+		position: absolute;
+		top: -5px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 2px;
+		pointer-events: none;
+	}
+
+	.coffee-steam span {
+		width: 2px;
+		height: 6px;
+		border-radius: 9999px;
+		background: currentColor;
+		opacity: 0;
+		animation: coffee-steam 1.1s ease-out forwards;
+	}
+
+	.coffee-steam span:nth-child(2) {
+		animation-delay: 0.15s;
+	}
+
+	.coffee-steam span:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+
+	.coffee-bob {
+		animation: coffee-bob 0.55s ease-out;
+	}
+
+	@keyframes coffee-steam {
+		0% {
+			opacity: 0;
+			transform: translateY(2px) scaleY(0.6);
+		}
+		35% {
+			opacity: 0.6;
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(-7px) scaleY(1);
+		}
+	}
+
+	@keyframes coffee-bob {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		40% {
+			transform: translateY(-2px);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.coffee-steam span,
+		.coffee-bob {
+			animation: none;
+		}
+	}
+</style>

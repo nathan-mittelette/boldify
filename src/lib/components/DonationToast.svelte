@@ -16,6 +16,7 @@
 
 	$effect(() => {
 		if ($isDonationToastVisible) {
+			trackClarityEvent('buymeacoffee_toast_shown');
 			timer = setTimeout(() => {
 				dismissDonationToast(false);
 			}, AUTO_HIDE_MS);
