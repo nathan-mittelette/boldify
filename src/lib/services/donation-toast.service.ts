@@ -1,15 +1,18 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
-const SHOW_AFTER_COPIES = 2;
-const COOLDOWN_SHOWN_DAYS = 3;
-const COOLDOWN_DISMISS_DAYS = 14;
+const SAFETY_DELAY_MS = 12000;
+const COOLDOWN_SHOWN_DAYS = 7;
+const COOLDOWN_DISMISS_DAYS = 30;
 const DAY = 24 * 60 * 60 * 1000;
 
-const K_COUNT = 'bmc_copy_count';
 const K_UNTIL = 'bmc_silent_until';
+const K_SHOWN = 'bmc_shown_session';
 
 export const isDonationToastVisible = writable(false);
+
+let armed = false;
+let safetyTimer: ReturnType<typeof setTimeout> | undefined;
 
 function setCooldown(days: number): void {
 	if (!browser) return;
@@ -30,28 +33,68 @@ function inCooldown(): boolean {
 	}
 }
 
-export function maybeShowDonationToast(): boolean {
+function shownThisSession(): boolean {
 	if (!browser) return false;
-	if (inCooldown()) return false;
-
-	let n = 0;
 	try {
-		n = (+(sessionStorage.getItem(K_COUNT) ?? '0') || 0) + 1;
-		sessionStorage.setItem(K_COUNT, String(n));
+		return sessionStorage.getItem(K_SHOWN) === '1';
+	} catch {
+		return false;
+	}
+}
+
+function markShownThisSession(): void {
+	if (!browser) return;
+	try {
+		sessionStorage.setItem(K_SHOWN, '1');
 	} catch {
 		// silently fail when storage is restricted (e.g. private browsing)
 	}
+}
 
-	if (n < SHOW_AFTER_COPIES) return false;
+function onVisibilityChange(): void {
+	if (document.visibilityState === 'hidden') {
+		// user left to paste their text — cancel the safety timer and catch them on return
+		clearTimeout(safetyTimer);
+	} else {
+		// user came back to the tab — ideal "task done" moment to ask
+		fire();
+	}
+}
 
+function fire(): void {
+	if (!armed || inCooldown() || shownThisSession()) {
+		cleanup();
+		return;
+	}
+	markShownThisSession();
 	setCooldown(COOLDOWN_SHOWN_DAYS);
-	try {
-		sessionStorage.removeItem(K_COUNT);
-	} catch {
-		// silently fail when storage is restricted (e.g. private browsing)
-	}
 	isDonationToastVisible.set(true);
-	return true;
+	cleanup();
+}
+
+function cleanup(): void {
+	armed = false;
+	clearTimeout(safetyTimer);
+	safetyTimer = undefined;
+	if (browser) document.removeEventListener('visibilitychange', onVisibilityChange);
+}
+
+/**
+ * Called on every copy. Arms the donation toast on the first copy without interrupting
+ * the copy→paste flow, then fires it at the first natural moment that occurs:
+ *  - the user returns to the tab (visibilitychange → visible) — preferred,
+ *  - the user copies again (clearly engaged) — immediate,
+ *  - the user stays on the page past the safety delay — fallback so stayers aren't missed.
+ */
+export function onCopy(): void {
+	if (!browser || inCooldown() || shownThisSession()) return;
+	if (armed) {
+		fire(); // second copy in the session
+		return;
+	}
+	armed = true;
+	document.addEventListener('visibilitychange', onVisibilityChange);
+	safetyTimer = setTimeout(fire, SAFETY_DELAY_MS);
 }
 
 export function dismissDonationToast(longer: boolean): void {
