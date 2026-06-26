@@ -11,13 +11,15 @@ updates:
     directory: '/'
     schedule:
       interval: 'monthly'
-    reviewers:
-      - 'nathan-mittelette'
+  - package-ecosystem: 'terraform'
+    rebase-strategy: auto
+    open-pull-requests-limit: 20
+    directory: '/devops/terraform'
+    schedule:
+      interval: 'monthly'
   - package-ecosystem: 'github-actions'
     rebase-strategy: auto
     open-pull-requests-limit: 20
-    directory: '/'
+    directory: '/.github/workflows'
     schedule:
       interval: 'monthly'
-    reviewers:
-      - 'nathan-mittelette'
