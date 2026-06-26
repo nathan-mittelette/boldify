@@ -72,5 +72,5 @@
 		"quill": "^2.0.3",
 		"svelte-i18n": "^4.0.1"
 	},
-	"packageManager": "pnpm@11.9.0"
+	"packageManager": "pnpm@10.34.4"
 }

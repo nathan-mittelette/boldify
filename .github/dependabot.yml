@@ -20,6 +20,6 @@ updates:
   - package-ecosystem: 'github-actions'
     rebase-strategy: auto
     open-pull-requests-limit: 20
-    directory: '/.github/workflows'
+    directory: '/'
     schedule:
       interval: 'monthly'
