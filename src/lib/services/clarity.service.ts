@@ -2,13 +2,7 @@ import { browser } from '$app/environment';
 
 type ClarityValue = string | string[];
 type FormatAction =
-	| 'bold'
-	| 'italic'
-	| 'underline'
-	| 'strike'
-	| 'overline'
-	| 'ordered_list'
-	| 'bullet_list';
+	'bold' | 'italic' | 'underline' | 'strike' | 'overline' | 'ordered_list' | 'bullet_list';
 
 const TEXT_LENGTH_TAG = 'text_length_before_copy';
 
