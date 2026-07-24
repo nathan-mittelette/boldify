@@ -17,7 +17,7 @@
 	},
 	"introduction": {
 		"title": "Formater tekstu pogrubionego na LinkedIn - Bezpłatny generator",
-		"description": "Bezpłatne i wydajne narzędzie do formatowania, umożliwiające tworzenie postów na LinkedIn z pogrubieniem, kursywą i stylami przyciągającymi uwagę.",
+		"description": "Boldify to bezpłatne i wydajne narzędzie do formatowania, umożliwiające tworzenie postów na LinkedIn z pogrubieniem, kursywą i stylami przyciągającymi uwagę.",
 		"beta": "To jest wersja beta. Jeśli znajdziesz błędy lub masz sugestie, daj nam znać.",
 		"try_button": "Wypróbuj teraz",
 		"learn_more": "Dowiedz się więcej",
@@ -258,7 +258,7 @@
 	},
 	"home": {
 		"title": "Boldify - Formater Tekstu LinkedIn | Generator Bezpłatny",
-		"description": "Darmowy generator do pogrubiania, kursywy i stylizowania postów LinkedIn za pomocą Unicode. Podgląd na żywo, bez rejestracji. Desktop i mobile.",
+		"description": "Boldify to darmowy generator do pogrubiania, kursywy i stylizowania postów LinkedIn za pomocą Unicode. Podgląd na żywo, bez rejestracji. Desktop i mobile.",
 		"keywords": "pogrubiony tekst linkedin, formater linkedin, generator tekstu pogrubionego, narzędzie do postów linkedin, formater mediów społecznościowych, kursywa linkedin, bezpłatne narzędzie linkedin"
 	},
 	"error": {

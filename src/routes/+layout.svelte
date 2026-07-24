@@ -67,6 +67,7 @@
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
 		name: 'Boldify',
+		alternateName: 'boldify.net',
 		url: 'https://boldify.net/',
 		description: $t('home.description')
 	});
