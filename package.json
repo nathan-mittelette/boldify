@@ -51,7 +51,7 @@
 		"@vitest/ui": "^4.1.10",
 		"eslint": "^10.8.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-svelte": "^3.22.0",
+		"eslint-plugin-svelte": "^3.23.0",
 		"globals": "^17.7.0",
 		"jsdom": "^29.1.1",
 		"path": "^0.12.7",
