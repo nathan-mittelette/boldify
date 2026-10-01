@@ -58,7 +58,7 @@
 		"path": "^0.12.7",
 		"prettier": "^3.9.8",
 		"prettier-plugin-svelte": "^4.1.1",
-		"sass-embedded": "^1.104.1",
+		"sass-embedded": "^1.105.0",
 		"svelte": "^5.57.0",
 		"svelte-check": "^4.7.6",
 		"tailwindcss": "^4.3.3",
