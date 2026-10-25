@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { _, t } from 'svelte-i18n';
-	import { locale, SUPPORTED_LANGUAGES } from '$lib/services/i18n.service';
+	import { locale, SUPPORTED_LANGUAGES } from '#lib/services/i18n.service.js';
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
 	import { resolve } from '$app/paths';
-	import { trackBuyMeACoffeeClicked, trackLanguageChanged } from '$lib/services/clarity.service';
+	import { trackBuyMeACoffeeClicked, trackLanguageChanged } from '#lib/services/clarity.service.js';
 
 	const FLAGS: Record<SupportedLanguages, string> = {
 		fr: '🇫🇷',
@@ -66,11 +66,11 @@
 				<div class="flex items-center gap-2 flex-wrap">
 					{#each SUPPORTED_LANGUAGES as lang (lang)}
 						<a
-							href={resolve(languageUrls[lang])}
+							href={resolve(languageUrls[lang].slice(1))}
 							class="flex items-center justify-center size-8 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer shrink-0 overflow-hidden"
 							aria-label="{$_('footer.changeLanguage')} {lang}"
 							hreflang={lang}
-							data-sveltekit-preload-data="off"
+							data-sveltekit-preload-data="false"
 							onclick={() => trackFooterLanguageClick(lang)}
 						>
 							<span class="text-base leading-none">{FLAGS[lang] ?? lang}</span>
@@ -84,7 +84,7 @@
 				<ul class="space-y-3">
 					<li>
 						<a
-							href={resolve(`/${$locale}`)}
+							href={resolve(`${$locale}`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.home')}
@@ -92,7 +92,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`/${$locale}/mcp`)}
+							href={resolve(`${$locale}/mcp`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.mcp')}
@@ -100,7 +100,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`/${$locale}/about`)}
+							href={resolve(`${$locale}/about`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.about')}
@@ -108,7 +108,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`/${$locale}/how-it-works`)}
+							href={resolve(`${$locale}/how-it-works`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.how_it_works')}
@@ -116,7 +116,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`/${$locale}/help`)}
+							href={resolve(`${$locale}/help`)}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.help')}

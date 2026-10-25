@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import SEOHead from '$lib/components/SEOHead.svelte';
-	import JsonLd from '$lib/components/JsonLd.svelte';
+	import SEOHead from '#lib/components/SEOHead.svelte';
+	import JsonLd from '#lib/components/JsonLd.svelte';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { buildHreflang } from '$lib/utils/hreflang';
-	import workspaceImg from '$lib/assets/about-workspace.jpg?enhanced';
-	import teamImg from '$lib/assets/about-team.jpg?enhanced';
+	import { buildHreflang } from '#lib/utils/hreflang.js';
+	import workspaceImg from '#lib/assets/about-workspace.jpg?enhanced';
+	import teamImg from '#lib/assets/about-team.jpg?enhanced';
 
 	const languages = buildHreflang('/about');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/about`);
@@ -347,13 +347,13 @@
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
 				<a
-					href={resolve(`/${page.params.lang}#text-editor`)}
+					href={resolve(`${page.params.lang}#text-editor`)}
 					class="bg-primary text-white px-8 py-4 rounded-xl text-sm font-semibold hover:bg-primary-dark transition-colors"
 				>
 					{$t('about.cta_try')}
 				</a>
 				<a
-					href={resolve(`/${page.params.lang}/how-it-works`)}
+					href={resolve(`${page.params.lang}/how-it-works`)}
 					class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-sm font-semibold hover:bg-white/20 transition-colors"
 				>
 					{$t('about.cta_demo')}

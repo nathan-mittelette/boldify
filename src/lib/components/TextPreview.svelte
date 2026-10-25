@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import profile from '$lib/assets/profile.png?enhanced';
+	import profile from '#lib/assets/profile.png?enhanced';
 
 	interface Props {
 		name: string;

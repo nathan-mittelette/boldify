@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 const SAFETY_DELAY_MS = 12000;
 const COOLDOWN_SHOWN_DAYS = 7;

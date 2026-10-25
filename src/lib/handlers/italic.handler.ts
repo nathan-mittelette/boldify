@@ -1,4 +1,4 @@
-import type { Handler } from '$lib/handlers/handler';
+import type { Handler } from '#lib/handlers/handler.js';
 
 const baseUpperItalicCode = 0x1d608;
 const baseLowerItalicCode = 0x1d622;

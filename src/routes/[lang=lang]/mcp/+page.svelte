@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import { page } from '$app/state';
-	import { buildHreflang } from '$lib/utils/hreflang';
-	import SEOHead from '$lib/components/SEOHead.svelte';
-	import JsonLd from '$lib/components/JsonLd.svelte';
+	import { buildHreflang } from '#lib/utils/hreflang.js';
+	import SEOHead from '#lib/components/SEOHead.svelte';
+	import JsonLd from '#lib/components/JsonLd.svelte';
 
 	const languages = buildHreflang('/mcp');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/mcp`);

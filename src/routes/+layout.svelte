@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Snackbar from '$lib/components/Snackbar.svelte';
-	import DonationToast from '$lib/components/DonationToast.svelte';
-	import JsonLd from '$lib/components/JsonLd.svelte';
-	import { locale } from '$lib/services/i18n.service';
+	import Navbar from '#lib/components/Navbar.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+	import Snackbar from '#lib/components/Snackbar.svelte';
+	import DonationToast from '#lib/components/DonationToast.svelte';
+	import JsonLd from '#lib/components/JsonLd.svelte';
+	import { locale } from '#lib/services/i18n.service.js';
 	import { t } from 'svelte-i18n';
 	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
@@ -17,6 +17,7 @@
 	let { children }: Props = $props();
 
 	onNavigate((navigation) => {
+		if (navigation.shallow && navigation.type === 'goto') return;
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {

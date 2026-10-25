@@ -6,12 +6,12 @@
 	};
 
 	import { t } from 'svelte-i18n';
-	import { locale } from '$lib/services/i18n.service';
+	import { locale } from '#lib/services/i18n.service.js';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
-	import { trackBuyMeACoffeeClicked } from '$lib/services/clarity.service';
-	import { coffeeCue } from '$lib/stores/coffee-cue.store';
+	import { trackBuyMeACoffeeClicked } from '#lib/services/clarity.service.js';
+	import { coffeeCue } from '#lib/stores/coffee-cue.store.js';
 
 	let scrollY = $state(0);
 	let innerWidth = $state(0);
@@ -68,7 +68,10 @@
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<p class="text-2xl font-bold">
-				<a class={isMcpPage ? 'text-mcp' : 'gradient-text'} href={resolve(getHomeUrl($locale))}>
+				<a
+					class={isMcpPage ? 'text-mcp' : 'gradient-text'}
+					href={resolve(getHomeUrl($locale).slice(1))}
+				>
 					Boldify
 				</a>
 			</p>
@@ -80,7 +83,7 @@
 				{@const active = isActive(href)}
 				<li>
 					<a
-						href={resolve(href)}
+						href={resolve(href.slice(1))}
 						class="font-medium flex items-center gap-1.5 {isMcpPage
 							? active
 								? 'text-mcp'
@@ -200,7 +203,7 @@
 					{@const active = isActive(href)}
 					<li>
 						<a
-							href={resolve(href)}
+							href={resolve(href.slice(1))}
 							class="block py-2 font-medium flex items-center gap-1.5 {isMcpPage
 								? active
 									? 'text-mcp'

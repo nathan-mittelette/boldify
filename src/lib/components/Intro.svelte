@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import TextPreview from '$lib/components/TextPreview.svelte';
+	import TextPreview from '#lib/components/TextPreview.svelte';
 
 	const name = 'John Doe';
 	const degree = '3e et +';
