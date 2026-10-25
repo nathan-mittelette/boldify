@@ -43,7 +43,8 @@
 		"like": "Like",
 		"comment": "Comment",
 		"repost": "Repost",
-		"send": "Send"
+		"send": "Send",
+		"avatar_alt": "Example profile avatar"
 	},
 	"contribute": {
 		"title": "Contribute to Boldify",
@@ -70,7 +71,7 @@
 		"how_it_works": "How It Works"
 	},
 	"about": {
-		"title": "LinkedIn Text Formatter - Bold & Italic Generator | Boldify",
+		"title": "About Boldify for LinkedIn",
 		"description": "Learn about Boldify, the open-source LinkedIn formatting tool built by Nathan Mittelette. Mission, story, and why it supports 7 languages.",
 		"keywords": "linkedin formatter, linkedin text generator, linkedin bold text, linkedin italic, social media formatter, linkedin post tool",
 		"hero_title": "LinkedIn Text Formatter",
@@ -102,7 +103,7 @@
 		"benefit4_title": "Stands out in the feed",
 		"benefit4_desc": "Bold and italic Unicode characters catch the eye while scrolling, with no algorithm claims needed.",
 		"mission_badge": "Our Mission",
-		"hero_tagline": "Giving character back to your words.",
+		"hero_tagline": "Give your LinkedIn posts character",
 		"hero_desc_new": "Boldify was born from a simple observation: LinkedIn is the professional network, but its editing tools have stayed stuck in the past. We created the solution to make your ideas shine without friction.",
 		"hero_tagline_highlight": "character",
 		"story_title": "Why Boldify?",
@@ -131,18 +132,18 @@
 		"creator_story_desc": "Formatting LinkedIn posts should work for everyone, not just English speakers. Most tools simply drop accented characters, leaving non-English writers with broken output. Nathan built Boldify to fill that gap: a formatter that handles every character in every language, with no signup and no cost. He then released it as open-source so anyone could use or build on it."
 	},
 	"how_it_works": {
-		"title": "LinkedIn Bold Text Generator - Free Tool | Boldify",
+		"title": "How to Format LinkedIn Posts | Boldify",
 		"description": "How Boldify converts text to Unicode bold and italic: a step-by-step guide explaining the trick that works inside LinkedIn itself.",
 		"keywords": "linkedin bold generator, linkedin gras, bold text linkedin, linkedin text formatting, linkedin post formatter, social media bold text",
 		"badge_label": "Getting started guide",
-		"hero_title": "Transform your ideas into Impact",
-		"hero_desc": "Discover how our smart editor and the MCP collaborate to format your LinkedIn posts professionally in seconds.",
+		"hero_title": "How to format your LinkedIn posts",
+		"hero_desc": "Write your text, choose a style and copy the result into LinkedIn. You can also format posts from an AI assistant using MCP.",
 		"step1_title": "Write & Format",
-		"step1_desc": "Enter your text in the web editor. Use the toolbar to apply Bold, Italic, or elegant script fonts.",
+		"step1_desc": "Enter your text, select a passage and choose a style from the toolbar.",
 		"step2_title": "Preview the Result",
-		"step2_desc": "With our real-time Preview Card, see exactly what your post will look like once published on LinkedIn. No more bad surprises.",
+		"step2_desc": "Check your text in the LinkedIn preview. Its appearance may vary by device and app.",
 		"step3_title": "Copy & Publish",
-		"step3_desc": "One click is enough to copy your formatted content with compatible Unicode characters. Just paste it on your favorite network.",
+		"step3_desc": "Click Copy, then paste your text into a LinkedIn post.",
 		"editor_title": "An interface built for speed",
 		"editor_feature1_title": "Non-Destructive Unicode Formatting",
 		"editor_feature1_desc": "Our tools use alphanumeric mathematical characters to guarantee readability on all devices.",
@@ -150,7 +151,7 @@
 		"editor_feature2_desc": "Spacing and line breaks are adjusted to maximize engagement in the news feed.",
 		"mcp_badge": "Technical Focus: MCP",
 		"mcp_title": "The Model Context Protocol (MCP): Your Invisible Assistant",
-		"mcp_desc": "MCP allows Boldify to integrate directly into your development tools or AI assistants. It acts as a bridge of structured data.",
+		"mcp_desc": "MCP connects Boldify to your AI assistant. Ask it to format your text without leaving the conversation.",
 		"mcp_feature1_title": "Smart Extraction",
 		"mcp_feature1_desc": "The MCP identifies key points from your raw documents to suggest hook formats.",
 		"mcp_feature2_title": "Direct Sync",
@@ -163,7 +164,7 @@
 	},
 	"help": {
 		"title": "Help & FAQ - LinkedIn Text Formatting Guide | Boldify",
-		"description": "Help and FAQ for Boldify: why bold text may not display, mobile rendering tips, screen reader notes, and troubleshooting.",
+		"description": "Boldify help for LinkedIn: bold text, mobile display, accessibility and fixes for copying and pasting your formatted posts.",
 		"keywords": "linkedin help, linkedin formatting guide, linkedin bold text help, how to format linkedin posts, linkedin text formatting FAQ",
 		"quick_start_title": "Quick Start Guide",
 		"faq_title": "Frequently Asked Questions",
@@ -216,7 +217,7 @@
 		"bp2_desc": "LinkedIn is a professional platform. Use formatting to enhance clarity and readability, not for decorative purposes.",
 		"bp3_title": "Test Before Posting",
 		"bp3_desc": "Always preview your formatted text using our preview feature before posting to ensure it looks correct.",
-		"hero_title": "How can we help you?",
+		"hero_title": "LinkedIn formatting help",
 		"hero_desc": "Find quick answers about text formatting, LinkedIn compatibility and MCP installation.",
 		"search_placeholder": "Search for a question...",
 		"cat_formatting": "Text Formatting",
@@ -236,7 +237,7 @@
 		"mcp_q2": "My MCP is not connecting, what should I do?",
 		"mcp_a2": "Check that the path to the node executable is correct in your configuration file. Also make sure you restarted your desktop app after modifying the claude_desktop_config.json file.",
 		"preview_section_title": "Visualize the result before publishing",
-		"preview_section_desc": "Our preview tool simulates the native LinkedIn interface to ensure your formatting is perfectly aligned and readable on all screens.",
+		"preview_section_desc": "Check your text in a LinkedIn preview before copying it. The final appearance may vary by device.",
 		"preview_check1": "Real-time preview of your post",
 		"preview_check2": "Faithful rendering to LinkedIn format",
 		"preview_check3": "One-click copy to clipboard",
@@ -330,7 +331,7 @@
 		"report_issue": "Report an issue"
 	},
 	"x": {
-		"title": "X (Twitter) Post Formatter — Bold & Italic Text for Tweets | Boldify",
+		"title": "Bold & Italic Text for X (Twitter) | Boldify",
 		"description": "Format your X (Twitter) posts with bold, italic and strikethrough text. Free tweet formatter with live preview — no signup.",
 		"keywords": "x post formatter, twitter bold text, tweet formatter, x text generator, bold text for twitter, italic tweet, strikethrough tweet",
 		"placeholder": "Write your X post…",

@@ -35,7 +35,7 @@ for (const lang of languages) {
 		const html = await response.text();
 		expect(html).toContain(translations[lang].introduction.title.replace(/LinkedIn/g, 'X'));
 		expect(html).toContain(`rel="canonical" href="https://boldify.net${route}"`);
-		expect(html).toContain('Weighted 280-unit standard post counter');
+		expect(html).toContain('"@type":"WebPage"');
 		expect(html).toContain('"datePublished":"2026-10-25"');
 		expect(html).toContain('"dateModified":"2026-10-25"');
 		await page.goto(route);
@@ -211,7 +211,9 @@ for (const width of [375, 1440]) {
 		);
 		await page.locator('footer a[hreflang="en"]').click();
 		await expect(page).toHaveURL(/\/en\/x\/how-it-works$/);
-		await expect(page.locator('h1')).toHaveText(en.how_it_works.hero_title);
+		await expect(page.locator('h1')).toHaveText(
+			en.how_it_works.hero_title.replace(/LinkedIn/g, 'X')
+		);
 		await page.locator('.platform-switch a', { hasText: 'LinkedIn' }).click();
 		await expect(page).toHaveURL(/\/en\/how-it-works$/);
 		await page.locator('.platform-switch a', { hasText: 'X' }).click();
@@ -298,7 +300,9 @@ test('all seven languages retain the X draft, section and platform', async ({ pa
 		});
 		await page.locator(`footer a[hreflang="${lang}"]`).click();
 		await expect(page).toHaveURL(new RegExp(`${xHome(lang)}/help$`));
-		await expect(page.locator('h1')).toHaveText(translations[lang].help.hero_title);
+		await expect(page.locator('h1')).toHaveText(
+			translations[lang].help.hero_title.replace(/LinkedIn/g, 'X')
+		);
 		await expect(page.locator('button[aria-controls="faq-formatting-0"]')).toHaveText(
 			translations[lang].help.formatting_q1
 		);

@@ -130,9 +130,9 @@
 						/>
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold text-neutral-900 mb-4">
+				<h2 class="text-xl font-bold text-neutral-900 mb-4">
 					{$t('how_it_works.step1_title')}
-				</h3>
+				</h2>
 				<p class="text-neutral-500 text-base">{$t('how_it_works.step1_desc')}</p>
 			</div>
 
@@ -163,9 +163,9 @@
 						/>
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold text-neutral-900 mb-4">
+				<h2 class="text-xl font-bold text-neutral-900 mb-4">
 					{$t('how_it_works.step2_title')}
-				</h3>
+				</h2>
 				<p class="text-neutral-500 text-base">{$t('how_it_works.step2_desc')}</p>
 			</div>
 
@@ -191,9 +191,9 @@
 						/>
 					</svg>
 				</div>
-				<h3 class="text-xl font-bold text-neutral-900 mb-4">
+				<h2 class="text-xl font-bold text-neutral-900 mb-4">
 					{$t('how_it_works.step3_title')}
-				</h3>
+				</h2>
 				<p class="text-neutral-500 text-base">{$t('how_it_works.step3_desc')}</p>
 			</div>
 		</div>

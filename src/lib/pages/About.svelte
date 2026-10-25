@@ -303,7 +303,7 @@
 							</svg>
 						</div>
 						<div>
-							<h4 class="font-bold text-neutral-900">{$t('about.transparency_title')}</h4>
+							<h3 class="font-bold text-neutral-900">{$t('about.transparency_title')}</h3>
 							<p class="text-neutral-500 text-base">{$t('about.transparency_desc')}</p>
 						</div>
 					</div>
@@ -327,7 +327,7 @@
 							</svg>
 						</div>
 						<div>
-							<h4 class="font-bold text-neutral-900">{$t('about.community_title')}</h4>
+							<h3 class="font-bold text-neutral-900">{$t('about.community_title')}</h3>
 							<p class="text-neutral-500 text-base">{$t('about.community_desc')}</p>
 						</div>
 					</div>

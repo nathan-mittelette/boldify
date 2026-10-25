@@ -49,7 +49,9 @@
 </script>
 
 <article class="post-container x-post" data-testid="x-preview">
-	<div class="avatar"><enhanced:img src={profile} width="40" height="40" alt="" /></div>
+	<div class="avatar">
+		<enhanced:img src={profile} width="40" height="40" alt={$t('preview.avatar_alt')} />
+	</div>
 	<div class="post-content">
 		<header class="identity">
 			<span class="name">{name}</span>

@@ -43,7 +43,8 @@
 		"like": "J'aime",
 		"comment": "Commenter",
 		"repost": "Republier",
-		"send": "Envoyer"
+		"send": "Envoyer",
+		"avatar_alt": "Avatar du profil d’exemple"
 	},
 	"contribute": {
 		"title": "Contribuez à Boldify",
@@ -70,7 +71,7 @@
 		"how_it_works": "Comment ça Marche"
 	},
 	"about": {
-		"title": "Formateur Texte LinkedIn - Gras & Italique | Boldify",
+		"title": "À propos de Boldify pour LinkedIn",
 		"description": "Découvrez Boldify, l'outil de formatage LinkedIn open-source créé par Nathan Mittelette. Mission, histoire et support multilingue.",
 		"keywords": "formatage linkedin, générateur texte linkedin, texte gras linkedin, italique linkedin, formatage réseaux sociaux, outil post linkedin",
 		"hero_title": "Formatage de Texte LinkedIn",
@@ -102,7 +103,7 @@
 		"benefit4_title": "Se démarque dans le fil",
 		"benefit4_desc": "Les caractères Unicode gras et italique attirent le regard en parcourant le fil, sans allégations algorithmiques.",
 		"mission_badge": "Notre Mission",
-		"hero_tagline": "Redonner du caractère à vos mots.",
+		"hero_tagline": "Du caractère pour vos posts LinkedIn",
 		"hero_desc_new": "Boldify est né d'un constat simple : LinkedIn est le réseau des professionnels, mais ses outils d'édition sont restés bloqués dans le passé. Nous avons créé la solution pour faire briller vos idées sans friction.",
 		"hero_tagline_highlight": "caractère",
 		"story_title": "Pourquoi Boldify ?",
@@ -131,18 +132,18 @@
 		"creator_story_desc": "Formater des publications LinkedIn devrait fonctionner pour tout le monde, pas seulement pour les anglophones. La plupart des outils ignorent simplement les caractères accentués, laissant les utilisateurs non anglophones avec un résultat incomplet. Nathan a créé Boldify pour combler ce manque : un formateur qui gère chaque caractère dans chaque langue, sans inscription et sans frais. Il l'a ensuite publié en open source pour que chacun puisse l'utiliser ou y contribuer."
 	},
 	"how_it_works": {
-		"title": "Générateur Gras LinkedIn - Outil Gratuit | Boldify",
+		"title": "Comment formater vos posts LinkedIn | Boldify",
 		"description": "Comment Boldify convertit le texte en gras et italique Unicode : un guide étape par étape sur l'astuce qui fonctionne dans LinkedIn.",
 		"keywords": "formatage gras linkedin, générateur gras linkedin, texte gras linkedin, formatage texte linkedin, formateur post linkedin, texte gras réseaux sociaux",
 		"badge_label": "Guide de démarrage",
-		"hero_title": "Transformez vos idées en Impact",
-		"hero_desc": "Découvrez comment notre éditeur intelligent et le MCP collaborent pour formater vos posts LinkedIn de manière professionnelle en quelques secondes.",
+		"hero_title": "Comment formater vos posts LinkedIn",
+		"hero_desc": "Rédigez votre texte, choisissez un style et copiez le résultat dans LinkedIn. Vous pouvez aussi formater vos posts depuis un assistant IA avec MCP.",
 		"step1_title": "Rédigez & Formatez",
-		"step1_desc": "Saisissez votre texte dans l'éditeur web. Utilisez la barre d'outils pour appliquer du Gras, de l'Italique ou des polices script élégantes.",
+		"step1_desc": "Saisissez votre texte, sélectionnez un passage et appliquez un style avec la barre d’outils.",
 		"step2_title": "Visualisez le Rendu",
-		"step2_desc": "Grâce à notre Preview Card en temps réel, observez exactement à quoi ressemblera votre post une fois publié sur LinkedIn. Plus de mauvaises surprises.",
+		"step2_desc": "Vérifiez votre texte dans l’aperçu LinkedIn. Le rendu peut varier selon l’appareil et l’application.",
 		"step3_title": "Copiez & Publiez",
-		"step3_desc": "Un clic suffit pour copier votre contenu formaté avec les caractères Unicode compatibles. Il ne vous reste plus qu'à le coller sur votre réseau préféré.",
+		"step3_desc": "Cliquez sur Copier, puis collez votre texte dans une publication LinkedIn.",
 		"editor_title": "Une interface pensée pour la rapidité",
 		"editor_feature1_title": "Formatage Unicode Non-Destructif",
 		"editor_feature1_desc": "Nos outils utilisent des caractères mathématiques alphanumériques pour garantir la lisibilité sur tous les appareils.",
@@ -150,7 +151,7 @@
 		"editor_feature2_desc": "L'espacement et les sauts de ligne sont ajustés pour maximiser l'engagement dans le flux d'actualités.",
 		"mcp_badge": "Focus Technique : MCP",
 		"mcp_title": "Le Model Context Protocol (MCP) : Votre Assistant Invisible",
-		"mcp_desc": "Le MCP permet à Boldify de s'intégrer directement dans vos outils de développement ou vos assistants IA. Il agit comme un pont de données structurées.",
+		"mcp_desc": "MCP relie Boldify à votre assistant IA. Demandez-lui de formater votre texte sans quitter votre conversation.",
 		"mcp_feature1_title": "Extraction Intelligente",
 		"mcp_feature1_desc": "Le MCP identifie les points clés de vos documents bruts pour suggérer des formats d'accroche.",
 		"mcp_feature2_title": "Synchronisation Directe",
@@ -163,7 +164,7 @@
 	},
 	"help": {
 		"title": "Aide & FAQ - Guide de Formatage Texte LinkedIn | Boldify",
-		"description": "Aide et FAQ Boldify : pourquoi le texte gras peut ne pas s'afficher, conseils mobile, accessibilité et dépannage.",
+		"description": "Aide Boldify pour LinkedIn : texte en gras, affichage sur mobile, accessibilité et solutions aux problèmes de copier-coller.",
 		"keywords": "aide linkedin, guide formatage linkedin, aide texte gras linkedin, comment formater posts linkedin, FAQ formatage texte linkedin",
 		"quick_start_title": "Guide de Démarrage Rapide",
 		"faq_title": "Questions Fréquemment Posées",
@@ -216,7 +217,7 @@
 		"bp2_desc": "LinkedIn est une plateforme professionnelle. Utilisez le formatage pour améliorer la clarté et lisibilité, pas à des fins décoratives.",
 		"bp3_title": "Testez Avant de Publier",
 		"bp3_desc": "Prévisualisez toujours votre texte formaté en utilisant notre fonction d'aperçu avant de publier pour vous assurer qu'il semble correct.",
-		"hero_title": "Comment pouvons-nous vous aider ?",
+		"hero_title": "Aide au formatage LinkedIn",
 		"hero_desc": "Trouvez des réponses rapides sur le formatage de texte, la compatibilité LinkedIn et l'installation de votre MCP.",
 		"search_placeholder": "Rechercher une question...",
 		"cat_formatting": "Formatage de texte",
@@ -236,7 +237,7 @@
 		"mcp_q2": "Mon MCP ne se connecte pas, que faire ?",
 		"mcp_a2": "Vérifiez que le chemin d'accès vers l'exécutable node est correct dans votre fichier de configuration. Assurez-vous également d'avoir redémarré votre application de bureau après avoir modifié le fichier claude_desktop_config.json.",
 		"preview_section_title": "Visualisez le résultat avant de publier",
-		"preview_section_desc": "Notre outil de prévisualisation simule l'interface native de LinkedIn pour vous assurer que votre formatage est parfaitement aligné et lisible sur tous les écrans.",
+		"preview_section_desc": "Vérifiez le texte dans un aperçu LinkedIn avant de le copier. Le rendu final peut varier selon l’appareil.",
 		"preview_check1": "Aperçu en temps réel de votre post",
 		"preview_check2": "Rendu fidèle au format LinkedIn",
 		"preview_check3": "Copie en un clic vers le presse-papiers",
@@ -302,7 +303,7 @@
 	},
 	"home": {
 		"title": "Boldify - Formatage Gras LinkedIn | Générateur Texte Gratuit",
-		"description": "Boldify est un générateur gratuit pour mettre en gras, italique et styliser vos posts LinkedIn via Unicode. Aperçu en direct, sans inscription. Bureau et mobile.",
+		"description": "Formatez vos posts LinkedIn en gras, italique ou souligné. Aperçu en direct, copie en un clic et outil gratuit, sans inscription.",
 		"keywords": "linkedin texte gras, formatage linkedin, générateur texte gras, outil post linkedin, formatage réseaux sociaux, texte italique linkedin, outil linkedin gratuit"
 	},
 	"error": {
@@ -330,7 +331,7 @@
 		"report_issue": "Signaler un problème"
 	},
 	"x": {
-		"title": "Formateur de posts X (Twitter) — Texte en gras et italique | Boldify",
+		"title": "Texte en gras et italique pour X (Twitter) | Boldify",
 		"description": "Mets en forme tes posts X (Twitter) en gras, italique et barré. Un outil gratuit avec aperçu en direct, sans inscription.",
 		"keywords": "formater tweet, texte gras twitter, générateur texte X, italique tweet",
 		"placeholder": "Écris ton post X…",

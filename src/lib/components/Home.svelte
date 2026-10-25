@@ -21,50 +21,16 @@
 		`https://boldify.net${platformUrl(platform(), page.params.lang ?? 'fr')}`
 	);
 
-	const webAppSchema = $derived({
+	// Describe the editor page without claiming eligibility for app review snippets.
+	const webPageSchema = $derived({
 		...(platform() === 'x' ? xContentDates : {}),
 		'@context': 'https://schema.org',
-		'@type': 'WebApplication',
-		name: 'Boldify',
+		'@type': 'WebPage',
+		name: $t('home.title'),
 		url: canonicalUrl,
-		description: $t('introduction.description'),
-		applicationCategory: 'UtilitiesApplication',
-		operatingSystem: 'Any',
-		browserRequirements: 'Requires JavaScript',
-		inLanguage: ['en', 'fr', 'es', 'de', 'pt', 'pl', 'tr'],
-		isAccessibleForFree: true,
-		offers: {
-			'@type': 'Offer',
-			price: '0',
-			priceCurrency: 'EUR',
-			availability: 'https://schema.org/InStock'
-		},
-		featureList:
-			platform() === 'x'
-				? [
-						'Unicode bold text conversion',
-						'Unicode italic text conversion',
-						'Strikethrough text formatting',
-						'Bullet and numbered list formatting',
-						'Live X preview',
-						'Weighted 280-unit standard post counter',
-						'MCP server integration'
-					]
-				: [
-						'Unicode bold text conversion',
-						'Unicode italic text conversion',
-						'Strikethrough text formatting',
-						'Underline and overline text',
-						'Bullet and numbered list formatting',
-						'Live LinkedIn preview',
-						'MCP server integration'
-					],
-		screenshot: 'https://boldify.net/favicon-96x96.png',
-		creator: {
-			'@type': 'Organization',
-			name: 'Boldify',
-			url: 'https://boldify.net/'
-		}
+		description: $t('home.description'),
+		inLanguage: page.params.lang ?? 'fr',
+		isAccessibleForFree: true
 	});
 </script>
 
@@ -76,7 +42,7 @@
 	{languages}
 />
 
-<JsonLd schema={webAppSchema} />
+<JsonLd schema={webPageSchema} />
 
 <div class="flex flex-col min-h-screen">
 	<!-- Compact Hero + Editor above the fold -->

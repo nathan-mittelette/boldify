@@ -43,10 +43,9 @@
 	<div class="px-4 pt-3 mb-2 flex items-center">
 		<enhanced:img
 			src={profile}
-			title="User Avatar"
 			width="96"
 			height="96"
-			alt="User Avatar"
+			alt={$t('preview.avatar_alt')}
 			class="size-12 rounded-full"
 		/>
 		<div class="flex-1 p-0.5 ml-3 cursor-pointer flex justify-between">

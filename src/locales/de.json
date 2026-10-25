@@ -43,7 +43,8 @@
 		"like": "Gefällt mir",
 		"comment": "Kommentieren",
 		"repost": "Reposten",
-		"send": "Senden"
+		"send": "Senden",
+		"avatar_alt": "Avatar des Beispielprofils"
 	},
 	"contribute": {
 		"title": "Zu Boldify beitragen",
@@ -70,7 +71,7 @@
 		"how_it_works": "So funktioniert es"
 	},
 	"about": {
-		"title": "LinkedIn-Textformatierer - Fett & Kursiv | Boldify",
+		"title": "Über Boldify für LinkedIn",
 		"description": "Erfahren Sie mehr über Boldify, das Open-Source-LinkedIn-Formatierungstool von Nathan Mittelette. Mission, Geschichte und Mehrsprachigkeit.",
 		"keywords": "linkedin formatierer, linkedin textgenerator, linkedin fetttext, linkedin kursiv, social media formatierer, linkedin beitragstool",
 		"hero_title": "LinkedIn-Textformatierer",
@@ -102,7 +103,7 @@
 		"benefit4_title": "Fällt im Feed auf",
 		"benefit4_desc": "Fette und kursive Unicode-Zeichen ziehen beim Scrollen den Blick auf sich, ganz ohne Algorithmus-Behauptungen.",
 		"mission_badge": "Unsere Mission",
-		"hero_tagline": "Ihren Wörtern wieder Charakter verleihen.",
+		"hero_tagline": "Mehr Charakter für Ihre LinkedIn-Beiträge",
 		"hero_desc_new": "Boldify entstand aus einer einfachen Beobachtung: LinkedIn ist das professionelle Netzwerk, aber seine Bearbeitungstools sind in der Vergangenheit steckengeblieben. Wir haben die Lösung geschaffen, damit Ihre Ideen reibungslos glänzen.",
 		"hero_tagline_highlight": "Charakter",
 		"story_title": "Warum Boldify?",
@@ -131,18 +132,18 @@
 		"creator_story_desc": "LinkedIn-Beiträge zu formatieren sollte für alle funktionieren, nicht nur für englischsprachige Nutzer. Die meisten Tools ignorieren Sonderzeichen einfach und lassen nicht-englischsprachige Nutzer mit unvollständigen Ergebnissen zurück. Nathan entwickelte Boldify, um diese Lücke zu schließen: ein Formatter, der jedes Zeichen in jeder Sprache verarbeitet, ohne Anmeldung und kostenlos. Anschließend veröffentlichte er es als Open Source, damit alle es nutzen oder darauf aufbauen können."
 	},
 	"how_it_works": {
-		"title": "LinkedIn Fetttext-Generator - Kostenloses Tool | Boldify",
+		"title": "LinkedIn-Beiträge formatieren: Anleitung | Boldify",
 		"description": "Wie Boldify Text in Unicode-Fett und -Kursiv umwandelt: eine Schritt-für-Schritt-Anleitung zum LinkedIn-Trick.",
 		"keywords": "linkedin fettgenerator, linkedin fett, fetttext linkedin, linkedin textformatierung, linkedin beitragsformatierer, social media fetttext",
 		"badge_label": "Erste-Schritte-Leitfaden",
-		"hero_title": "Verwandeln Sie Ihre Ideen in Wirkung",
-		"hero_desc": "Entdecken Sie, wie unser intelligenter Editor und das MCP zusammenarbeiten, um Ihre LinkedIn-Beiträge in Sekunden professionell zu formatieren.",
+		"hero_title": "So formatieren Sie Ihre LinkedIn-Beiträge",
+		"hero_desc": "Schreiben Sie Ihren Text, wählen Sie einen Stil und kopieren Sie ihn in LinkedIn. Mit MCP geht das auch direkt aus Ihrem KI-Assistenten.",
 		"step1_title": "Schreiben & Formatieren",
-		"step1_desc": "Geben Sie Ihren Text in den Web-Editor ein. Verwenden Sie die Symbolleiste, um Fett, Kursiv oder elegante Schreibschriften anzuwenden.",
+		"step1_desc": "Geben Sie Ihren Text ein. Markieren Sie eine Stelle und wählen Sie einen Stil in der Symbolleiste.",
 		"step2_title": "Vorschau ansehen",
-		"step2_desc": "Mit unserer Echtzeit-Preview Card sehen Sie genau, wie Ihr Beitrag nach der Veröffentlichung auf LinkedIn aussehen wird. Keine bösen Überraschungen mehr.",
+		"step2_desc": "Prüfen Sie Ihren Text in der LinkedIn-Vorschau. Die Darstellung kann je nach Gerät und App abweichen.",
 		"step3_title": "Kopieren & Veröffentlichen",
-		"step3_desc": "Ein Klick reicht, um Ihren formatierten Inhalt mit kompatiblen Unicode-Zeichen zu kopieren. Fügen Sie ihn einfach in Ihr bevorzugtes Netzwerk ein.",
+		"step3_desc": "Klicken Sie auf Kopieren und fügen Sie den Text in einen LinkedIn-Beitrag ein.",
 		"editor_title": "Eine auf Geschwindigkeit ausgerichtete Oberfläche",
 		"editor_feature1_title": "Nicht-destruktive Unicode-Formatierung",
 		"editor_feature1_desc": "Unsere Tools verwenden alphanumerische mathematische Zeichen, um die Lesbarkeit auf allen Geräten zu gewährleisten.",
@@ -150,7 +151,7 @@
 		"editor_feature2_desc": "Abstände und Zeilenumbrüche werden angepasst, um das Engagement im Newsfeed zu maximieren.",
 		"mcp_badge": "Technischer Fokus: MCP",
 		"mcp_title": "Das Model Context Protocol (MCP): Ihr unsichtbarer Assistent",
-		"mcp_desc": "MCP ermöglicht es Boldify, sich direkt in Ihre Entwicklungstools oder KI-Assistenten zu integrieren. Es fungiert als Brücke für strukturierte Daten.",
+		"mcp_desc": "MCP verbindet Boldify mit Ihrem KI-Assistenten. Lassen Sie Ihren Text direkt im Gespräch formatieren.",
 		"mcp_feature1_title": "Intelligente Extraktion",
 		"mcp_feature1_desc": "Das MCP identifiziert Schlüsselpunkte aus Ihren Rohdokumenten, um Hook-Formate vorzuschlagen.",
 		"mcp_feature2_title": "Direkte Synchronisation",
@@ -163,7 +164,7 @@
 	},
 	"help": {
 		"title": "Hilfe & FAQ - LinkedIn Textformatierung Guide | Boldify",
-		"description": "Hilfe und FAQ für Boldify: Warum Fetttext nicht angezeigt wird, Mobile-Tipps, Barrierefreiheit und Fehlerbehebung.",
+		"description": "Boldify-Hilfe für LinkedIn: fetter Text, Anzeige auf Mobilgeräten, Barrierefreiheit und Lösungen für Probleme beim Kopieren und Einfügen.",
 		"keywords": "linkedin hilfe, linkedin formatierungshandbuch, linkedin fetttext hilfe, wie man linkedin beiträge formatiert, linkedin textformatierung FAQ",
 		"quick_start_title": "Schnellstartanleitung",
 		"faq_title": "Häufig gestellte Fragen",
@@ -216,7 +217,7 @@
 		"bp2_desc": "LinkedIn ist eine professionelle Plattform. Verwenden Sie Formatierung zur Verbesserung von Klarheit und Lesbarkeit, nicht für dekorative Zwecke.",
 		"bp3_title": "Vor dem Posten testen",
 		"bp3_desc": "Überprüfen Sie Ihren formatierten Text immer mit unserer Vorschaufunktion, bevor Sie ihn veröffentlichen, um sicherzustellen, dass er korrekt aussieht.",
-		"hero_title": "Wie können wir Ihnen helfen?",
+		"hero_title": "Hilfe zur LinkedIn-Formatierung",
 		"hero_desc": "Finden Sie schnelle Antworten zur Textformatierung, LinkedIn-Kompatibilität und MCP-Installation.",
 		"search_placeholder": "Eine Frage suchen...",
 		"cat_formatting": "Textformatierung",
@@ -236,7 +237,7 @@
 		"mcp_q2": "Mein MCP verbindet sich nicht, was soll ich tun?",
 		"mcp_a2": "Überprüfen Sie, ob der Pfad zur ausführbaren Node-Datei in Ihrer Konfigurationsdatei korrekt ist. Stellen Sie außerdem sicher, dass Sie Ihre Desktop-Anwendung nach dem Bearbeiten der claude_desktop_config.json neu gestartet haben.",
 		"preview_section_title": "Ergebnis vor der Veröffentlichung ansehen",
-		"preview_section_desc": "Unser Vorschautool simuliert die native LinkedIn-Oberfläche, um sicherzustellen, dass Ihre Formatierung auf allen Bildschirmen perfekt ausgerichtet und lesbar ist.",
+		"preview_section_desc": "Prüfen Sie Ihren Text vor dem Kopieren in der LinkedIn-Vorschau. Die Darstellung kann je nach Gerät abweichen.",
 		"preview_check1": "Echtzeit-Vorschau deines Beitrags",
 		"preview_check2": "Originalgetreue LinkedIn-Darstellung",
 		"preview_check3": "Ein-Klick-Kopieren in die Zwischenablage",
@@ -258,7 +259,7 @@
 	},
 	"home": {
 		"title": "Boldify - LinkedIn Fetttext-Formatierer | Kostenlos",
-		"description": "Boldify ist ein kostenloser Generator zum Fetten, Kursivieren und Stylen von LinkedIn-Beiträgen mit Unicode. Live-Vorschau, ohne Anmeldung. Desktop und Mobil.",
+		"description": "LinkedIn-Beiträge kostenlos fett, kursiv oder unterstrichen formatieren. Mit Live-Vorschau und Kopieren per Klick, ohne Anmeldung.",
 		"keywords": "linkedin fetttext, linkedin formatierer, fetttext generator, linkedin beitragstool, social media formatierer, linkedin kursiv, kostenloses linkedin tool"
 	},
 	"error": {
@@ -330,7 +331,7 @@
 		"with_mcp_desc": "Fragen Sie Claude: \"Formatiere diesen LinkedIn-Beitrag mit fett gedruckten Schlüsselphrasen.\" Claude ruft Boldify direkt auf. Das formatierte Ergebnis kommt sofort zurück. Einmal kopieren, in LinkedIn einfügen. Ein Schritt."
 	},
 	"x": {
-		"title": "X (Twitter) Beitragsformatierung — Fetter und kursiver Text | Boldify",
+		"title": "Fett und kursiv für X (Twitter) | Boldify",
 		"description": "Formatiere deine X-Beiträge (Twitter) mit fettem, kursivem und durchgestrichenem Text. Kostenloses Tool mit Live-Vorschau, ohne Anmeldung.",
 		"keywords": "X Beiträge formatieren, Twitter fett schreiben, Tweet formatieren, Twitter kursiv, Twitter durchgestrichen",
 		"placeholder": "Schreibe deinen X-Beitrag…",
