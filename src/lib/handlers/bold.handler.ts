@@ -1,4 +1,4 @@
-import type { Handler } from '$lib/handlers/handler';
+import type { Handler } from '#lib/handlers/handler.js';
 
 const baseUpperBoldCode = 0x1d5d4;
 const baseLowerBoldCode = 0x1d5ee;

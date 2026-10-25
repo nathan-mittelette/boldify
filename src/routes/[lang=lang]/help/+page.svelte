@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import SEOHead from '$lib/components/SEOHead.svelte';
-	import JsonLd from '$lib/components/JsonLd.svelte';
-	import TextPreview from '$lib/components/TextPreview.svelte';
+	import SEOHead from '#lib/components/SEOHead.svelte';
+	import JsonLd from '#lib/components/JsonLd.svelte';
+	import TextPreview from '#lib/components/TextPreview.svelte';
 	import { page } from '$app/state';
-	import { buildHreflang } from '$lib/utils/hreflang';
+	import { buildHreflang } from '#lib/utils/hreflang.js';
 
 	const languages = buildHreflang('/help');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/help`);

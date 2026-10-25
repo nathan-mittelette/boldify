@@ -6,8 +6,8 @@
 		isDonationToastVisible,
 		dismissDonationToast,
 		handleDonationCTAClick
-	} from '$lib/services/donation-toast.service';
-	import { trackBuyMeACoffeeClicked, trackClarityEvent } from '$lib/services/clarity.service';
+	} from '#lib/services/donation-toast.service.js';
+	import { trackBuyMeACoffeeClicked, trackClarityEvent } from '#lib/services/clarity.service.js';
 
 	const BMC_URL = 'https://buymeacoffee.com/boldify';
 	const AUTO_HIDE_MS = 12000;

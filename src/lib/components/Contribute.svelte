@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import { trackBuyMeACoffeeClicked } from '$lib/services/clarity.service';
+	import { trackBuyMeACoffeeClicked } from '#lib/services/clarity.service.js';
 </script>
 
 <section id="contribute" class="section bg-neutral-50">

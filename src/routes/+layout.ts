@@ -1,5 +1,5 @@
 import type { LayoutLoad } from './$types';
-import { initI18n, isInitialized } from '$lib/services/i18n.service';
+import { initI18n, isInitialized } from '#lib/services/i18n.service.js';
 
 export const prerender = true;
 

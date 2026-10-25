@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { t } from 'svelte-i18n';
-	import SEOHead from '$lib/components/SEOHead.svelte';
+	import SEOHead from '#lib/components/SEOHead.svelte';
 	import { resolve } from '$app/paths';
 
 	// Error code mapping
@@ -96,7 +96,7 @@
 		<!-- Action Buttons -->
 		<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
 			<a
-				href={resolve('/')}
+				href={resolve('')}
 				class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-200"
 			>
 				<span>🏠</span>
@@ -104,7 +104,7 @@
 			</a>
 
 			<a
-				href={resolve('/help')}
+				href={resolve('help')}
 				class="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-colors duration-200 border border-gray-300"
 			>
 				<span>❓</span>

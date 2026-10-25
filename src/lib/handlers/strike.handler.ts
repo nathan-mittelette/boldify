@@ -1,4 +1,4 @@
-import type { Handler } from '$lib/handlers/handler';
+import type { Handler } from '#lib/handlers/handler.js';
 
 const strikeCode = 0x0336;
 

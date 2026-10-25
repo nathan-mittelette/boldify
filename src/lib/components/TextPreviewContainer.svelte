@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { text } from '$lib/stores/text.store';
+	import { text } from '#lib/stores/text.store.js';
 	import { t } from 'svelte-i18n';
 	import { fade } from 'svelte/transition';
-	import TextPreview from '$lib/components/TextPreview.svelte';
+	import TextPreview from '#lib/components/TextPreview.svelte';
 
 	const name = 'John Doe';
 	const degree = '3e et +';

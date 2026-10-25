@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { Snackbar } from '$lib/models/snackbar.model';
+import type { Snackbar } from '#lib/models/snackbar.model.js';
 
 export const snackbars = writable<Snackbar[]>([]);
 

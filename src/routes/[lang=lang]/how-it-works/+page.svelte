@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
-	import { locale } from '$lib/services/i18n.service';
-	import SEOHead from '$lib/components/SEOHead.svelte';
-	import JsonLd from '$lib/components/JsonLd.svelte';
+	import { locale } from '#lib/services/i18n.service.js';
+	import SEOHead from '#lib/components/SEOHead.svelte';
+	import JsonLd from '#lib/components/JsonLd.svelte';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { buildHreflang } from '$lib/utils/hreflang';
-	import editorImg from '$lib/assets/how-it-works-editor.jpg?enhanced';
+	import { buildHreflang } from '#lib/utils/hreflang.js';
+	import editorImg from '#lib/assets/how-it-works-editor.jpg?enhanced';
 
 	const languages = buildHreflang('/how-it-works');
 	const canonicalUrl = $derived(`https://boldify.net/${page.params.lang}/how-it-works`);
@@ -281,7 +281,7 @@
 			<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 				<div>
 					<a
-						href={resolve(`/${$locale}/mcp`)}
+						href={resolve(`${$locale}/mcp`)}
 						class="inline-flex items-center gap-2 px-3 py-1.5 bg-mcp/20 text-mcp border border-mcp/30 rounded-full mb-6 text-xs font-bold uppercase tracking-wider hover:bg-mcp/30 transition-colors"
 					>
 						{$t('how_it_works.mcp_badge')}
@@ -355,7 +355,7 @@
 <span class="text-neutral-400">&#125;</span></pre>
 					<div class="mt-6 pt-4 border-t border-neutral-100 text-center">
 						<a
-							href={resolve(`/${page.params.lang}/mcp`)}
+							href={resolve(`${page.params.lang}/mcp`)}
 							class="inline-flex items-center gap-2 bg-mcp text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
 						>
 							{$t('how_it_works.mcp_cta')}
@@ -376,13 +376,13 @@
 		</p>
 		<div class="flex flex-col sm:flex-row justify-center gap-4">
 			<a
-				href={resolve(`/${page.params.lang}#text-editor`)}
+				href={resolve(`${page.params.lang}#text-editor`)}
 				class="bg-primary text-white px-10 py-4 rounded-xl text-sm font-semibold shadow-lg hover:bg-primary-dark transition-colors"
 			>
 				{$t('how_it_works.final_cta_start')}
 			</a>
 			<a
-				href={resolve(`/${page.params.lang}/mcp`)}
+				href={resolve(`${page.params.lang}/mcp`)}
 				class="bg-white border border-neutral-200 text-neutral-900 px-10 py-4 rounded-xl text-sm font-semibold hover:bg-neutral-50 transition-colors"
 			>
 				{$t('how_it_works.final_cta_mcp')}

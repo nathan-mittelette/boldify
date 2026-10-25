@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGUAGES } from '$lib/services/i18n.service';
+import { SUPPORTED_LANGUAGES } from '#lib/services/i18n.service.js';
 
 export function buildHreflang(path: string): { lang: string; url: string }[] {
 	return [
