@@ -328,5 +328,28 @@
 		"without_mcp_desc": "Poproś Claude o zredagowanie posta → skopiuj → otwórz boldify.net → wklej → kliknij pogrubienie → skopiuj wynik → wklej do LinkedIn. Sześć kroków.",
 		"with_mcp_title": "Z Boldify MCP",
 		"with_mcp_desc": "Poproś Claude: \"Sformatuj ten post LinkedIn z kluczowymi frazami pogrubionymi.\" Claude wywołuje Boldify bezpośrednio. Sformatowany wynik wraca natychmiast. Skopiuj raz i wklej do LinkedIn. Jeden krok."
+	},
+	"x": {
+		"title": "Formatowanie postów na X (Twitterze) — Pogrubienie i kursywa | Boldify",
+		"description": "Formatuj posty na X (Twitterze), używając pogrubienia, kursywy i przekreślenia. Bezpłatne narzędzie z podglądem, bez rejestracji.",
+		"keywords": "formatowanie postów X, pogrubiony tekst Twitter, formatowanie tweetów, kursywa Twitter, przekreślony tekst Twitter",
+		"placeholder": "Napisz post na X…",
+		"default_text": "Nowy projekt zasługuje na coś więcej niż ogłoszenie.\n\nZaznacz ważne słowa. Użyj pogrubienia, kursywy lub przekreślenia.\n\nMasz pomysł do podzielenia się? Wyróżnij go. #Boldify",
+		"copied_description": "Wklej tekst w edytorze postów na X.",
+		"copy_hint": "Wklej w edytorze postów na X",
+		"preview_notice": "Podgląd jest orientacyjny. Wygląd znaków Unicode może zależeć od X i urządzenia.",
+		"remaining": "pozostałych jednostek",
+		"standard_post": "Standardowy post · 280",
+		"near_limit": "Zbliżasz się do limitu.",
+		"over_limit": "Limit przekroczony. Nadal możesz skopiować post.",
+		"views": "Wyświetlenia",
+		"format_note": "Formatowanie używa znaków Unicode i zostaje zachowane po skopiowaniu tekstu.",
+		"formats_description": "Zaznacz zdanie i zastosuj pogrubienie, kursywę lub przekreślenie. Uporządkuj pomysły w formie listy.",
+		"about_intro": "Boldify zamienia zaznaczone litery na znaki Unicode. Przygotuj post na X, porównaj go na LinkedIn i zachowaj szkic na każdym etapie. Konto Boldify nie jest potrzebne.",
+		"counting_question": "Dlaczego pogrubiony tekst zajmuje więcej miejsca?",
+		"counting_explanation": "X stosuje ważone zliczanie. Zwykła litera łacińska zazwyczaj liczy się jako jedna jednostka, a stylizowana litera Unicode może liczyć się jako dwie. Licznik jest aktualizowany po każdej zmianie formatu.",
+		"rendering_explanation": "Pogrubienie, kursywa i przekreślenie wykorzystują znaki Unicode zamiast natywnego formatowania X. Czcionki i aplikacje mogą wyświetlać je inaczej. Podkreślenie i nadkreślenie po prostu nie są dostępne na tym pasku narzędzi.",
+		"bookmark": "Dodaj do zakładek",
+		"share": "Udostępnij post"
 	}
 }

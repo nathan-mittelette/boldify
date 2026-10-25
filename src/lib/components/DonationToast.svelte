@@ -64,7 +64,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						onclick={onCtaClick}
-						class="inline-flex items-center gap-1.5 rounded-lg bg-[#ffdd00] px-3 py-1.5 text-sm font-semibold text-amber-900 transition-[filter] hover:brightness-95 active:brightness-90"
+						class="inline-flex items-center gap-1.5 rounded-lg bg-support px-3 py-1.5 text-sm font-semibold text-amber-900 transition-[filter] hover:brightness-95 active:brightness-90"
 					>
 						<svg
 							width="14"

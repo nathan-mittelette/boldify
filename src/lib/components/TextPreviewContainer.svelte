@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { text } from '#lib/stores/text.store.js';
-	import { t } from 'svelte-i18n';
+	import { platformTranslations } from '#lib/services/platform-i18n.service.js';
+	const t = platformTranslations();
+	import { getPlatformContext } from '#lib/services/platform-context.js';
+	const platform = getPlatformContext();
 	import { fade } from 'svelte/transition';
 	import TextPreview from '#lib/components/TextPreview.svelte';
 
@@ -23,22 +26,32 @@
 
 	<div
 		class="preview-container w-full max-w-xl mx-auto overflow-hidden bg-white border border-gray-200 shadow-xl rounded-xl flex flex-col h-fit animate-fade-in"
-		transition:fade={{ duration: 300 }}
+		in:fade={{ duration: 300 }}
 	>
 		<div
 			class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white"
 		>
 			<div class="flex items-center">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5 mr-2"
-					viewBox="0 0 24 24"
-					fill="currentColor"
-				>
-					<path
-						d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-					></path>
-				</svg>
+				{#if platform() === 'x'}<svg
+						aria-label="X"
+						role="img"
+						viewBox="0 0 24 24"
+						class="h-5 w-5 mr-2"
+						fill="currentColor"
+						><path
+							d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.2-8.4L.8 2h6.5l4.5 6.8L18.9 2ZM17.8 20h1.7L6.3 4H4.5l13.3 16Z"
+						/></svg
+					>{:else}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5 mr-2"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+					>
+						<path
+							d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+						></path>
+					</svg>{/if}
 				<p class="font-semibold">
 					{$t('preview.title')}
 				</p>

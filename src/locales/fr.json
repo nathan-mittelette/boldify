@@ -328,5 +328,28 @@
 		"need_help": "Besoin d'aide supplémentaire ?",
 		"contact_email": "Nous contacter",
 		"report_issue": "Signaler un problème"
+	},
+	"x": {
+		"title": "Formateur de posts X (Twitter) — Texte en gras et italique | Boldify",
+		"description": "Mets en forme tes posts X (Twitter) en gras, italique et barré. Un outil gratuit avec aperçu en direct, sans inscription.",
+		"keywords": "formater tweet, texte gras twitter, générateur texte X, italique tweet",
+		"placeholder": "Écris ton post X…",
+		"default_text": "Un nouveau projet mérite plus qu’une annonce.\n\nSélectionne les mots qui comptent. Mets-les en gras, en italique ou en barré.\n\nUne idée à partager ? Fais-la ressortir. #Boldify",
+		"copied_description": "Colle ton texte dans le composer X.",
+		"copy_hint": "Colle dans le composer X",
+		"preview_notice": "Aperçu indicatif. Le rendu Unicode peut varier selon X et ton appareil.",
+		"remaining": "unités restantes",
+		"standard_post": "Post standard · 280",
+		"near_limit": "La limite approche.",
+		"over_limit": "Limite dépassée. La copie reste disponible.",
+		"views": "Vues",
+		"format_note": "Le formatage utilise des caractères Unicode : il accompagne ton texte quand tu le copies.",
+		"formats_description": "Sélectionne une phrase et applique le gras, l’italique ou le barré. Structure tes idées avec une liste.",
+		"about_intro": "Boldify transforme les lettres sélectionnées en caractères Unicode. Tu peux préparer un post pour X, le comparer sur LinkedIn et garder ton brouillon à chaque étape. Aucun compte Boldify n’est nécessaire.",
+		"counting_question": "Pourquoi le texte en gras prend-il plus de place ?",
+		"counting_explanation": "X utilise un comptage pondéré. Une lettre latine simple compte généralement pour une unité, tandis qu’une lettre Unicode stylisée peut en compter deux. Le compteur est recalculé après chaque transformation.",
+		"rendering_explanation": "Le gras, l’italique et le barré utilisent des caractères Unicode, pas du formatage natif X. Les polices et les applications peuvent les afficher différemment. Le souligné et le surligné ne sont simplement pas proposés dans cette toolbar.",
+		"bookmark": "Ajouter aux signets",
+		"share": "Partager le post"
 	}
 }

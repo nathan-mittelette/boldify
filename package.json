@@ -38,7 +38,8 @@
 		"test:unit:watch": "vitest",
 		"test:all": "pnpm run test:unit && pnpm run test",
 		"post:build": "node devops/scripts/generate_robots.js && node devops/scripts/generate_sitemap.js  && node devops/scripts/generate_indexnow.js",
-		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run test:all && pnpm run build"
+		"pre:commit": "pnpm run check && pnpm run format && pnpm run lint && pnpm run test:all && pnpm run build",
+		"preview:static": "sirv build --port 4173 --host localhost"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.1.1",
@@ -66,12 +67,15 @@
 		"typescript-eslint": "^8.72.0",
 		"vite": "^8.3.5",
 		"vite-plugin-devtools-json": "^1.1.2",
-		"vitest": "^5.0.5"
+		"vitest": "^5.0.5",
+		"@types/twitter-text": "^3.1.10",
+		"sirv-cli": "^3.0.1"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
 		"quill": "^2.0.3",
-		"svelte-i18n": "^4.0.1"
+		"svelte-i18n": "^4.0.1",
+		"twitter-text": "^3.1.0"
 	},
 	"packageManager": "pnpm@10.34.4",
 	"imports": {

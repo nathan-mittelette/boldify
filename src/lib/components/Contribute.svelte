@@ -9,7 +9,7 @@
 			<h2 class="text-3xl md:text-4xl font-bold mb-6">
 				{$t('contribute.title')}
 			</h2>
-			<div class="h-1 w-24 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+			<div class="h-1 w-24 bg-primary mx-auto mb-6 rounded-full"></div>
 			<p class="text-lg text-neutral-600">
 				{$t('contribute.description')}
 			</p>
@@ -72,7 +72,7 @@
 			<div class="card hover:border-accent/30 animate-fade-in" style="transition-delay: 300ms;">
 				<div class="p-8">
 					<div
-						class="bg-accent/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto"
+						class="bg-support/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@
 							viewBox="0 0 24 24"
 							stroke-width="1.5"
 							stroke="currentColor"
-							class="size-8 text-accent"
+							class="size-8 text-support-ink"
 						>
 							<path
 								stroke-linecap="round"

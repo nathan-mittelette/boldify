@@ -44,7 +44,7 @@ export default defineConfig({
 
 	/* Run your local dev server before starting the tests */
 	webServer: {
-		command: 'pnpm build && pnpm preview',
+		command: 'pnpm build && pnpm preview:static',
 		port: 4173,
 		reuseExistingServer: !process.env.CI
 	}

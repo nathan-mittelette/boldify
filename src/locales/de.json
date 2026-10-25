@@ -328,5 +328,28 @@
 		"without_mcp_desc": "Bitten Sie Claude, einen Beitrag zu verfassen → kopieren → boldify.net öffnen → einfügen → auf Fett klicken → Ergebnis kopieren → in LinkedIn einfügen. Sechs Schritte.",
 		"with_mcp_title": "Mit Boldify MCP",
 		"with_mcp_desc": "Fragen Sie Claude: \"Formatiere diesen LinkedIn-Beitrag mit fett gedruckten Schlüsselphrasen.\" Claude ruft Boldify direkt auf. Das formatierte Ergebnis kommt sofort zurück. Einmal kopieren, in LinkedIn einfügen. Ein Schritt."
+	},
+	"x": {
+		"title": "X (Twitter) Beitragsformatierung — Fetter und kursiver Text | Boldify",
+		"description": "Formatiere deine X-Beiträge (Twitter) mit fettem, kursivem und durchgestrichenem Text. Kostenloses Tool mit Live-Vorschau, ohne Anmeldung.",
+		"keywords": "X Beiträge formatieren, Twitter fett schreiben, Tweet formatieren, Twitter kursiv, Twitter durchgestrichen",
+		"placeholder": "Schreibe deinen X-Beitrag…",
+		"default_text": "Ein neues Projekt verdient mehr als eine Ankündigung.\n\nWähle die wichtigen Wörter aus. Schreibe sie fett, kursiv oder durchgestrichen.\n\nEine Idee zum Teilen? Hebe sie hervor. #Boldify",
+		"copied_description": "Füge deinen Text im X-Editor ein.",
+		"copy_hint": "Im X-Editor einfügen",
+		"preview_notice": "Unverbindliche Vorschau. Die Unicode-Darstellung kann je nach X-Version und Gerät variieren.",
+		"remaining": "Einheiten verbleibend",
+		"standard_post": "Standardbeitrag · 280",
+		"near_limit": "Die Grenze ist fast erreicht.",
+		"over_limit": "Grenze überschritten. Du kannst den Beitrag weiterhin kopieren.",
+		"views": "Aufrufe",
+		"format_note": "Die Formatierung verwendet Unicode-Zeichen und bleibt beim Kopieren des Textes erhalten.",
+		"formats_description": "Wähle einen Satz aus und formatiere ihn fett, kursiv oder durchgestrichen. Ordne deine Ideen in einer Liste.",
+		"about_intro": "Boldify wandelt ausgewählte Buchstaben in Unicode-Zeichen um. Bereite einen Beitrag für X vor, vergleiche ihn auf LinkedIn und behalte deinen Entwurf bei jedem Schritt. Ein Boldify-Konto ist nicht nötig.",
+		"counting_question": "Warum verbraucht fetter Text mehr Platz?",
+		"counting_explanation": "X verwendet eine gewichtete Zählung. Ein normaler lateinischer Buchstabe zählt meist als eine Einheit, ein stilisierter Unicode-Buchstabe kann als zwei zählen. Der Zähler wird nach jeder Umwandlung aktualisiert.",
+		"rendering_explanation": "Fetter, kursiver und durchgestrichener Text verwendet Unicode-Zeichen statt nativer X-Formatierung. Schriftarten und Apps können sie unterschiedlich darstellen. Unter- und Überstreichen werden in dieser Werkzeugleiste einfach nicht angeboten.",
+		"bookmark": "Lesezeichen setzen",
+		"share": "Beitrag teilen"
 	}
 }
