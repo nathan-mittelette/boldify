@@ -43,7 +43,8 @@
 		"like": "Curtir",
 		"comment": "Comentar",
 		"repost": "Repostar",
-		"send": "Enviar"
+		"send": "Enviar",
+		"avatar_alt": "Avatar do perfil de exemplo"
 	},
 	"contribute": {
 		"title": "Contribuir com o Boldify",
@@ -70,7 +71,7 @@
 		"how_it_works": "Como funciona"
 	},
 	"about": {
-		"title": "Formatador de Texto LinkedIn - Negrito & Itálico | Boldify",
+		"title": "Sobre o Boldify para LinkedIn",
 		"description": "Conheça o Boldify, a ferramenta open-source de formatação para LinkedIn criada por Nathan Mittelette. Missão, história e suporte multilíngue.",
 		"keywords": "formatador linkedin, gerador de texto linkedin, negrito linkedin, itálico linkedin, formatador redes sociais, ferramenta publicações linkedin",
 		"hero_title": "Formatador de texto para LinkedIn",
@@ -102,7 +103,7 @@
 		"benefit4_title": "Destaca no feed",
 		"benefit4_desc": "Caracteres Unicode em negrito e itálico chamam a atenção durante a rolagem, sem afirmações sobre o algoritmo.",
 		"mission_badge": "Nossa Missão",
-		"hero_tagline": "Devolvendo caráter às suas palavras.",
+		"hero_tagline": "Mais personalidade para seus posts no LinkedIn",
 		"hero_desc_new": "O Boldify nasceu de uma observação simples: o LinkedIn é a rede profissional, mas suas ferramentas de edição ficaram presas no passado. Criamos a solução para fazer suas ideias brilharem sem atrito.",
 		"hero_tagline_highlight": "caráter",
 		"story_title": "Por que o Boldify?",
@@ -131,18 +132,18 @@
 		"creator_story_desc": "Formatar publicações no LinkedIn deveria funcionar para todos, não apenas para falantes de inglês. A maioria das ferramentas simplesmente ignora os caracteres acentuados, deixando usuários não anglófonos com resultados incompletos. Nathan criou o Boldify para preencher essa lacuna: um formatador que lida com cada caractere em qualquer idioma, sem cadastro e sem custo. Em seguida, ele o publicou como open-source para que qualquer pessoa pudesse usar ou contribuir."
 	},
 	"how_it_works": {
-		"title": "Gerador de Negrito LinkedIn - Ferramenta Gratuita | Boldify",
+		"title": "Como formatar posts no LinkedIn | Boldify",
 		"description": "Como o Boldify converte texto para negrito e itálico Unicode: um guia passo a passo sobre o truque que funciona dentro do LinkedIn.",
 		"keywords": "gerador negrito linkedin, negrito linkedin, texto em negrito linkedin, formatação de texto linkedin, formatador de publicações linkedin, negrito redes sociais",
 		"badge_label": "Guia de primeiros passos",
-		"hero_title": "Transforme suas ideias em Impacto",
-		"hero_desc": "Descubra como nosso editor inteligente e o MCP colaboram para formatar suas postagens do LinkedIn profissionalmente em segundos.",
+		"hero_title": "Como formatar seus posts no LinkedIn",
+		"hero_desc": "Escreva seu texto, escolha um estilo e copie o resultado no LinkedIn. Você também pode formatar posts pelo assistente de IA com MCP.",
 		"step1_title": "Escreva & Formate",
-		"step1_desc": "Insira seu texto no editor web. Use a barra de ferramentas para aplicar Negrito, Itálico ou fontes script elegantes.",
+		"step1_desc": "Digite seu texto, selecione um trecho e escolha um estilo na barra de ferramentas.",
 		"step2_title": "Visualize o Resultado",
-		"step2_desc": "Com nosso Cartão de Pré-visualização em tempo real, veja exatamente como sua postagem ficará após ser publicada no LinkedIn. Chega de surpresas ruins.",
+		"step2_desc": "Confira o texto na prévia do LinkedIn. A aparência pode variar conforme o aparelho e o aplicativo.",
 		"step3_title": "Copie & Publique",
-		"step3_desc": "Um clique é suficiente para copiar seu conteúdo formatado com caracteres Unicode compatíveis. Basta colar na sua rede favorita.",
+		"step3_desc": "Clique em Copiar e cole seu texto em uma publicação do LinkedIn.",
 		"editor_title": "Uma interface pensada para velocidade",
 		"editor_feature1_title": "Formatação Unicode Não Destrutiva",
 		"editor_feature1_desc": "Nossas ferramentas usam caracteres matemáticos alfanuméricos para garantir a legibilidade em todos os dispositivos.",
@@ -150,7 +151,7 @@
 		"editor_feature2_desc": "O espaçamento e as quebras de linha são ajustados para maximizar o engajamento no feed de notícias.",
 		"mcp_badge": "Foco Técnico: MCP",
 		"mcp_title": "O Model Context Protocol (MCP): Seu Assistente Invisível",
-		"mcp_desc": "O MCP permite que o Boldify se integre diretamente às suas ferramentas de desenvolvimento ou assistentes de IA. Ele atua como uma ponte de dados estruturados.",
+		"mcp_desc": "O MCP conecta o Boldify ao seu assistente de IA. Peça para formatar seu texto sem sair da conversa.",
 		"mcp_feature1_title": "Extração Inteligente",
 		"mcp_feature1_desc": "O MCP identifica pontos-chave dos seus documentos brutos para sugerir formatos de gancho.",
 		"mcp_feature2_title": "Sincronização Direta",
@@ -163,7 +164,7 @@
 	},
 	"help": {
 		"title": "Ajuda e FAQ - Formatação de Texto LinkedIn | Boldify",
-		"description": "Ajuda e FAQ do Boldify: por que o texto em negrito pode não aparecer, dicas para mobile, acessibilidade e solução de problemas.",
+		"description": "Ajuda do Boldify para LinkedIn: texto em negrito, exibição no celular, acessibilidade e soluções para copiar e colar seus posts.",
 		"keywords": "ajuda linkedin, guia de formatação linkedin, ajuda texto negrito linkedin, como formatar publicações linkedin, FAQ formatação texto linkedin",
 		"quick_start_title": "Guia de início rápido",
 		"faq_title": "Perguntas frequentes",
@@ -216,7 +217,7 @@
 		"bp2_desc": "O LinkedIn é uma plataforma profissional. Use a formatação para melhorar a clareza e a legibilidade, não para fins decorativos.",
 		"bp3_title": "Teste antes de publicar",
 		"bp3_desc": "Sempre pré-visualize seu texto formatado usando nosso recurso de pré-visualização antes de publicar para garantir que esteja correto.",
-		"hero_title": "Como podemos ajudá-lo?",
+		"hero_title": "Ajuda com a formatação no LinkedIn",
 		"hero_desc": "Encontre respostas rápidas sobre formatação de texto, compatibilidade com o LinkedIn e instalação do MCP.",
 		"search_placeholder": "Buscar uma pergunta...",
 		"cat_formatting": "Formatação de texto",
@@ -236,7 +237,7 @@
 		"mcp_q2": "Meu MCP não está conectando, o que devo fazer?",
 		"mcp_a2": "Verifique se o caminho para o executável do node está correto no seu arquivo de configuração. Certifique-se também de ter reiniciado seu aplicativo de desktop após modificar o arquivo claude_desktop_config.json.",
 		"preview_section_title": "Visualize o resultado antes de publicar",
-		"preview_section_desc": "Nossa ferramenta de pré-visualização simula a interface nativa do LinkedIn para garantir que sua formatação esteja perfeitamente alinhada e legível em todas as telas.",
+		"preview_section_desc": "Confira seu texto na prévia do LinkedIn antes de copiar. A aparência final pode variar conforme o aparelho.",
 		"preview_check1": "Pré-visualização em tempo real da sua publicação",
 		"preview_check2": "Renderização fiel ao formato do LinkedIn",
 		"preview_check3": "Cópia com um clique para a área de transferência",
@@ -286,7 +287,7 @@
 		"report_issue": "Reportar um problema"
 	},
 	"mcp": {
-		"title": "Boldify MCP – Formate seus posts do LinkedIn direto da sua IA",
+		"title": "Boldify MCP — Posts do LinkedIn pela sua IA",
 		"description": "Conecte o Boldify ao Claude Desktop e outros assistentes de IA via MCP. Formate posts do LinkedIn sem copiar e colar.",
 		"keywords": "MCP, Model Context Protocol, Boldify MCP, LinkedIn formatação IA, Claude Desktop",
 		"badge_label": "Model Context Protocol (MCP)",
@@ -330,7 +331,7 @@
 		"with_mcp_desc": "Peça ao Claude: \"Formate este post do LinkedIn com frases-chave em negrito.\" O Claude chama o Boldify diretamente. O resultado formatado volta imediatamente. Copie uma vez e cole no LinkedIn. Uma etapa."
 	},
 	"x": {
-		"title": "Formatador de posts do X (Twitter) — Negrito e itálico | Boldify",
+		"title": "Negrito e itálico para X (Twitter) | Boldify",
 		"description": "Formate seus posts do X (Twitter) com negrito, itálico e texto tachado. Ferramenta gratuita com prévia em tempo real, sem cadastro.",
 		"keywords": "formatador posts X, texto negrito Twitter, formatar tweets, itálico Twitter, texto tachado Twitter",
 		"placeholder": "Escreva seu post do X…",

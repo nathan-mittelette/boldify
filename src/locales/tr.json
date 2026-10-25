@@ -44,7 +44,8 @@
 		"like": "Beğen",
 		"comment": "Yorum Yap",
 		"repost": "Yeniden Paylaş",
-		"send": "Gönder"
+		"send": "Gönder",
+		"avatar_alt": "Örnek profil avatarı"
 	},
 	"contribute": {
 		"title": "Boldify'a Katkıda Bulunun",
@@ -71,7 +72,7 @@
 		"how_it_works": "Nasıl Çalışır"
 	},
 	"about": {
-		"title": "LinkedIn Metin Biçimlendirici - Kalın & İtalik | Boldify",
+		"title": "LinkedIn için Boldify hakkında",
 		"description": "Nathan Mittelette tarafından geliştirilen açık kaynaklı LinkedIn format aracı Boldify hakkında bilgi edinin. Misyon, hikaye ve çok dilli destek.",
 		"keywords": "linkedin biçimlendirici, linkedin metin oluşturucu, linkedin kalın metin, linkedin italik, sosyal medya biçimlendirici, linkedin paylaşım aracı",
 		"hero_title": "LinkedIn Metin Biçimlendirici",
@@ -103,7 +104,7 @@
 		"benefit4_title": "Akışta öne çıkar",
 		"benefit4_desc": "Kalın ve italik Unicode karakterler kaydırırken göz çeker, algoritma iddiaları olmadan.",
 		"mission_badge": "Misyonumuz",
-		"hero_tagline": "Kelimelerinize karakter geri kazandırıyoruz.",
+		"hero_tagline": "LinkedIn gönderilerinize karakter katın",
 		"hero_desc_new": "Boldify basit bir gözlemden doğdu: LinkedIn profesyonel bir ağ, ancak düzenleme araçları geçmişte takılı kaldı. Fikirlerinizin sürtünmesiz parlaması için çözümü yarattık.",
 		"hero_tagline_highlight": "karakter",
 		"story_title": "Neden Boldify?",
@@ -132,18 +133,18 @@
 		"creator_story_desc": "LinkedIn gönderilerini biçimlendirmek herkes için işe yaramalı, yalnızca İngilizce konuşanlar için değil. Çoğu araç aksanlı karakterleri görmezden gelerek İngilizce dışındaki kullanıcıları eksik sonuçlarla bırakır. Nathan bu boşluğu doldurmak için Boldify'ı geliştirdi: kayıt gerektirmeyen ve ücretsiz olan, her dilde her karakteri işleyebilen bir biçimlendirici. Ardından herkesin kullanabilmesi veya üzerine inşa edebilmesi için açık kaynak olarak yayımladı."
 	},
 	"how_it_works": {
-		"title": "LinkedIn Kalın Metin Oluşturucu - Ücretsiz | Boldify",
+		"title": "LinkedIn gönderilerini biçimlendirme rehberi | Boldify",
 		"description": "Boldify'ın metni Unicode kalın ve italik biçime nasıl dönüştürdüğü: LinkedIn içinde çalışan numarayı açıklayan adım adım rehber.",
 		"keywords": "linkedin kalın oluşturucu, linkedin kalın, kalın metin linkedin, linkedin metin biçimlendirme, linkedin paylaşım biçimlendirici, sosyal medya kalın metin",
 		"badge_label": "Başlangıç rehberi",
-		"hero_title": "Fikirlerinizi Etkiye Dönüştürün",
-		"hero_desc": "Akıllı editörümüzün ve MCP'nin LinkedIn gönderilerinizi saniyeler içinde profesyonelce biçimlendirmek için nasıl iş birliği yaptığını keşfedin.",
+		"hero_title": "LinkedIn gönderileri nasıl biçimlendirilir?",
+		"hero_desc": "Metninizi yazın, bir stil seçin ve sonucu LinkedIn’e kopyalayın. MCP ile AI asistanınızdan da metin biçimlendirebilirsiniz.",
 		"step1_title": "Yaz & Biçimlendir",
-		"step1_desc": "Metninizi web editörüne girin. Kalın, İtalik veya zarif yazı tipi uygulamak için araç çubuğunu kullanın.",
+		"step1_desc": "Metninizi girin, bir bölümü seçin ve araç çubuğundan bir stil uygulayın.",
 		"step2_title": "Sonucu Önizle",
-		"step2_desc": "Gerçek zamanlı Önizleme Kartımızla, gönderinizin LinkedIn'de yayımlandıktan sonra tam olarak nasıl görüneceğini görün. Artık kötü sürpriz yok.",
+		"step2_desc": "Metninizi LinkedIn önizlemesinde kontrol edin. Görünüm cihaza ve uygulamaya göre değişebilir.",
 		"step3_title": "Kopyala & Yayımla",
-		"step3_desc": "Uyumlu Unicode karakterlerle biçimlendirilmiş içeriğinizi kopyalamak için tek bir tıklama yeterli. Sadece favori ağınıza yapıştırın.",
+		"step3_desc": "Kopyala düğmesine tıklayın ve metni LinkedIn gönderinize yapıştırın.",
 		"editor_title": "Hız için tasarlanmış bir arayüz",
 		"editor_feature1_title": "Yıkıcı Olmayan Unicode Biçimlendirme",
 		"editor_feature1_desc": "Araçlarımız, tüm cihazlarda okunabilirliği garanti etmek için alfanümerik matematiksel karakterler kullanır.",
@@ -151,7 +152,7 @@
 		"editor_feature2_desc": "Haber akışındaki etkileşimi en üst düzeye çıkarmak için boşluklar ve satır sonları ayarlanır.",
 		"mcp_badge": "Teknik Odak: MCP",
 		"mcp_title": "Model Context Protocol (MCP): Görünmez Asistanınız",
-		"mcp_desc": "MCP, Boldify'ın doğrudan geliştirme araçlarınıza veya AI asistanlarınıza entegre olmasını sağlar. Yapılandırılmış veri köprüsü olarak işlev görür.",
+		"mcp_desc": "MCP, Boldify’ı AI asistanınıza bağlar. Sohbetten ayrılmadan metninizi biçimlendirmesini isteyin.",
 		"mcp_feature1_title": "Akıllı Çıkarma",
 		"mcp_feature1_desc": "MCP, kanca formatları önermek için ham belgelerinizdeki kilit noktaları tanımlar.",
 		"mcp_feature2_title": "Doğrudan Senkronizasyon",
@@ -164,7 +165,7 @@
 	},
 	"help": {
 		"title": "Yardım & SSS - LinkedIn Biçimlendirme Rehberi | Boldify",
-		"description": "Boldify Yardım ve SSS: kalın metin neden görünmeyebilir, mobil ipuçları, erişilebilirlik ve sorun giderme.",
+		"description": "LinkedIn için Boldify yardımı: kalın metin, mobil görünüm, erişilebilirlik ve kopyalayıp yapıştırma sorunlarına çözümler.",
 		"keywords": "linkedin yardım, linkedin biçimlendirme rehberi, linkedin kalın metin yardım, linkedin paylaşımları nasıl biçimlendirilir, linkedin metin biçimlendirme SSS",
 		"quick_start_title": "Hızlı Başlangıç Rehberi",
 		"faq_title": "Sıkça Sorulan Sorular",
@@ -217,7 +218,7 @@
 		"bp2_desc": "LinkedIn profesyonel bir platformdur. Biçimlendirmeyi süsleme amaçlı değil, netliği ve okunabilirliği artırmak için kullanın.",
 		"bp3_title": "Paylaşmadan Önce Test Edin",
 		"bp3_desc": "Doğru göründüğünden emin olmak için paylaşmadan önce biçimlendirilmiş metninizi önizleme özelliğimizi kullanarak her zaman önizleyin.",
-		"hero_title": "Size nasıl yardımcı olabiliriz?",
+		"hero_title": "LinkedIn biçimlendirme yardımı",
 		"hero_desc": "Metin biçimlendirme, LinkedIn uyumluluğu ve MCP kurulumu hakkında hızlı yanıtlar bulun.",
 		"search_placeholder": "Soru ara...",
 		"cat_formatting": "Metin Biçimlendirme",
@@ -237,7 +238,7 @@
 		"mcp_q2": "MCP'im bağlanmıyor, ne yapmalıyım?",
 		"mcp_a2": "Yapılandırma dosyanızdaki node yürütülebilir dosyasının yolunun doğru olduğunu kontrol edin. Ayrıca claude_desktop_config.json dosyasını değiştirdikten sonra masaüstü uygulamanızı yeniden başlattığınızdan emin olun.",
 		"preview_section_title": "Yayımlamadan önce sonucu görselleştirin",
-		"preview_section_desc": "Önizleme aracımız, biçimlendirmenizin tüm ekranlarda mükemmel hizalanmış ve okunabilir olduğundan emin olmak için LinkedIn'in yerel arayüzünü simüle eder.",
+		"preview_section_desc": "Kopyalamadan önce metninizi LinkedIn önizlemesinde kontrol edin. Son görünüm cihaza göre değişebilir.",
 		"preview_check1": "Gönderinizin gerçek zamanlı önizlemesi",
 		"preview_check2": "LinkedIn formatına sadık render",
 		"preview_check3": "Panoya tek tıkla kopyalama",
@@ -287,7 +288,7 @@
 		"report_issue": "Sorun Bildir"
 	},
 	"mcp": {
-		"title": "Boldify MCP – LinkedIn gönderilerinizi AI'ınızdan formatlayın",
+		"title": "Boldify MCP — AI ile LinkedIn gönderilerini biçimlendirin",
 		"description": "Boldify'ı Claude Desktop ve diğer AI asistanlarına MCP aracılığıyla bağlayın. Kopyala-yapıştır olmadan LinkedIn gönderilerini formatlayın.",
 		"keywords": "MCP, Model Context Protocol, Boldify MCP, LinkedIn AI formatlama, Claude Desktop",
 		"badge_label": "Model Context Protocol (MCP)",
@@ -331,7 +332,7 @@
 		"with_mcp_desc": "Claude'a sorun: \"Bu LinkedIn gönderisini anahtar ifadeler kalın olacak şekilde formatla.\" Claude doğrudan Boldify'ı çağırır. Formatlanmış sonuç anında gelir. Bir kez kopyalayıp LinkedIn'e yapıştırın. Bir adım."
 	},
 	"x": {
-		"title": "X (Twitter) Gönderi Biçimlendirici — Kalın ve İtalik Yazı | Boldify",
+		"title": "X (Twitter) için Kalın ve İtalik Yazı | Boldify",
 		"description": "X (Twitter) gönderilerini kalın, italik ve üstü çizili yazıyla biçimlendir. Canlı önizleme sunan ücretsiz araç, kayıt gerektirmez.",
 		"keywords": "X gönderi biçimlendirme, Twitter kalın yazı, tweet biçimlendirme, Twitter italik, Twitter üstü çizili yazı",
 		"placeholder": "X gönderini yaz…",

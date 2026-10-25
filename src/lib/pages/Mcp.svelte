@@ -16,18 +16,27 @@
 		`https://boldify.net${platformUrl(platform(), page.params.lang ?? 'fr', 'mcp')}`
 	);
 
-	const softwareAppSchema = $derived({
+	// This page documents the server; it has no reviews for an app rich result.
+	const guideSchema = $derived({
 		...(platform() === 'x' ? xContentDates : {}),
 		'@context': 'https://schema.org',
-		'@type': 'SoftwareApplication',
-		name: 'Boldify MCP Server',
+		'@type': 'TechArticle',
+		headline: $t('mcp.hero_title'),
 		url: canonicalUrl,
 		description: $t('mcp.description'),
-		applicationCategory: 'DeveloperApplication',
-		operatingSystem: 'Any',
+		inLanguage: page.params.lang ?? 'fr',
+		dateModified: lastUpdated,
 		isAccessibleForFree: true,
-		offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-		installUrl: 'https://api.boldify.net/mcp'
+		author: {
+			'@type': 'Person',
+			name: 'Nathan Mittelette',
+			url: 'https://www.linkedin.com/in/nathan-mittelette/'
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Boldify',
+			logo: { '@type': 'ImageObject', url: 'https://boldify.net/favicon-96x96.png' }
+		}
 	});
 
 	const breadcrumbSchema = $derived({
@@ -56,7 +65,7 @@
 	}
 </script>
 
-<JsonLd schema={softwareAppSchema} />
+<JsonLd schema={guideSchema} />
 <JsonLd schema={breadcrumbSchema} />
 
 <SEOHead

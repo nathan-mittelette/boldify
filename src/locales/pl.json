@@ -43,7 +43,8 @@
 		"like": "Lubię to",
 		"comment": "Skomentuj",
 		"repost": "Udostępnij",
-		"send": "Wyślij"
+		"send": "Wyślij",
+		"avatar_alt": "Awatar przykładowego profilu"
 	},
 	"contribute": {
 		"title": "Współtwórz Boldify",
@@ -70,7 +71,7 @@
 		"how_it_works": "Jak to działa"
 	},
 	"about": {
-		"title": "Formater Tekstu LinkedIn - Pogrubienie & Kursywa | Boldify",
+		"title": "O Boldify dla LinkedIn",
 		"description": "Poznaj Boldify, narzędzie open-source do formatowania LinkedIn stworzone przez Nathan Mittelette. Misja, historia i wsparcie wielojęzyczne.",
 		"keywords": "formater linkedin, generator tekstu linkedin, pogrubienie linkedin, kursywa linkedin, formater mediów społecznościowych, narzędzie do postów linkedin",
 		"hero_title": "Formater tekstu LinkedIn",
@@ -102,7 +103,7 @@
 		"benefit4_title": "Wyróżnia się w feedzie",
 		"benefit4_desc": "Pogrubione i kursywne znaki Unicode przyciągają wzrok podczas przewijania, bez twierdzeń o algorytmie.",
 		"mission_badge": "Nasza Misja",
-		"hero_tagline": "Przywracamy charakter Twoim słowom.",
+		"hero_tagline": "Dodaj charakteru swoim postom na LinkedIn",
 		"hero_desc_new": "Boldify powstało z prostej obserwacji: LinkedIn to sieć profesjonalistów, ale jej narzędzia edycji utknęły w przeszłości. Stworzyliśmy rozwiązanie, które pozwoli Twoim pomysłom błyszczeć bez żadnych tarć.",
 		"hero_tagline_highlight": "charakter",
 		"story_title": "Dlaczego Boldify?",
@@ -131,18 +132,18 @@
 		"creator_story_desc": "Formatowanie postów na LinkedIn powinno działać dla wszystkich, nie tylko dla anglojęzycznych użytkowników. Większość narzędzi po prostu pomija znaki akcentowane, pozostawiając nieangielskojęzycznych użytkowników z niepełnymi wynikami. Nathan stworzył Boldify, aby wypełnić tę lukę: formater obsługujący każdy znak w każdym języku, bez rejestracji i bezpłatnie. Następnie opublikował go jako open source, aby każdy mógł z niego korzystać lub go rozwijać."
 	},
 	"how_it_works": {
-		"title": "Generator Pogrubionego Tekstu LinkedIn - Bezpłatny | Boldify",
+		"title": "Jak formatować posty na LinkedIn | Boldify",
 		"description": "Jak Boldify konwertuje tekst do pogrubionej i kursywnej czcionki Unicode: przewodnik krok po kroku po sztuczce działającej w LinkedIn.",
 		"keywords": "generator pogrubienia linkedin, pogrubienie linkedin, pogrubiony tekst linkedin, formatowanie tekstu linkedin, formater postów linkedin, pogrubiony tekst w mediach społecznościowych",
 		"badge_label": "Przewodnik dla początkujących",
-		"hero_title": "Zamień swoje pomysły w Wpływ",
-		"hero_desc": "Odkryj, jak nasz inteligentny edytor i MCP współpracują, aby profesjonalnie formatować Twoje posty na LinkedIn w ciągu sekund.",
+		"hero_title": "Jak formatować posty na LinkedIn",
+		"hero_desc": "Napisz tekst, wybierz styl i skopiuj wynik do LinkedIn. Dzięki MCP możesz też formatować posty w rozmowie z asystentem AI.",
 		"step1_title": "Pisz i Formatuj",
-		"step1_desc": "Wprowadź tekst w edytorze internetowym. Użyj paska narzędzi, aby zastosować Pogrubienie, Kursywę lub eleganckie czcionki skryptowe.",
+		"step1_desc": "Wpisz tekst, zaznacz fragment i wybierz styl na pasku narzędzi.",
 		"step2_title": "Podgląd Wyniku",
-		"step2_desc": "Dzięki naszej Karcie Podglądu w czasie rzeczywistym, zobacz dokładnie, jak będzie wyglądał Twój post po opublikowaniu na LinkedIn. Koniec ze złymi niespodziankami.",
+		"step2_desc": "Sprawdź tekst w podglądzie LinkedIn. Wygląd może się różnić w zależności od urządzenia i aplikacji.",
 		"step3_title": "Kopiuj i Publikuj",
-		"step3_desc": "Jedno kliknięcie wystarczy, aby skopiować sformatowaną treść z kompatybilnymi znakami Unicode. Wystarczy wkleić ją do swojej ulubionej sieci.",
+		"step3_desc": "Kliknij Kopiuj i wklej tekst do posta na LinkedIn.",
 		"editor_title": "Interfejs zaprojektowany dla szybkości",
 		"editor_feature1_title": "Niedestrukcyjne Formatowanie Unicode",
 		"editor_feature1_desc": "Nasze narzędzia używają alfanumerycznych znaków matematycznych, aby zagwarantować czytelność na wszystkich urządzeniach.",
@@ -150,7 +151,7 @@
 		"editor_feature2_desc": "Odstępy i podziały linii są dostosowywane w celu maksymalizacji zaangażowania w kanale aktualności.",
 		"mcp_badge": "Skupienie Techniczne: MCP",
 		"mcp_title": "Model Context Protocol (MCP): Twój Niewidzialny Asystent",
-		"mcp_desc": "MCP umożliwia Boldify bezpośrednią integrację z narzędziami deweloperskimi lub asystentami AI. Działa jako pomost danych strukturalnych.",
+		"mcp_desc": "MCP łączy Boldify z asystentem AI. Poproś go o formatowanie tekstu bez wychodzenia z rozmowy.",
 		"mcp_feature1_title": "Inteligentna Ekstrakcja",
 		"mcp_feature1_desc": "MCP identyfikuje kluczowe punkty z surowych dokumentów, aby sugerować formaty haczyków.",
 		"mcp_feature2_title": "Bezpośrednia Synchronizacja",
@@ -163,7 +164,7 @@
 	},
 	"help": {
 		"title": "Pomoc & FAQ - Formatowanie Tekstu LinkedIn | Boldify",
-		"description": "Pomoc i FAQ Boldify: dlaczego pogrubiony tekst może się nie wyświetlać, wskazówki mobilne, dostępność i rozwiązywanie problemów.",
+		"description": "Pomoc Boldify dla LinkedIn: pogrubiony tekst, wygląd na telefonie, dostępność oraz rozwiązania problemów z kopiowaniem i wklejaniem.",
 		"keywords": "pomoc linkedin, przewodnik formatowania linkedin, pomoc pogrubiony tekst linkedin, jak formatować posty linkedin, FAQ formatowanie tekstu linkedin",
 		"quick_start_title": "Przewodnik szybkiego startu",
 		"faq_title": "Często zadawane pytania",
@@ -216,7 +217,7 @@
 		"bp2_desc": "LinkedIn to platforma zawodowa. Używaj formatowania, aby zwiększyć przejrzystość i czytelność, a nie w celach dekoracyjnych.",
 		"bp3_title": "Testuj przed publikacją",
 		"bp3_desc": "Zawsze podglądaj sformatowany tekst za pomocą naszej funkcji podglądu przed opublikowaniem, aby upewnić się, że wygląda poprawnie.",
-		"hero_title": "Jak możemy Ci pomóc?",
+		"hero_title": "Pomoc w formatowaniu na LinkedIn",
 		"hero_desc": "Znajdź szybkie odpowiedzi na temat formatowania tekstu, zgodności z LinkedIn i instalacji MCP.",
 		"search_placeholder": "Wyszukaj pytanie...",
 		"cat_formatting": "Formatowanie tekstu",
@@ -236,7 +237,7 @@
 		"mcp_q2": "Mój MCP nie łączy się, co zrobić?",
 		"mcp_a2": "Sprawdź, czy ścieżka do pliku wykonywalnego node jest poprawna w pliku konfiguracyjnym. Upewnij się też, że ponownie uruchomiłeś aplikację desktopową po zmodyfikowaniu pliku claude_desktop_config.json.",
 		"preview_section_title": "Wizualizuj wynik przed publikacją",
-		"preview_section_desc": "Nasze narzędzie podglądu symuluje natywny interfejs LinkedIn, aby zapewnić, że formatowanie jest idealnie dopasowane i czytelne na wszystkich ekranach.",
+		"preview_section_desc": "Sprawdź tekst w podglądzie LinkedIn przed skopiowaniem. Końcowy wygląd może zależeć od urządzenia.",
 		"preview_check1": "Podgląd posta w czasie rzeczywistym",
 		"preview_check2": "Wierny rendering formatu LinkedIn",
 		"preview_check3": "Kopiowanie jednym kliknięciem do schowka",
@@ -286,7 +287,7 @@
 		"report_issue": "Zgłoś problem"
 	},
 	"mcp": {
-		"title": "Boldify MCP – Formatuj posty LinkedIn bezpośrednio ze swojego AI",
+		"title": "Boldify MCP — Formatuj posty LinkedIn z AI",
 		"description": "Połącz Boldify z Claude Desktop i innymi asystentami AI przez MCP. Formatuj posty LinkedIn bez kopiowania i wklejania.",
 		"keywords": "MCP, Model Context Protocol, Boldify MCP, LinkedIn formatowanie AI, Claude Desktop",
 		"badge_label": "Model Context Protocol (MCP)",
@@ -330,7 +331,7 @@
 		"with_mcp_desc": "Poproś Claude: \"Sformatuj ten post LinkedIn z kluczowymi frazami pogrubionymi.\" Claude wywołuje Boldify bezpośrednio. Sformatowany wynik wraca natychmiast. Skopiuj raz i wklej do LinkedIn. Jeden krok."
 	},
 	"x": {
-		"title": "Formatowanie postów na X (Twitterze) — Pogrubienie i kursywa | Boldify",
+		"title": "Pogrubienie i kursywa na X (Twitter) | Boldify",
 		"description": "Formatuj posty na X (Twitterze), używając pogrubienia, kursywy i przekreślenia. Bezpłatne narzędzie z podglądem, bez rejestracji.",
 		"keywords": "formatowanie postów X, pogrubiony tekst Twitter, formatowanie tweetów, kursywa Twitter, przekreślony tekst Twitter",
 		"placeholder": "Napisz post na X…",
