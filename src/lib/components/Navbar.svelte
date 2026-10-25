@@ -1,15 +1,18 @@
 <script lang="ts">
 	type NavItem = {
 		key: string;
-		href: `/${SupportedLanguages}${string}`;
+		href: `/${string}`;
 		badge?: string;
 	};
+
+	import PlatformSwitch from './PlatformSwitch.svelte';
+	import { platforms, platformUrl, type Platform } from '#lib/models/platform.model.js';
+	let { platform = 'linkedin' }: { platform?: Platform } = $props();
 
 	import { t } from 'svelte-i18n';
 	import { locale } from '#lib/services/i18n.service.js';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import type { SupportedLanguages } from '../../params/lang';
 	import { trackBuyMeACoffeeClicked } from '#lib/services/clarity.service.js';
 	import { coffeeCue } from '#lib/stores/coffee-cue.store.js';
 
@@ -17,23 +20,20 @@
 	let innerWidth = $state(0);
 	let mobileMenuOpen = $state(false);
 	let isScrolled = $derived(scrollY > 20);
-	let isMcpPage = $derived(page.url.pathname.includes('/mcp'));
+	let isMcpPage = $derived(platform === 'linkedin' && page.url.pathname.includes('/mcp'));
 
 	function isActive(href: string): boolean {
 		const path = page.url.pathname;
-		// Home: exact match only (avoid matching /mcp, /about, etc.)
-		if (href === `/${$locale}` || href === '/') {
-			return path === `/${$locale}` || path === '/';
-		}
-		return path === href || path.startsWith(href + '/');
+		if (platform === 'linkedin' && href === '/' && path === '/fr') return true;
+		return path.replace(/\/$/, '') === href.replace(/\/$/, '');
 	}
 
 	const navItems = $derived<NavItem[]>([
-		{ key: 'nav.home', href: `/${$locale as SupportedLanguages}` },
-		{ key: 'nav.mcp', href: `/${$locale as SupportedLanguages}/mcp`, badge: 'new' },
-		{ key: 'nav.about', href: `/${$locale as SupportedLanguages}/about` },
-		{ key: 'nav.how_it_works', href: `/${$locale as SupportedLanguages}/how-it-works` },
-		{ key: 'nav.help', href: `/${$locale as SupportedLanguages}/help` }
+		{ key: 'nav.home', href: platformUrl(platform, $locale ?? 'fr') },
+		{ key: 'nav.mcp', href: platformUrl(platform, $locale ?? 'fr', 'mcp'), badge: 'new' },
+		{ key: 'nav.about', href: platformUrl(platform, $locale ?? 'fr', 'about') },
+		{ key: 'nav.how_it_works', href: platformUrl(platform, $locale ?? 'fr', 'how-it-works') },
+		{ key: 'nav.help', href: platformUrl(platform, $locale ?? 'fr', 'help') }
 	]);
 
 	function toggleMobileMenu() {
@@ -50,11 +50,7 @@
 	}
 
 	function getHomeUrl(currentLang: string | null | undefined): `/${string}` | '/' {
-		if (currentLang === 'fr' || currentLang === null || currentLang === undefined) {
-			return '/';
-		} else {
-			return `/${currentLang}`;
-		}
+		return platforms[platform].home(currentLang ?? 'fr');
 	}
 </script>
 
@@ -63,13 +59,15 @@
 <nav
 	class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 {isScrolled
 		? 'bg-white shadow-lg py-3'
-		: 'bg-transparent py-6'} {isMcpPage ? 'navbar-mcp' : ''}"
+		: platform === 'x'
+			? 'bg-white/95 py-6'
+			: 'bg-transparent py-6'} {isMcpPage ? 'navbar-mcp' : ''}"
 >
 	<div class="container mx-auto flex justify-between items-center px-4">
 		<div class="flex items-center">
 			<p class="text-2xl font-bold">
 				<a
-					class={isMcpPage ? 'text-mcp' : 'gradient-text'}
+					class={platform === 'x' ? 'text-black' : isMcpPage ? 'text-mcp' : 'gradient-text'}
 					href={resolve(getHomeUrl($locale).slice(1))}
 				>
 					Boldify
@@ -77,13 +75,16 @@
 			</p>
 		</div>
 
+		<PlatformSwitch {platform} />
+
 		<!-- Desktop Menu -->
-		<ul class="hidden md:flex items-center gap-6">
+		<ul class="hidden xl:flex items-center gap-5">
 			{#each navItems as { key, href, badge } (key)}
 				{@const active = isActive(href)}
 				<li>
 					<a
 						href={resolve(href.slice(1))}
+						aria-current={active ? 'page' : undefined}
 						class="font-medium flex items-center gap-1.5 {isMcpPage
 							? active
 								? 'text-mcp'
@@ -92,7 +93,9 @@
 								? 'text-primary'
 								: isScrolled
 									? 'text-neutral-700 hover:text-primary'
-									: 'text-gray-400 hover:text-primary'}"
+									: platform === 'x'
+										? 'text-neutral-600 hover:text-primary'
+										: 'text-gray-400 hover:text-primary'}"
 						onclick={closeMobileMenu}
 					>
 						<span
@@ -118,7 +121,7 @@
 					href="https://buymeacoffee.com/boldify"
 					target="_blank"
 					rel="noopener"
-					class="btn ml-4 bg-[#ffdd00] text-neutral-900 hover:bg-[#ffe666] focus:ring-[#ffdd00] shadow-sm ring-1 ring-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-300/50"
+					class="btn ml-4 bg-support text-neutral-900 hover:bg-support-hover focus:ring-support shadow-sm ring-1 ring-neutral-300/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-neutral-300/50"
 					onclick={() => trackBuyMeACoffeeClicked('navbar_desktop')}
 				>
 					<span class="coffee-cup-wrap mr-2">
@@ -153,9 +156,10 @@
 
 		<!-- Mobile Menu Toggle -->
 		<button
-			class="md:hidden text-neutral-800 focus:outline-none"
+			class="xl:hidden text-neutral-800 focus:outline-none"
 			onclick={toggleMobileMenu}
 			aria-label="Toggle menu"
+			aria-expanded={mobileMenuOpen}
 		>
 			{#if mobileMenuOpen}
 				<svg
@@ -194,7 +198,7 @@
 	<!-- Mobile Menu -->
 	{#if mobileMenuOpen}
 		<div
-			class="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-neutral-200 animate-fade-in {isMcpPage
+			class="xl:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-neutral-200 animate-fade-in {isMcpPage
 				? 'border-mcp/20'
 				: ''}"
 		>
@@ -204,6 +208,7 @@
 					<li>
 						<a
 							href={resolve(href.slice(1))}
+							aria-current={active ? 'page' : undefined}
 							class="block py-2 font-medium flex items-center gap-1.5 {isMcpPage
 								? active
 									? 'text-mcp'
@@ -231,7 +236,7 @@
 						href="https://buymeacoffee.com/boldify"
 						target="_blank"
 						rel="noopener"
-						class="btn w-full justify-center bg-[#ffdd00] text-neutral-900 hover:bg-[#ffe666] focus:ring-[#ffdd00] shadow-sm ring-1 ring-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-300/50"
+						class="btn w-full justify-center bg-support text-neutral-900 hover:bg-support-hover focus:ring-support shadow-sm ring-1 ring-neutral-300/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-neutral-300/50"
 						onclick={trackMobileBuyMeACoffeeClick}
 					>
 						<svg

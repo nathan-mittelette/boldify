@@ -66,6 +66,11 @@
 @import 'tailwindcss';
 
 @theme {
+	--color-support: #ffdd00;
+	--color-support-ink: #facc15;
+	--color-support-hover: #ffe666;
+	--color-footer-link: #60a5fa;
+
 	--color-primary: #2563eb;
 	--color-primary-dark: #1e40af;
 	--color-secondary: #3b82f6;
@@ -78,8 +83,9 @@
 	--color-success: #10b981;
 	--color-warning: #f59e0b;
 	--color-error: #ef4444;
-	--color-mcp: #dc2626;
-	--color-mcp-dark: #b91c1c;
+	--color-mcp: var(--color-primary);
+	--color-mcp-on-dark: var(--color-secondary-light);
+	--color-mcp-dark: var(--color-primary-dark);
 	--color-white: #ffffff;
 	--color-neutral-50: #f9fafb;
 	--color-neutral-100: #f3f4f6;
@@ -203,7 +209,7 @@ html {
 
 /* Dot patterns */
 .dot-pattern {
-	background-image: radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0);
+	background-image: radial-gradient(circle at 1px 1px, var(--color-neutral-200) 1px, transparent 0);
 	background-size: 24px 24px;
 }
 
@@ -237,10 +243,92 @@ html {
 	}
 }
 
+/* Route snapshots must not intercept navigation controls while fading. */
+:root::view-transition {
+	pointer-events: none;
+}
+
 :root::view-transition-old(root) {
 	animation: 300ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
 }
 
 :root::view-transition-new(root) {
 	animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+}
+
+/* Platform themes apply to shared components and their transient notifications. */
+[data-platform='x'] {
+	--color-mcp: #000000;
+	--color-mcp-on-dark: #eeeeee;
+	--color-mcp-dark: #333333;
+	--color-blue-200: #dddddd;
+	--color-blue-600: #000000;
+	--color-blue-700: #222222;
+	--color-gray-100: #f3f3f3;
+	--color-gray-200: #dddddd;
+	--color-gray-600: #555555;
+	--color-gray-900: #000000;
+	--color-pink-400: #dddddd;
+	--color-pink-500: #aaaaaa;
+	--color-red-500: #aaaaaa;
+	--color-green-400: #dddddd;
+	--color-green-500: #aaaaaa;
+	--color-yellow-500: #aaaaaa;
+	--color-yellow-200: #eeeeee;
+	--color-support-ink: #000000;
+	--color-accent: #facc15;
+	--color-accent-light: #fef08a;
+	--color-text-light: #666666;
+	--color-primary: #000000;
+	--color-primary-dark: #333333;
+	--color-secondary: #333333;
+	--color-secondary-light: #555555;
+	--color-background: #ffffff;
+	--color-text: #000000;
+	--color-support: #ffdd00;
+	--color-support-hover: #ffe666;
+	--color-footer-link: #dddddd;
+	--color-emerald-500: #000000;
+	--color-neutral-50: #f7f7f7;
+	--color-neutral-100: #f3f3f3;
+	--color-neutral-200: #dddddd;
+	--color-neutral-300: #cccccc;
+	--color-neutral-400: #aaaaaa;
+	--color-neutral-500: #666666;
+	--color-neutral-600: #555555;
+	--color-neutral-700: #333333;
+	--color-neutral-800: #222222;
+	--color-neutral-900: #000000;
+	--color-amber-50: #f7f7f7;
+	--color-amber-100: #eeeeee;
+	--color-amber-200: #dddddd;
+	--color-amber-400: #777777;
+	--color-amber-600: #555555;
+	--color-amber-700: #444444;
+	--color-amber-800: #333333;
+	--color-amber-900: #000000;
+	--color-yellow-400: #777777;
+}
+[data-platform='x'] a:focus-visible,
+[data-platform='x'] button:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
+
+/* Editorial artwork keeps its composition while matching the X palette. */
+[data-platform='x'] .platform-illustration {
+	filter: grayscale(1);
+}
+
+/* Light code panels need darker syntax colors than terminal panels. */
+[data-platform='x'] .code-sample-light {
+	--color-neutral-400: #666666;
+	--color-pink-500: #333333;
+	--color-yellow-600: #000000;
+}
+[data-platform='x'] main .text-neutral-400 {
+	color: #666666;
+}
+[data-platform='x'] .text-white\/40 {
+	color: rgb(255 255 255 / 0.65);
 }

@@ -1,28 +1,32 @@
 <script lang="ts">
+	import xContentDates from '#lib/models/x-content-dates.json';
+	import { platforms, platformUrl, xAlternates } from '#lib/models/platform.model.js';
 	import Intro from '#lib/components/Intro.svelte';
 	import Contribution from '#lib/components/Contribute.svelte';
 	import TextEditor from '#lib/components/TextEditor.svelte';
 	import TextPreviewContainer from '#lib/components/TextPreviewContainer.svelte';
 	import SEOHead from '#lib/components/SEOHead.svelte';
 	import JsonLd from '#lib/components/JsonLd.svelte';
-	import { t } from 'svelte-i18n';
+	import { platformTranslations } from '#lib/services/platform-i18n.service.js';
+	import { getPlatformContext } from '#lib/services/platform-context.js';
+	const platform = getPlatformContext();
+	const t = platformTranslations();
 	import { locale } from '#lib/services/i18n.service.js';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import { buildHomeHreflang } from '#lib/utils/hreflang.js';
 
-	const languages = buildHomeHreflang();
+	const languages = $derived(platform() === 'x' ? xAlternates() : buildHomeHreflang());
 	const canonicalUrl = $derived(
-		!page.params.lang || page.params.lang === 'fr'
-			? 'https://boldify.net/'
-			: `https://boldify.net/${page.params.lang}`
+		`https://boldify.net${platformUrl(platform(), page.params.lang ?? 'fr')}`
 	);
 
 	const webAppSchema = $derived({
+		...(platform() === 'x' ? xContentDates : {}),
 		'@context': 'https://schema.org',
 		'@type': 'WebApplication',
 		name: 'Boldify',
-		url: 'https://boldify.net/',
+		url: canonicalUrl,
 		description: $t('introduction.description'),
 		applicationCategory: 'UtilitiesApplication',
 		operatingSystem: 'Any',
@@ -35,15 +39,26 @@
 			priceCurrency: 'EUR',
 			availability: 'https://schema.org/InStock'
 		},
-		featureList: [
-			'Unicode bold text conversion',
-			'Unicode italic text conversion',
-			'Strikethrough text formatting',
-			'Underline and overline text',
-			'Bullet and numbered list formatting',
-			'Live LinkedIn preview',
-			'MCP server integration'
-		],
+		featureList:
+			platform() === 'x'
+				? [
+						'Unicode bold text conversion',
+						'Unicode italic text conversion',
+						'Strikethrough text formatting',
+						'Bullet and numbered list formatting',
+						'Live X preview',
+						'Weighted 280-unit standard post counter',
+						'MCP server integration'
+					]
+				: [
+						'Unicode bold text conversion',
+						'Unicode italic text conversion',
+						'Strikethrough text formatting',
+						'Underline and overline text',
+						'Bullet and numbered list formatting',
+						'Live LinkedIn preview',
+						'MCP server integration'
+					],
 		screenshot: 'https://boldify.net/favicon-96x96.png',
 		creator: {
 			'@type': 'Organization',
@@ -70,7 +85,7 @@
 			<!-- Compact header -->
 			<div class="text-center mb-8">
 				<a
-					href={resolve(`${$locale}/mcp`)}
+					href={resolve(platformUrl(platform(), $locale ?? 'fr', 'mcp').slice(1))}
 					class="inline-block text-sm font-semibold py-1 px-4 rounded-full bg-primary/10 text-primary border border-primary/30 mb-4 hover:bg-primary/20 transition-colors"
 				>
 					<span class="flex items-center gap-2">
@@ -98,10 +113,18 @@
 					{$t('introduction.description')}
 				</p>
 			</div>
+			<p class="text-center mb-6">
+				<a
+					class="text-primary underline"
+					href={resolve(
+						platforms[platform() === 'x' ? 'linkedin' : 'x'].home($locale ?? 'fr').slice(1)
+					)}>{platform() === 'x' ? 'LinkedIn' : 'X (Twitter)'} →</a
+				>
+			</p>
 			<!-- Editor + Preview -->
 			<div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
 				<div class="w-full lg:w-1/2">
-					<TextEditor />
+					<TextEditor platform={platform()} />
 				</div>
 				<div class="w-full lg:w-1/2 lg:mt-0 mt-8">
 					<TextPreviewContainer />

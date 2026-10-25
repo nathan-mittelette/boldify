@@ -1,5 +1,10 @@
 <script lang="ts">
 	import '../app.css';
+	import { setPlatformContext } from '#lib/services/platform-context.js';
+	import { page } from '$app/state';
+	import { platformFromPath } from '#lib/models/platform.model.js';
+	const platform = $derived(platformFromPath(page.url.pathname));
+	setPlatformContext(() => platform);
 	import Navbar from '#lib/components/Navbar.svelte';
 	import Footer from '#lib/components/Footer.svelte';
 	import Snackbar from '#lib/components/Snackbar.svelte';
@@ -18,7 +23,14 @@
 
 	onNavigate((navigation) => {
 		if (navigation.shallow && navigation.type === 'goto') return;
-		if (!document.startViewTransition) return;
+		if (
+			!document.startViewTransition ||
+			(navigation.from &&
+				platformFromPath(navigation.from.url.pathname) !==
+					platformFromPath(navigation.to?.url.pathname ?? '/')) ||
+			window.matchMedia('(prefers-reduced-motion: reduce)').matches
+		)
+			return;
 
 		return new Promise((resolve) => {
 			document.startViewTransition(async () => {
@@ -77,10 +89,10 @@
 <JsonLd schema={organizationSchema} />
 <JsonLd schema={websiteSchema} />
 
-<div class="flex flex-col min-h-screen bg-background text-text">
-	<Navbar />
+<div data-platform={platform} class="flex flex-col min-h-screen bg-background text-text">
+	<Navbar {platform} />
 	{@render children?.()}
-	<Footer />
+	<Footer {platform} />
 	<div
 		class="fixed bottom-8 md:right-8 max-md:left-1/2 max-md:-translate-x-1/2 z-50 flex flex-col gap-4 w-[360px] max-w-[calc(100vw-2rem)]"
 	>

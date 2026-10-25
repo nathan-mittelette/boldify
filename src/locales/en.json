@@ -328,5 +328,28 @@
 		"need_help": "Need additional help?",
 		"contact_email": "Contact us",
 		"report_issue": "Report an issue"
+	},
+	"x": {
+		"title": "X (Twitter) Post Formatter — Bold & Italic Text for Tweets | Boldify",
+		"description": "Format your X (Twitter) posts with bold, italic and strikethrough text. Free tweet formatter with live preview — no signup.",
+		"keywords": "x post formatter, twitter bold text, tweet formatter, x text generator, bold text for twitter, italic tweet, strikethrough tweet",
+		"placeholder": "Write your X post…",
+		"default_text": "A new project deserves more than an announcement.\n\nSelect the words that matter. Make them bold, italic or strikethrough.\n\nHave an idea to share? Make it stand out. #Boldify",
+		"copied_description": "Paste your text into the X composer.",
+		"copy_hint": "Paste into the X composer",
+		"preview_notice": "Illustrative preview. Unicode rendering can vary across X and devices.",
+		"remaining": "units remaining",
+		"standard_post": "Standard post · 280",
+		"near_limit": "Approaching the limit.",
+		"over_limit": "Limit exceeded. You can still copy your post.",
+		"views": "Views",
+		"format_note": "Formatting uses Unicode characters, so it stays with your text when you copy it.",
+		"formats_description": "Select a phrase and apply bold, italic or strikethrough. Organize your ideas with a list.",
+		"about_intro": "Boldify turns selected letters into Unicode characters. Prepare a post for X, compare it on LinkedIn and keep your draft along the way. No Boldify account is required.",
+		"counting_question": "Why does bold text use more of the limit?",
+		"counting_explanation": "X uses weighted counting. An ordinary Latin letter usually counts as one unit, while a styled Unicode letter can count as two. The counter recalculates after every transformation.",
+		"rendering_explanation": "Bold, italic and strikethrough use Unicode characters rather than native X formatting. Fonts and apps may display them differently. Underline and overline are simply not offered in this toolbar.",
+		"bookmark": "Bookmark",
+		"share": "Share post"
 	}
 }

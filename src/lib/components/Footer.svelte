@@ -1,5 +1,15 @@
 <script lang="ts">
-	import { _, t } from 'svelte-i18n';
+	import {
+		platforms,
+		platformUrl,
+		sectionFromPath,
+		type Platform
+	} from '#lib/models/platform.model.js';
+	let { platform = 'linkedin' }: { platform?: Platform } = $props();
+	const languages = SUPPORTED_LANGUAGES;
+	import { _ } from 'svelte-i18n';
+	import { platformTranslations } from '#lib/services/platform-i18n.service.js';
+	const t = platformTranslations();
 	import { locale, SUPPORTED_LANGUAGES } from '#lib/services/i18n.service.js';
 	import { page } from '$app/state';
 	import type { SupportedLanguages } from '../../params/lang';
@@ -25,24 +35,26 @@
 	}
 
 	const languageUrls = $derived(
-		SUPPORTED_LANGUAGES.reduce(
+		languages.reduce(
 			(acc, lang) => {
 				const params = page.params;
 
-				if ('lang' in params) {
+				if (platform === 'x') {
+					acc[lang] = platformUrl('x', lang, sectionFromPath(page.url.pathname));
+				} else if ('lang' in params) {
 					const currentPath = page.url.pathname;
 					const segments = currentPath.split('/');
 					// segments[0] is always '', segments[1] is the locale
 					if (SUPPORTED_LANGUAGES.includes(segments[1] as SupportedLanguages)) {
 						segments[1] = lang;
 					}
-					acc[lang] = segments.join('/') as `/${SupportedLanguages}${string}`;
+					acc[lang] = segments.join('/') as `/${string}`;
 				} else {
 					acc[lang] = `/${lang}`;
 				}
 				return acc;
 			},
-			{} as Record<SupportedLanguages, `/${SupportedLanguages}${string}`>
+			{} as Record<SupportedLanguages, `/${string}`>
 		)
 	);
 </script>
@@ -52,7 +64,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 			<div>
 				<div class="flex items-center mb-6">
-					<h3 class="text-2xl font-bold">Boldify</h3>
+					<h3 class="text-2xl font-bold flex items-center gap-2">Boldify</h3>
 				</div>
 				<p class="text-neutral-400 mb-4">
 					{$t('footer.description')}
@@ -60,11 +72,11 @@
 						href="https://www.linkedin.com/in/nathan-mittelette/"
 						target="_blank"
 						rel="noopener"
-						class="text-blue-400 hover:text-blue-300 transition-colors">Nathan Mittelette</a
+						class="text-footer-link hover:text-white transition-colors">Nathan Mittelette</a
 					>.
 				</p>
 				<div class="flex items-center gap-2 flex-wrap">
-					{#each SUPPORTED_LANGUAGES as lang (lang)}
+					{#each languages as lang (lang)}
 						<a
 							href={resolve(languageUrls[lang].slice(1))}
 							class="flex items-center justify-center size-8 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors duration-300 hover:cursor-pointer shrink-0 overflow-hidden"
@@ -84,7 +96,15 @@
 				<ul class="space-y-3">
 					<li>
 						<a
-							href={resolve(`${$locale}`)}
+							class="text-neutral-300 hover:text-white underline"
+							href={resolve(
+								platforms[platform === 'x' ? 'linkedin' : 'x'].home($locale ?? 'fr').slice(1)
+							)}>{platform === 'x' ? 'LinkedIn' : 'X (Twitter)'}</a
+						>
+					</li>
+					<li>
+						<a
+							href={resolve(platforms[platform].home($locale ?? 'fr').slice(1))}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.home')}
@@ -92,7 +112,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`${$locale}/mcp`)}
+							href={resolve(platformUrl(platform, $locale ?? 'fr', 'mcp').slice(1))}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.mcp')}
@@ -100,7 +120,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`${$locale}/about`)}
+							href={resolve(platformUrl(platform, $locale ?? 'fr', 'about').slice(1))}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.about')}
@@ -108,7 +128,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`${$locale}/how-it-works`)}
+							href={resolve(platformUrl(platform, $locale ?? 'fr', 'how-it-works').slice(1))}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.how_it_works')}
@@ -116,7 +136,7 @@
 					</li>
 					<li>
 						<a
-							href={resolve(`${$locale}/help`)}
+							href={resolve(platformUrl(platform, $locale ?? 'fr', 'help').slice(1))}
 							class="text-neutral-400 hover:text-white transition-colors duration-300"
 						>
 							{$t('nav.help')}

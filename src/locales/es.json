@@ -328,5 +328,28 @@
 		"without_mcp_desc": "Pide a Claude que redacte un post → cópialo → abre boldify.net → pega → haz clic en negrita → copia el resultado → pega en LinkedIn. Seis pasos.",
 		"with_mcp_title": "Con Boldify MCP",
 		"with_mcp_desc": "Pide a Claude: \"Formatea este post de LinkedIn con frases clave en negrita.\" Claude llama a Boldify directamente. El resultado formateado vuelve en línea. Copia una vez y pega en LinkedIn. Un paso."
+	},
+	"x": {
+		"title": "Formato para publicaciones de X (Twitter) — Negrita y cursiva | Boldify",
+		"description": "Da formato a tus publicaciones de X (Twitter) con negrita, cursiva y texto tachado. Herramienta gratuita con vista previa, sin registro.",
+		"keywords": "formato publicaciones X, texto negrita Twitter, formato tweets, cursiva Twitter, texto tachado Twitter",
+		"placeholder": "Escribe tu publicación de X…",
+		"default_text": "Un proyecto nuevo merece algo más que un anuncio.\n\nSelecciona las palabras importantes. Ponlas en negrita, cursiva o tachado.\n\n¿Tienes una idea para compartir? Haz que destaque. #Boldify",
+		"copied_description": "Pega tu texto en el editor de X.",
+		"copy_hint": "Pega en el editor de X",
+		"preview_notice": "Vista previa orientativa. El aspecto de Unicode puede variar según X y tu dispositivo.",
+		"remaining": "unidades restantes",
+		"standard_post": "Publicación estándar · 280",
+		"near_limit": "Te acercas al límite.",
+		"over_limit": "Límite superado. Puedes seguir copiando tu publicación.",
+		"views": "Visualizaciones",
+		"format_note": "El formato utiliza caracteres Unicode y se conserva al copiar el texto.",
+		"formats_description": "Selecciona una frase y aplica negrita, cursiva o tachado. Organiza tus ideas con una lista.",
+		"about_intro": "Boldify convierte las letras seleccionadas en caracteres Unicode. Prepara una publicación para X, compárala en LinkedIn y conserva el borrador en cada paso. No necesitas una cuenta de Boldify.",
+		"counting_question": "¿Por qué la negrita ocupa más espacio?",
+		"counting_explanation": "X utiliza un conteo ponderado. Una letra latina normal suele contar como una unidad, mientras que una letra Unicode estilizada puede contar como dos. El contador se actualiza tras cada transformación.",
+		"rendering_explanation": "La negrita, la cursiva y el tachado utilizan caracteres Unicode, no formato nativo de X. Las fuentes y aplicaciones pueden mostrarlos de forma distinta. El subrayado y la línea superior simplemente no se ofrecen en esta barra.",
+		"bookmark": "Guardar en marcadores",
+		"share": "Compartir publicación"
 	}
 }

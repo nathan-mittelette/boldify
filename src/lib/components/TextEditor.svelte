@@ -1,14 +1,20 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 	import type Quill from 'quill';
-	import { text } from '#lib/stores/text.store.js';
+	import { get } from 'svelte/store';
+	import PostCounter from './PostCounter.svelte';
+	import { platforms, type Platform } from '#lib/models/platform.model.js';
+	import { extractPostContent } from '#lib/utils/post-content.js';
+	import { text, draftEdited } from '#lib/stores/text.store.js';
 	import { handleUpdateToText } from '#lib/handlers/handler.js';
 	import { boldHandler } from '#lib/handlers/bold.handler.js';
 	import { italicHandler } from '#lib/handlers/italic.handler.js';
 	import { underlineHandler } from '#lib/handlers/underline.handler.js';
 	import { strikeHandler } from '#lib/handlers/strike.handler.js';
 	import { overlineHandler } from '#lib/handlers/overline.handler.js';
-	import { t, locale } from 'svelte-i18n';
+	import { locale } from 'svelte-i18n';
+	import { platformTranslations } from '#lib/services/platform-i18n.service.js';
+	const t = platformTranslations();
 	import { listHandler, type ListType } from '#lib/handlers/list.handler.js';
 	import { browser } from '$app/env';
 	import { addSnackbar } from '#lib/stores/snackbar.store.js';
@@ -21,20 +27,14 @@
 	import { onCopy } from '#lib/services/donation-toast.service.js';
 	import { triggerCoffeeCue } from '#lib/stores/coffee-cue.store.js';
 
-	const MAX_CHARACTERS = 3000;
-
-	const getProgressColor = (nbCharcters: number) => {
-		const percent = ((MAX_CHARACTERS - nbCharcters) / MAX_CHARACTERS) * 100;
-		const hue = (percent / 100) * 120; // Maps percent to range from red (0) to green (120)
-		return `hsl(${hue}, 80%, 30%)`; // Softer green with reduced saturation and brightness
-	};
-
-	let characters = $derived<number>($text.length - 1); // -1 because Quill adds a newline character
+	let { platform = 'linkedin' }: { platform?: Platform } = $props();
+	const config = $derived(platforms[platform]);
+	const editorKey = (key: string) => `${config.i18n}.${key}`;
+	let disposed = false;
 
 	let editorRef: HTMLDivElement;
 	let toolbarRef: HTMLDivElement;
 	let observer: MutationObserver;
-	let isDefaultText = true;
 
 	const copyToClipboard = async () => {
 		await navigator.clipboard.writeText($text);
@@ -47,7 +47,7 @@
 
 		addSnackbar({
 			title: $t('editor.copied'),
-			description: $t('editor.copied_description')
+			description: $t(editorKey('copied_description'))
 		} as Snackbar);
 	};
 
@@ -82,7 +82,7 @@
 	}
 
 	let editor: Quill;
-	let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+
 	// Separate reactive flag — avoids wrapping the Quill instance in a Svelte proxy
 	let editorReady = $state(false);
 
@@ -106,6 +106,8 @@
 			import('quill/dist/quill.snow.css') as unknown as Promise<{ default: unknown }>
 		]);
 
+		if (disposed) return;
+
 		const options = {
 			theme: 'snow',
 			history: {
@@ -128,43 +130,37 @@
 					}
 				}
 			},
-			placeholder: $t('editor.placeholder')
+			placeholder: $t(editorKey('placeholder'))
 		};
 
 		editor = new Quill(editorRef, options);
+		if (get(draftEdited)) editor.setText(get(text) + '\n', 'silent');
 		// Signal readiness — triggers $effect to set the initial text
 		editorReady = true;
 		editor.root.addEventListener('paste', handlePaste, true);
 
-		editor.on('text-change', (_, __, source) => {
-			if (source === 'user') {
-				isDefaultText = false;
-			}
-
-			clearTimeout(debounceTimer);
-			debounceTimer = setTimeout(() => {
-				const content = editor.getText();
-				if (content.trim()) {
-					text.set(content);
-				} else {
-					text.set($t('editor.placeholder') + ' ');
-				}
-			}, 50);
+		editor.on('text-change', () => {
+			draftEdited.set(true);
+			text.set(extractPostContent(editor.getText()));
 		});
 	});
 
 	$effect(() => {
-		const defaultText = $t('editor.default_text');
-		if (editorReady && isDefaultText) {
-			editor.setText(defaultText);
-			text.set(defaultText);
+		const defaultText = $t(editorKey('default_text'));
+		const placeholder = $t(editorKey('placeholder'));
+		if (editorReady) {
+			editor.root.dataset.placeholder = placeholder;
+			if (!$draftEdited) {
+				editor.setText(defaultText + '\n', 'silent');
+				text.set(defaultText);
+			}
 		}
 	});
 
 	onDestroy(() => {
+		disposed = true;
 		observer?.disconnect();
 		editor?.root.removeEventListener('paste', handlePaste, true);
-		clearTimeout(debounceTimer);
 	});
 </script>
 
@@ -173,7 +169,7 @@
 		<h2 class="text-3xl md:text-4xl font-bold mb-6">
 			{$t('editor.section_title')}
 		</h2>
-		<div class="h-1 w-24 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+		<div class="h-1 w-24 bg-primary mx-auto mb-6 rounded-full"></div>
 		<p class="text-lg text-neutral-600 max-w-2xl mx-auto mb-12">
 			{$t('editor.section_description')}
 		</p>
@@ -183,33 +179,36 @@
 		>
 			<div id="toolbar" class="rounded-t-lg" bind:this={toolbarRef}>
 				<span class="ql-formats">
-					<button type="button" class="ql-undo" aria-pressed="false" aria-label="undo"
-						><svg viewBox="0 0 24 24"><path class="ql-stroke" d="M15 19l-7-7 7-7v14z"></path></svg
-						></button
-					>
-
-					<button type="button" class="ql-redo" aria-pressed="false" aria-label="redo"
-						><svg viewBox="0 0 24 24"><path class="ql-stroke" d="M9 5l7 7-7 7V5z"></path></svg
-						></button
-					>
+					<button type="button" class="ql-undo" aria-pressed="false" aria-label="undo">
+						<svg viewBox="0 0 24 24"><path class="ql-stroke" d="M15 19l-7-7 7-7v14z" /></svg>
+					</button>
+					<button type="button" class="ql-redo" aria-pressed="false" aria-label="redo">
+						<svg viewBox="0 0 24 24"><path class="ql-stroke" d="M9 5l7 7-7 7V5z" /></svg>
+					</button>
 				</span>
 				<span class="ql-formats">
 					<button type="button" class="ql-bold" aria-pressed="false" aria-label="bold"></button>
-
 					<button type="button" class="ql-italic" aria-pressed="false" aria-label="italic"></button>
-
-					<button type="button" class="ql-underline" aria-pressed="false" aria-label="underline"
-					></button>
-
+					{#if config.formats.includes('underline')}<button
+							type="button"
+							class="ql-underline"
+							aria-pressed="false"
+							aria-label="underline"
+						></button>{/if}
 					<button type="button" class="ql-strike" aria-pressed="false" aria-label="strike"></button>
-
-					<button type="button" class="ql-overline" aria-pressed="false" aria-label="overline">
-						<svg viewBox="0 0 18 18">
-							<path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"
-							></path>
-							<rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="14" x="2" y="0"></rect></svg
+					{#if config.formats.includes('overline')}<button
+							type="button"
+							class="ql-overline"
+							aria-pressed="false"
+							aria-label="overline"
 						>
-					</button>
+							<svg viewBox="0 0 18 18"
+								><path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"
+								></path>
+								<rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="14" x="2" y="0"
+								></rect></svg
+							>
+						</button>{/if}
 				</span>
 				<span class="ql-formats">
 					<button
@@ -249,36 +248,13 @@
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
-						></path>
+						/>
 					</svg>
 					{$t('editor.copy')}
 				</button>
-				<div
-					class="text-sm font-medium py-1 px-3 rounded-full"
-					style="background-color: {getProgressColor(characters)}25; color: {getProgressColor(
-						characters
-					)};"
-				>
-					<span class="flex items-center">
-						<svg
-							class="w-4 h-4 mr-1"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-							></path>
-						</svg>
-						{characters} / {MAX_CHARACTERS}
-						{$t('editor.characters')}
-					</span>
-				</div>
+				<PostCounter {platform} content={$text} />
 			</div>
+			{#if platform === 'x'}<p class="text-sm text-neutral-600 mt-3">{$t('x.copy_hint')}</p>{/if}
 		</article>
 	</div>
 	{#if $locale === 'tr'}

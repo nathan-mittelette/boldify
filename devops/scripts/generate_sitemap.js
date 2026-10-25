@@ -1,4 +1,5 @@
 import fs from 'fs';
+import xContentDates from '../../src/lib/models/x-content-dates.json' with { type: 'json' };
 import path from 'path';
 import { execSync } from 'node:child_process';
 
@@ -46,7 +47,12 @@ function getLastMod(loc) {
 	let routeFile;
 	let lang = 'fr';
 
-	if (segments.length === 0) {
+	if (segments[0] === 'x') {
+		routeFile =
+			segments.length === 1
+				? 'src/routes/x/+page.svelte'
+				: 'src/routes/x/[section=xsection]/+page.svelte';
+	} else if (segments.length === 0) {
 		routeFile = 'src/routes/+page.svelte';
 	} else if (segments.length === 1) {
 		lang = segments[0];
@@ -54,14 +60,45 @@ function getLastMod(loc) {
 	} else {
 		lang = segments[0];
 		const sub = segments.slice(1).join('/');
-		routeFile = `src/routes/[lang=lang]/${sub}/+page.svelte`;
+		routeFile = sub.startsWith('x/')
+			? 'src/routes/[lang=lang]/x/[section=xsection]/+page.svelte'
+			: `src/routes/[lang=lang]/${sub}/+page.svelte`;
 	}
 
-	const dates = [routeFile, `src/locales/${lang}.json`].map(getGitDate).filter(Boolean);
+	const dates = [
+		routeFile,
+		...(segments[0] === 'x' || segments[1] === 'x'
+			? [
+					segments.at(-1) === 'x'
+						? 'src/lib/components/Home.svelte'
+						: `src/lib/pages/${{ about: 'About', 'how-it-works': 'HowItWorks', help: 'Help', mcp: 'Mcp' }[segments.at(-1)]}.svelte`
+				]
+			: []),
+		`src/locales/${lang}.json`
+	]
+		.map(getGitDate)
+		.filter(Boolean);
+	if (segments[0] === 'x' || segments[1] === 'x') dates.push(xContentDates.dateModified);
 	return dates.length > 0 ? [...dates].sort().reverse()[0] : today;
 }
 
+const xPaths = ['', '/about', '/how-it-works', '/help', '/mcp'];
+function xAlternates(path) {
+	return [
+		...langs.map((lang) => ({
+			lang,
+			url: `https://boldify.net${lang === 'fr' ? '' : `/${lang}`}/x${path}`
+		})),
+		{ lang: 'x-default', url: `https://boldify.net/x${path}` }
+	];
+}
 const routes = [
+	...xPaths.flatMap((path) =>
+		langs.map((lang) => ({
+			loc: `https://boldify.net${lang === 'fr' ? '' : `/${lang}`}/x${path}`,
+			alternates: xAlternates(path)
+		}))
+	),
 	{ loc: 'https://boldify.net/', alternates: homeAlternates },
 	{ loc: 'https://boldify.net/en', alternates: homeAlternates },
 	{ loc: 'https://boldify.net/es', alternates: homeAlternates },

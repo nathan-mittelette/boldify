@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { t } from 'svelte-i18n';
+	import { platformTranslations } from '#lib/services/platform-i18n.service.js';
+	const t = platformTranslations();
 	import TextPreview from '#lib/components/TextPreview.svelte';
 
 	const name = 'John Doe';

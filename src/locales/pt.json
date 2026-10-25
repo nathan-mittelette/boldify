@@ -328,5 +328,28 @@
 		"without_mcp_desc": "Peça ao Claude para redigir um post → copie → abra boldify.net → cole → clique em negrito → copie o resultado → cole no LinkedIn. Seis etapas.",
 		"with_mcp_title": "Com Boldify MCP",
 		"with_mcp_desc": "Peça ao Claude: \"Formate este post do LinkedIn com frases-chave em negrito.\" O Claude chama o Boldify diretamente. O resultado formatado volta imediatamente. Copie uma vez e cole no LinkedIn. Uma etapa."
+	},
+	"x": {
+		"title": "Formatador de posts do X (Twitter) — Negrito e itálico | Boldify",
+		"description": "Formate seus posts do X (Twitter) com negrito, itálico e texto tachado. Ferramenta gratuita com prévia em tempo real, sem cadastro.",
+		"keywords": "formatador posts X, texto negrito Twitter, formatar tweets, itálico Twitter, texto tachado Twitter",
+		"placeholder": "Escreva seu post do X…",
+		"default_text": "Um novo projeto merece mais do que um anúncio.\n\nSelecione as palavras importantes. Use negrito, itálico ou tachado.\n\nTem uma ideia para compartilhar? Dê destaque a ela. #Boldify",
+		"copied_description": "Cole seu texto no editor do X.",
+		"copy_hint": "Cole no editor do X",
+		"preview_notice": "Prévia ilustrativa. A aparência dos caracteres Unicode pode variar conforme o X e seu dispositivo.",
+		"remaining": "unidades restantes",
+		"standard_post": "Post padrão · 280",
+		"near_limit": "O limite está próximo.",
+		"over_limit": "Limite excedido. Você ainda pode copiar seu post.",
+		"views": "Visualizações",
+		"format_note": "A formatação usa caracteres Unicode e acompanha seu texto quando você o copia.",
+		"formats_description": "Selecione uma frase e aplique negrito, itálico ou tachado. Organize suas ideias em uma lista.",
+		"about_intro": "O Boldify transforma as letras selecionadas em caracteres Unicode. Prepare um post para o X, compare no LinkedIn e mantenha seu rascunho durante todo o processo. Não é necessário ter uma conta no Boldify.",
+		"counting_question": "Por que o texto em negrito ocupa mais espaço?",
+		"counting_explanation": "O X usa uma contagem ponderada. Uma letra latina comum geralmente conta como uma unidade, enquanto uma letra Unicode estilizada pode contar como duas. O contador é atualizado após cada transformação.",
+		"rendering_explanation": "Negrito, itálico e tachado usam caracteres Unicode, não formatação nativa do X. Fontes e aplicativos podem exibi-los de maneiras diferentes. Sublinhado e linha superior simplesmente não estão disponíveis nesta barra.",
+		"bookmark": "Salvar nos favoritos",
+		"share": "Compartilhar publicação"
 	}
 }

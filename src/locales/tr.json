@@ -329,5 +329,28 @@
 		"without_mcp_desc": "Claude'dan gönderi taslağı hazırlamasını isteyin → kopyalayın → boldify.net'i açın → yapıştırın → kalına tıklayın → sonucu kopyalayın → LinkedIn'e yapıştırın. Altı adım.",
 		"with_mcp_title": "Boldify MCP ile",
 		"with_mcp_desc": "Claude'a sorun: \"Bu LinkedIn gönderisini anahtar ifadeler kalın olacak şekilde formatla.\" Claude doğrudan Boldify'ı çağırır. Formatlanmış sonuç anında gelir. Bir kez kopyalayıp LinkedIn'e yapıştırın. Bir adım."
+	},
+	"x": {
+		"title": "X (Twitter) Gönderi Biçimlendirici — Kalın ve İtalik Yazı | Boldify",
+		"description": "X (Twitter) gönderilerini kalın, italik ve üstü çizili yazıyla biçimlendir. Canlı önizleme sunan ücretsiz araç, kayıt gerektirmez.",
+		"keywords": "X gönderi biçimlendirme, Twitter kalın yazı, tweet biçimlendirme, Twitter italik, Twitter üstü çizili yazı",
+		"placeholder": "X gönderini yaz…",
+		"default_text": "Yeni bir proje, bir duyurudan fazlasını hak eder.\n\nÖnemli sözcükleri seç. Kalın, italik veya üstü çizili yaz.\n\nPaylaşacak bir fikrin mi var? Onu öne çıkar. #Boldify",
+		"copied_description": "Metnini X gönderi düzenleyicisine yapıştır.",
+		"copy_hint": "X gönderi düzenleyicisine yapıştır",
+		"preview_notice": "Bu bir örnek önizlemedir. Unicode görünümü X sürümüne ve cihazına göre değişebilir.",
+		"remaining": "birim kaldı",
+		"standard_post": "Standart gönderi · 280",
+		"near_limit": "Sınıra yaklaşıyorsun.",
+		"over_limit": "Sınır aşıldı. Gönderini yine de kopyalayabilirsin.",
+		"views": "Görüntüleme",
+		"format_note": "Biçimlendirme Unicode karakterlerini kullanır ve metnini kopyaladığında korunur.",
+		"formats_description": "Bir cümle seçip kalın, italik veya üstü çizili biçim uygula. Fikirlerini bir listeyle düzenle.",
+		"about_intro": "Boldify seçilen harfleri Unicode karakterlerine dönüştürür. X için bir gönderi hazırla, LinkedIn’de karşılaştır ve her adımda taslağını koru. Boldify hesabı gerekmez.",
+		"counting_question": "Kalın yazı neden sınırdan daha fazla kullanıyor?",
+		"counting_explanation": "X ağırlıklı sayım kullanır. Sıradan bir Latin harfi genellikle bir birim, biçimlendirilmiş bir Unicode harfi ise iki birim sayılabilir. Sayaç her dönüşümden sonra güncellenir.",
+		"rendering_explanation": "Kalın, italik ve üstü çizili biçimler X’in yerel biçimlendirmesi yerine Unicode karakterlerini kullanır. Yazı tipleri ve uygulamalar bunları farklı gösterebilir. Altı ve üstü çizgili biçimler bu araç çubuğunda sunulmaz.",
+		"bookmark": "Yer işaretlerine ekle",
+		"share": "Gönderiyi paylaş"
 	}
 }
