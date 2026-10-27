@@ -139,7 +139,8 @@ test('FR alias and sitemap expose only published X translations', async ({ page,
 		.map((match) => match[1])
 		.filter((entry) => /<loc>https:\/\/boldify\.net\/(?:[a-z]{2}\/)?x(?:\/|<)/.test(entry));
 	expect(xEntries).toHaveLength(35);
-	for (const entry of xEntries) expect(entry).toContain('<lastmod>2026-10-25</lastmod>');
+	// lastmod must be a valid ISO date, not empty (the exact value depends on git history / run date)
+	for (const entry of xEntries) expect(entry).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
 	for (const language of languages)
 		expect(sitemap).toContain(`<loc>https://boldify.net${xHome(language)}</loc>`);
 	for (const language of ['it', 'ja']) {
