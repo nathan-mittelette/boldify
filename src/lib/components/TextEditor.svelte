@@ -26,6 +26,7 @@
 	} from '#lib/services/clarity.service.js';
 	import { onCopy } from '#lib/services/donation-toast.service.js';
 	import { triggerCoffeeCue } from '#lib/stores/coffee-cue.store.js';
+	import { prepareTextForLinkedIn } from '#lib/utils/linkedin-text.js';
 
 	let { platform = 'linkedin' }: { platform?: Platform } = $props();
 	const config = $derived(platforms[platform]);
@@ -37,7 +38,10 @@
 	let observer: MutationObserver;
 
 	const copyToClipboard = async () => {
-		await navigator.clipboard.writeText($text);
+		// LinkedIn strips truly empty lines on paste — put a zero-width space on them.
+		// X (Twitter) is not affected: copy the raw text there.
+		const textToCopy = platform === 'linkedin' ? prepareTextForLinkedIn($text) : $text;
+		await navigator.clipboard.writeText(textToCopy);
 		trackTextCopied($text);
 
 		// arm the donation toast; it fires later at a natural moment (tab return / re-copy / safety delay)
