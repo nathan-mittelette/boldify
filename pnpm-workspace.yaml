@@ -6,3 +6,7 @@ allowBuilds:
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
+
+overrides:
+  esbuild: ^0.27.2
+  yaml: ^2.7.0
