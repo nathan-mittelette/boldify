@@ -33,7 +33,7 @@
 		"test": "playwright test",
 		"test:ui": "playwright test --ui",
 		"test:debug": "playwright test --debug",
-		"test:unit": "vitest run",
+		"test:unit": "node --test devops/terraform/redirect.test.js && vitest run",
 		"test:unit:ui": "vitest --ui",
 		"test:unit:watch": "vitest",
 		"test:all": "pnpm run test:unit && pnpm run test",
