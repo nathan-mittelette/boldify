@@ -1,36 +1,50 @@
-const regexExpr = /^\/.+(\.\w+$)/; // Regex expression than matches paths requestiong an object. i.e: /route1/my-picture.png
+// Only normalize aliases of published pages, not arbitrary HTML files or assets.
+const pagePath = /^\/(?:x(?:\/(?:about|help|how-it-works|mcp))?|(?:fr|en|es|pt|de|tr|pl)(?:\/x)?(?:\/(?:about|help|how-it-works|mcp))?)$/;
+const filePath = /\.\w+$/;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function handler(event) {
 	const request = event.request;
-	const olduri = request.uri;
+	const uri = request.uri;
 
-	// Redirige les URLs se terminant par / vers leur version sans /
-	if (!olduri.startsWith('/.well-known/') && olduri.endsWith('/') && olduri.length > 1) {
-		const newuri = olduri.slice(0, -1);
-		return {
-			statusCode: 301,
-			statusDescription: 'Moved Permanently',
-			headers: { location: { value: newuri } }
-		};
-	}
+	if (uri.startsWith('/.well-known/')) return request;
 
-	if (!olduri.startsWith('/.well-known/') && isRoute(olduri)) {
-		let newuri = olduri;
-		if (olduri === '/') {
-			newuri = '/index.html';
-		} else if (!olduri.endsWith('.html')) {
-			newuri = olduri + '.html';
+	const path = uri.replace(/\/+$/, '').replace(/\.html$/, '');
+	if (path === '/index' || pagePath.test(path)) {
+		let canonical = path;
+		if (path === '/index' || path === '/fr') canonical = '/';
+		else if (path === '/fr/x' || path.startsWith('/fr/x/')) canonical = path.slice(3);
+
+		if (canonical !== uri) {
+			return {
+				statusCode: 301,
+				statusDescription: 'Moved Permanently',
+				headers: { location: { value: canonical + querySuffix(request.querystring) } }
+			};
 		}
-		request.uri = newuri;
-		console.log('Request for [' + olduri + '], rewritten to [' + newuri + ']');
 	}
+
+	// Rewrite the request sent to S3 without exposing its .html object keys.
+	if (uri === '/') request.uri = '/index.html';
+	else if (!uri.endsWith('/') && !filePath.test(uri)) request.uri = `${uri}.html`;
 
 	return request;
 }
 
-// Returns true if uri is a route. i.e: /route1
-// Returns false if uri is a file. i.e: /route1/index.html
-function isRoute(uri) {
-	return !regexExpr.test(uri);
+function querySuffix(querystring) {
+	const pairs = [];
+	for (const name of Object.keys(querystring)) {
+		const entry = querystring[name];
+		for (const { value } of entry.multiValue || [entry]) {
+			pairs.push(`${encodeQueryPart(name)}=${encodeQueryPart(value)}`);
+		}
+	}
+	return pairs.length ? `?${pairs.join('&')}` : '';
+}
+
+// Preserve existing percent escapes and '+' while escaping literal delimiters.
+function encodeQueryPart(value) {
+	return value.replace(/%[\da-f]{2}|\+|[^%+]+|%/gi, (part) =>
+		part === '+' || /^%[\da-f]{2}$/i.test(part) ? part : encodeURIComponent(part)
+	);
 }
