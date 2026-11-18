@@ -33,12 +33,14 @@ function handler(event) {
 
 function querySuffix(querystring) {
 	const pairs = [];
-	for (const name of Object.keys(querystring)) {
+	// CloudFront JS 2.0 does not support for-of or destructuring.
+	Object.keys(querystring).forEach((name) => {
 		const entry = querystring[name];
-		for (const { value } of entry.multiValue || [entry]) {
-			pairs.push(`${encodeQueryPart(name)}=${encodeQueryPart(value)}`);
-		}
-	}
+		const values = entry.multiValue || [entry];
+		values.forEach((item) => {
+			pairs.push(`${encodeQueryPart(name)}=${encodeQueryPart(item.value)}`);
+		});
+	});
 	return pairs.length ? `?${pairs.join('&')}` : '';
 }
 
