@@ -86,7 +86,7 @@ resource "aws_cloudfront_response_headers_policy" "security_seo_policy" {
 
   security_headers_config {
     content_security_policy {
-      content_security_policy = "default-src 'self'; script-src 'self' https://*.clarity.ms 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://img.buymeacoffee.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src 'self'"
+      content_security_policy = "default-src 'self'; script-src 'self' https://*.clarity.ms 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://img.buymeacoffee.com https://*.clarity.ms; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src 'self'"
       override                = true
     }
     content_type_options {
